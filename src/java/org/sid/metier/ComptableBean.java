@@ -186,14 +186,12 @@ public class ComptableBean implements Serializable{
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
-        user.setSituationMatrimonial(situationMatrimonial);
+     
         user.setTelephone(telephone);
         user.setAdresse(adresse);
-        user.setVille(ville);
-        user.setPays(pays);
+       ;
         user.setEmail(email);
-        user.setBoitePostale(boitePostale);
-        user.setCin(cin);
+      
         user.setLogin(login);
         user.setPassword(password);
         if(userDao.addUtilisateur(user)){

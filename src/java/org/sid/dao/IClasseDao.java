@@ -5,6 +5,7 @@
  */
 package org.sid.dao;
 
+import java.util.List;
 import org.sid.entite.Classe;
 
 /**
@@ -15,4 +16,5 @@ public interface IClasseDao {
      public boolean addClasse(Classe cla);
      public void modifierClasse(Classe cla);
      public void supprimerClasse(String codeclasse);
+     public List<Classe> listeClasses() ;
 }

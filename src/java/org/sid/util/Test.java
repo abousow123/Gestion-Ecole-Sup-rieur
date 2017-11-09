@@ -12,6 +12,7 @@ import org.sid.entite.Niveau;
 import org.sid.entite.Semestre;
 import org.sid.entite.Ue;
 import org.sid.entite.Utilisateur;
+import org.sid.metier.AdministrateurBean;
 import org.sid.metier.ClasseBean;
 import org.sid.metier.EtudiantBean;
 
@@ -44,13 +45,13 @@ public class Test {
 //            ni.addNiveau(n);
 
             
-           UtilisateurDao dao = new UtilisateurDao() ;
+        //   EtudiantBean dao = new EtudiantBean("xcxs", "My", "20/01/1992", "céli", "855625", "zssds", "dakar", "gabon", "jfdd", "125485632", "w", "dxcxx") ;
             
            // EtudiantDao dao1 = new EtudiantDao() ;
            // Etudiant e = new Etudiant() ;
            // e.setCodeutilisateur("900010136AD");
             
-            dao.supprimerUtilisateur("700045731EN");
+           // dao.ajouterUser();
             
 
 	}

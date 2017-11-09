@@ -62,6 +62,18 @@ public class AdministrateurBean implements Serializable{
         this.codeutilisateur = codeutilisateur;
     }
 
+    public AdministrateurBean(String nom, String prenom, String telephone, String adresse, String email, String login, String password) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.adresse = adresse;
+        this.email = email;
+        this.login = login;
+        this.password = password;
+    }
+    
+    
+
     public String getCodeutilisateur() {
         return codeutilisateur;
     }
@@ -184,14 +196,10 @@ public class AdministrateurBean implements Serializable{
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
-        user.setSituationMatrimonial(situationMatrimonial);
+       
         user.setTelephone(telephone);
         user.setAdresse(adresse);
-        user.setVille(ville);
-        user.setPays(pays);
-        user.setEmail(email);
-        user.setBoitePostale(boitePostale);
-        user.setCin(cin);
+      
         user.setLogin(login);
         user.setPassword(password);
          if(userDao.addUtilisateur(user)){

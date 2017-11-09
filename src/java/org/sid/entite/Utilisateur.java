@@ -14,14 +14,11 @@ public class Utilisateur  implements java.io.Serializable {
      private String nom;
      private String prenom;
      private String datedenaissance;
-     private String situationMatrimonial;
+     private String lieudenaissance ;
      private String telephone;
      private String adresse;
-     private String ville;
-     private String pays;
+     private String nationalite;
      private String email;
-     private Integer boitePostale;
-     private String cin;
      private String login;
      private String password;
      private Etudiant etudiant;
@@ -77,14 +74,14 @@ public class Utilisateur  implements java.io.Serializable {
        this.nom = nom;
        this.prenom = prenom;
        this.datedenaissance = datedenaissance;
-       this.situationMatrimonial = situationMatrimonial;
+      
        this.telephone = telephone;
        this.adresse = adresse;
-       this.ville = ville;
-       this.pays = pays;
+      
+       
        this.email = email;
-       this.boitePostale = boitePostale;
-       this.cin = cin;
+       
+       
        this.login = login;
        this.password = password;
        this.etudiant = etudiant;
@@ -100,13 +97,13 @@ public class Utilisateur  implements java.io.Serializable {
         this.codeutilisateur = codeutilisateur;
         this.nom = nom;
         this.prenom = prenom;
-        this.situationMatrimonial = situaionM ;
+        
         this.telephone = telephone;
         this.adresse = adresse;
-        this.ville = ville;
-        this.pays = pays;
+        
+        
         this.email = email;
-        this.cin = cin;
+        
         this.login = login;
         this.password = password;
         
@@ -116,17 +113,35 @@ public class Utilisateur  implements java.io.Serializable {
         
         this.nom = nom;
         this.prenom = prenom;
-        this.situationMatrimonial = situaionM ;
+        
         this.telephone = telephone;
         this.adresse = adresse;
-        this.ville = ville;
-        this.pays = pays;
+        
+        
         this.email = email;
-        this.cin = cin;
+        
         this.login = login;
         this.password = password;
         
     }
+
+    public Utilisateur(String codeutilisateur, String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String nationalite, String email, String login, String password, String sms, String selection) {
+        this.codeutilisateur = codeutilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.datedenaissance = datedenaissance;
+        this.lieudenaissance = lieudenaissance;
+        this.telephone = telephone;
+        this.adresse = adresse;
+        this.nationalite = nationalite;
+        this.email = email;
+        this.login = login;
+        this.password = password;
+        this.sms = sms;
+        this.selection = selection;
+    }
+    
+    
     
     
    
@@ -158,13 +173,7 @@ public class Utilisateur  implements java.io.Serializable {
     public void setDatedenaissance(String datedenaissance) {
         this.datedenaissance = datedenaissance;
     }
-    public String getSituationMatrimonial() {
-        return this.situationMatrimonial;
-    }
-    
-    public void setSituationMatrimonial(String situationMatrimonial) {
-        this.situationMatrimonial = situationMatrimonial;
-    }
+  
     public String getTelephone() {
         return this.telephone;
     }
@@ -179,20 +188,7 @@ public class Utilisateur  implements java.io.Serializable {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-    public String getVille() {
-        return this.ville;
-    }
     
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-    public String getPays() {
-        return this.pays;
-    }
-    
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
     public String getEmail() {
         return this.email;
     }
@@ -200,20 +196,7 @@ public class Utilisateur  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Integer getBoitePostale() {
-        return this.boitePostale;
-    }
-    
-    public void setBoitePostale(Integer boitePostale) {
-        this.boitePostale = boitePostale;
-    }
-    public String getCin() {
-        return this.cin;
-    }
-    
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
+  
     public String getLogin() {
         return this.login;
     }
@@ -276,6 +259,22 @@ public class Utilisateur  implements java.io.Serializable {
     
     public void setEnseignant(Enseignant enseignant) {
         this.enseignant = enseignant;
+    }
+
+    public String getLieudenaissance() {
+        return lieudenaissance;
+    }
+
+    public void setLieudenaissance(String lieudenaissance) {
+        this.lieudenaissance = lieudenaissance;
+    }
+
+    public String getNationalite() {
+        return nationalite;
+    }
+
+    public void setNationalite(String nationalite) {
+        this.nationalite = nationalite;
     }
 
 

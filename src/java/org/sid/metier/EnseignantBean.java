@@ -243,14 +243,13 @@ public class EnseignantBean implements Serializable{
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
-        user.setSituationMatrimonial(situationMatrimonial);
+     
         user.setTelephone(telephone);
         user.setAdresse(adresse);
-        user.setVille(ville);
-        user.setPays(pays);
+        
+       
         user.setEmail(email);
-        user.setBoitePostale(boitePostale);
-        user.setCin(cin);
+      
         user.setLogin(login);
         user.setPassword(password);
         if(userDao.addUtilisateur(user)){
@@ -276,14 +275,12 @@ public class EnseignantBean implements Serializable{
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
-        user.setSituationMatrimonial(situationMatrimonial);
+       
         user.setTelephone(telephone);
         user.setAdresse(adresse);
-        user.setVille(ville);
-        user.setPays(pays);
+       
         user.setEmail(email);
-        user.setBoitePostale(boitePostale);
-        user.setCin(cin);
+       ;
         user.setLogin(login);
         user.setPassword(password);
         userDao.modifierUtilisateur(user);
@@ -312,14 +309,12 @@ public class EnseignantBean implements Serializable{
         this.nom = user.getNom();
         this.prenom = user.getPrenom();
         this.datedenaissance = user.getDatedenaissance();
-        this.situationMatrimonial = user.getSituationMatrimonial();
+
         this.telephone = user.getTelephone();
         this.adresse = user.getAdresse();
-        this.ville = user.getVille();
-        this.pays = user.getPays();
+      
         this.email = user.getEmail();
-        this.boitePostale = user.getBoitePostale();
-        this.cin = user.getCin();
+        
         this.login = user.getLogin();
         this.password = user.getPassword();
     }

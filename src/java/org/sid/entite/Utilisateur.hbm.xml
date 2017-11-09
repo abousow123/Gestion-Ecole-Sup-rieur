@@ -17,8 +17,8 @@
         <property name="datedenaissance" type="java.lang.String">
             <column name="DATEDENAISSANCE" />
         </property>
-        <property name="situationMatrimonial" type="java.lang.String">
-            <column name="SITUATIONMATRIMONIAL" />
+        <property name="lieudenaissance" type="java.lang.String">
+            <column name="LIEUDENAISSANCE" />
         </property>
         <property name="telephone" type="java.lang.String">
             <column name="TELEPHONE" />
@@ -26,21 +26,15 @@
         <property name="adresse" type="java.lang.String">
             <column name="ADRESSE" />
         </property>
-        <property name="ville" type="java.lang.String">
-            <column name="VILLE" />
+        <property name="nationalite" type="java.lang.String">
+            <column name="NATIONALITE" />
         </property>
-        <property name="pays" type="java.lang.String">
-            <column name="PAYS" />
-        </property>
+        
         <property name="email" type="java.lang.String">
             <column name="EMAIL" />
         </property>
-        <property name="boitePostale" type="java.lang.Integer">
-            <column name="BOITEPOSTALE" />
-        </property>
-        <property name="cin" type="java.lang.String">
-            <column name="CIN" />
-        </property>
+        
+      
         <property name="login" type="java.lang.String">
             <column name="LOGIN" />
         </property>
