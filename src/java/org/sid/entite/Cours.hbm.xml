@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Cours" table="COURS">
+        <id name="codecours" type="java.lang.String">
+            <column name="CODECOURS" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ec" class="org.sid.entite.Ec" fetch="join">
+            <column name="EC" />
+        </many-to-one>
+        <many-to-one name="enseignant" class="org.sid.entite.Enseignant" fetch="join">
+            <column name="ENSEIGNANT" />
+        </many-to-one>
+        <property name="date" type="java.util.Date">
+            <column name="DATE" />
+        </property>
+        <property name="heureDebut" type="java.lang.String">
+            <column name="HEUREDEBUT" />
+        </property>
+        <property name="heureFin" type="java.lang.String">
+            <column name="HEUREFIN" />
+        </property>
+        <set name="absences" table="ABSENCE" inverse="false" lazy="true">
+            <key>
+                <column name="CODECOURS" />
+            </key>
+            <one-to-many class="org.sid.entite.Absence" />
+        </set>
+    </class>
+</hibernate-mapping>

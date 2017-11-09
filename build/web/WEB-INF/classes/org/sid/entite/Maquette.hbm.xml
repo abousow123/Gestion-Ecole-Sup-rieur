@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Maquette" table="MAQUETTE">
+        <id name="codemaquette" type="java.lang.String">
+            <column name="CODEMAQUETTE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="classe" class="org.sid.entite.Classe" fetch="join">
+            <column name="CLASSE" />
+        </many-to-one>
+        <property name="annee" type="java.lang.String">
+            <column name="ANNEE" />
+        </property>
+        <set name="semestres" table="SEMESTRE" inverse="false" lazy="true">
+            <key>
+                <column name="CODEMAQUETTE" />
+            </key>
+            <one-to-many class="org.sid.entite.Semestre" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Absence" table="ABSENCE">
+        <id name="id" type="org.sid.entite.AbsenceId">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cours" class="org.sid.entite.Cours" fetch="join">
+            <column name="COURS" />
+        </many-to-one>
+        <many-to-one name="etudiant" class="org.sid.entite.Etudiant" fetch="join">
+            <column name="ETUDIANT" />
+        </many-to-one>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+    </class>
+</hibernate-mapping>

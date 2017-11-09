@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Enseignant" table="ENSEIGNANT">
+        <id name="codeutilisateur" type="java.lang.String">
+            <column name="CODEUTILISATEUR" />
+            <generator class="assigned" />
+        </id>
+        <one-to-one name="utilisateur" class="org.sid.entite.Utilisateur"></one-to-one>
+        <property name="grade" type="java.lang.String">
+            <column name="GRADE" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <set name="courses" table="COURS" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUTILISATEUR" />
+            </key>
+            <one-to-many class="org.sid.entite.Cours" />
+        </set>
+        <one-to-one name="enseignantResponsable" class="org.sid.entite.EnseignantResponsable"></one-to-one>
+    </class>
+</hibernate-mapping>

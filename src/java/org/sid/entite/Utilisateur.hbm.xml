@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Utilisateur" table="UTILISATEUR">
+        <id name="codeutilisateur" type="java.lang.String">
+            <column name="CODEUTILISATEUR" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="java.lang.String">
+            <column name="NOM" />
+        </property>
+        <property name="prenom" type="java.lang.String">
+            <column name="PRENOM" />
+        </property>
+        <property name="datedenaissance" type="java.lang.String">
+            <column name="DATEDENAISSANCE" />
+        </property>
+        <property name="situationMatrimonial" type="java.lang.String">
+            <column name="SITUATIONMATRIMONIAL" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <property name="adresse" type="java.lang.String">
+            <column name="ADRESSE" />
+        </property>
+        <property name="ville" type="java.lang.String">
+            <column name="VILLE" />
+        </property>
+        <property name="pays" type="java.lang.String">
+            <column name="PAYS" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="boitePostale" type="java.lang.Integer">
+            <column name="BOITEPOSTALE" />
+        </property>
+        <property name="cin" type="java.lang.String">
+            <column name="CIN" />
+        </property>
+        <property name="login" type="java.lang.String">
+            <column name="LOGIN" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        
+        <set name="messages" table="MESSAGE" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUTILISATEUR" />
+            </key>
+            <one-to-many class="org.sid.entite.Message" />
+        </set>
+        <one-to-one name="etudiant" class="org.sid.entite.Etudiant"></one-to-one>
+        <one-to-one name="responsable" class="org.sid.entite.Responsable"></one-to-one>
+        <one-to-one name="administrateur" class="org.sid.entite.Administrateur"></one-to-one>
+        <one-to-one name="secretaire" class="org.sid.entite.Secretaire"></one-to-one>
+        <one-to-one name="comptable" class="org.sid.entite.Comptable"></one-to-one>
+        <one-to-one name="enseignant" class="org.sid.entite.Enseignant"></one-to-one>
+       
+       
+    </class>
+</hibernate-mapping>

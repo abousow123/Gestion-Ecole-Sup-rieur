@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Etudiant" table="ETUDIANT">
+        <id name="codeutilisateur" type="java.lang.String">
+            <column name="CODEUTILISATEUR" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="classe" class="org.sid.entite.Classe" fetch="join">
+            <column name="CLASSE" />
+        </many-to-one>
+        <one-to-one name="utilisateur" class="org.sid.entite.Utilisateur"></one-to-one>
+        <property name="responsableclasse" type="java.lang.String">
+            <column name="RESPONSABLECLASSE" />
+        </property>
+        <set name="evaluers" table="EVALUER" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUTILISATEUR" />
+            </key>
+            <one-to-many class="org.sid.entite.Evaluer" />
+        </set>
+        <set name="paiements" table="PAIEMENT" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUTILISATEUR" />
+            </key>
+            <one-to-many class="org.sid.entite.Paiement" />
+        </set>
+        <set name="dossiers" table="DOSSIER" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUTILISATEUR" />
+            </key>
+            <one-to-many class="org.sid.entite.Dossier" />
+        </set>
+        <set name="absences" table="ABSENCE" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUTILISATEUR" />
+            </key>
+            <one-to-many class="org.sid.entite.Absence" />
+        </set>
+    </class>
+</hibernate-mapping>

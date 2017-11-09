@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Evaluer" table="EVALUER">
+        <id name="id" type="org.sid.entite.EvaluerId">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ec" class="org.sid.entite.Ec" fetch="join">
+            <column name="EC" />
+        </many-to-one>
+        <many-to-one name="etudiant" class="org.sid.entite.Etudiant" fetch="join">
+            <column name="ETUDIANT" />
+        </many-to-one>
+        <property name="dateEvaluation" type="java.util.Date">
+            <column name="DATEEVALUATION" />
+        </property>
+        <property name="note" type="java.math.BigDecimal">
+            <column name="NOTE" />
+        </property>
+    </class>
+</hibernate-mapping>

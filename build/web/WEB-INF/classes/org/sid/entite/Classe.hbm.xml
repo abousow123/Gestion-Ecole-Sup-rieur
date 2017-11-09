@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Classe" table="CLASSE">
+        <id name="codeclasse" type="java.lang.String">
+            <column name="CODECLASSE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="filiere" class="org.sid.entite.Filiere" fetch="join">
+            <column name="CODEFILIERE" />
+        </many-to-one>
+        <many-to-one name="niveau" class="org.sid.entite.Niveau" fetch="join">
+            <column name="IDNIVEAU" />
+        </many-to-one>
+        <property name="lbelleClasse" type="java.lang.String">
+            <column name="LBELLE_CLASSE" />
+        </property>
+        <property name="nombreeEtudiant" type="java.lang.Integer">
+            <column name="NOMBREE_ETUDIANT" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <set name="etudiants" table="ETUDIANT" inverse="false" lazy="true">
+            <key>
+                <column name="CODECLASSE" />
+            </key>
+            <one-to-many class="org.sid.entite.Etudiant" />
+        </set>
+        <set name="maquettes" table="MAQUETTE" inverse="false" lazy="true">
+            <key>
+                <column name="CODECLASSE" />
+            </key>
+            <one-to-many class="org.sid.entite.Maquette" />
+        </set>
+        <set name="emploisDuTempses" table="EMPLOISDUTEMPS" inverse="false" lazy="true">
+            <key>
+                <column name="CODECLASSE" />
+            </key>
+            <one-to-many class="org.sid.entite.EmploisDuTemps" />
+        </set>
+    </class>
+</hibernate-mapping>

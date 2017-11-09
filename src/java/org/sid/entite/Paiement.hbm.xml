@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Paiement" table="PAIEMENT">
+        <id name="codepaiement" type="java.lang.String">
+            <column name="CODEPAIEMENT" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="etudiant" class="org.sid.entite.Etudiant" fetch="join">
+            <column name="ETUDIANT" />
+        </many-to-one>
+        <many-to-one name="facture" class="org.sid.entite.Facture" fetch="join">
+            <column name="FACTURE" />
+        </many-to-one>
+        <property name="couverture" type="java.lang.String">
+            <column name="COUVERTURE" />
+        </property>
+        <property name="scolarite" type="java.lang.String">
+            <column name="SCOLARITE" />
+        </property>
+        <property name="typedepaiement" type="java.lang.String">
+            <column name="TYPEDEPAIEMENT" />
+        </property>
+        <property name="datePaiement" type="java.lang.String">
+            <column name="DATEPAIEMENT" />
+        </property>
+        <property name="annee" type="java.lang.String">
+            <column name="ANNEE" />
+        </property>
+        <set name="factures" table="FACTURE" inverse="false" lazy="true">
+            <key>
+                <column name="CODEPAIEMENT" />
+            </key>
+            <one-to-many class="org.sid.entite.Facture" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Dossier" table="DOSSIER">
+        <id name="codedossier" type="java.lang.String">
+            <column name="CODEDOSSIER" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="etudiant" class="org.sid.entite.Etudiant" fetch="join">
+            <column name="ETUDIANT" />
+        </many-to-one>
+        <many-to-one name="secretaire" class="org.sid.entite.Secretaire" fetch="join">
+            <column name="SECRETAIRE" />
+        </many-to-one>
+        <property name="dateCreation" type="java.util.Date">
+            <column name="DATECREATION" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="URL" />
+        </property>
+    </class>
+</hibernate-mapping>

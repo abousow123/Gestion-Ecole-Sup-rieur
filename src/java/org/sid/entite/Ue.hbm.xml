@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Ue" table="UE">
+        <id name="codeue" type="java.lang.String">
+            <column name="CODEUE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="semestre" class="org.sid.entite.Semestre" fetch="join">
+            <column name="SEMESTRE" />
+        </many-to-one>
+        <property name="libelle" type="java.lang.String">
+            <column name="LIBELLE" />
+        </property>
+        <property name="credit" type="java.lang.Integer">
+            <column name="CREDIT" />
+        </property>
+        <set name="ecs" table="EC" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUE" />
+            </key>
+            <one-to-many class="org.sid.entite.Ec" />
+        </set>
+    </class>
+</hibernate-mapping>

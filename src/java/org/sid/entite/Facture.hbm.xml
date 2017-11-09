@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Facture" table="FACTURE">
+        <id name="codefacture" type="java.lang.String">
+            <column name="CODEFACTURE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="comptable" class="org.sid.entite.Comptable" fetch="join">
+            <column name="COMPTABLE" />
+        </many-to-one>
+        <many-to-one name="paiement" class="org.sid.entite.Paiement" fetch="join">
+            <column name="PAIEMENT" />
+        </many-to-one>
+        <property name="dateFacture" type="java.util.Date">
+            <column name="DATEFACTURE" />
+        </property>
+        <property name="arriere" type="java.math.BigDecimal">
+            <column name="ARRIERE" />
+        </property>
+        <property name="montant" type="java.math.BigDecimal">
+            <column name="MONTANT" />
+        </property>
+        <property name="anneeScolaire" type="java.lang.String">
+            <column name="ANNEESCOLAIRE" />
+        </property>
+        <set name="paiements" table="PAIEMENT" inverse="false" lazy="true">
+            <key>
+                <column name="CODEFACTURE" />
+            </key>
+            <one-to-many class="org.sid.entite.Paiement" />
+        </set>
+    </class>
+</hibernate-mapping>

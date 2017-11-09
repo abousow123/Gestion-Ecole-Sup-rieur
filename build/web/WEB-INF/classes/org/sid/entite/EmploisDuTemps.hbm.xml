@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.EmploisDuTemps" table="EMPLOISDUTEMPS">
+        <id name="codeEmploisdutemps" type="java.lang.String">
+            <column name="CODEEMPLOISDUTEMPS" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="classe" class="org.sid.entite.Classe" fetch="join">
+            <column name="CLASSE" />
+        </many-to-one>
+        <many-to-one name="responsable" class="org.sid.entite.Responsable" fetch="join">
+            <column name="RESPONSABLE" />
+        </many-to-one>
+        <many-to-one name="semestre" class="org.sid.entite.Semestre" fetch="join">
+            <column name="SEMESTRE" />
+        </many-to-one>
+        <property name="datedebut" type="java.lang.String">
+            <column name="DATEDEBUT" />
+        </property>
+        <property name="datefin" type="java.lang.String">
+            <column name="DATEFIN" />
+        </property>
+    </class>
+</hibernate-mapping>

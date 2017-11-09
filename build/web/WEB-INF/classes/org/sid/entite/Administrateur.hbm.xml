@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Administrateur" table="ADMINISTRATEUR">
+        <id name="codeutilisateur" type="java.lang.String">
+            <column name="CODEUTILISATEUR" />
+            <generator class="assigned" />
+        </id>
+        <one-to-one name="utilisateur" class="org.sid.entite.Utilisateur"></one-to-one>
+    </class>
+</hibernate-mapping>

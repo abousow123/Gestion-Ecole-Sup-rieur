@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+
+
+
+<hibernate-reverse-engineering>
+  <table-filter match-schema="public" match-name="absence"/>
+  <table-filter match-schema="public" match-name="administrateur"/>
+  <table-filter match-schema="public" match-name="classe"/>
+  <table-filter match-schema="public" match-name="comptable"/>
+  <table-filter match-schema="public" match-name="cours"/>
+  <table-filter match-schema="public" match-name="domaine"/>
+  <table-filter match-schema="public" match-name="dossier"/>
+  <table-filter match-schema="public" match-name="ec"/>
+  <table-filter match-schema="public" match-name="emplois_du_temps"/>
+  <table-filter match-schema="public" match-name="enseignant"/>
+  <table-filter match-schema="public" match-name="enseignant_responsable"/>
+  <table-filter match-schema="public" match-name="etablissement"/>
+  <table-filter match-schema="public" match-name="etudiant"/>
+  <table-filter match-schema="public" match-name="evaluer"/>
+  <table-filter match-schema="public" match-name="facture"/>
+  <table-filter match-schema="public" match-name="filiere"/>
+  <table-filter match-schema="public" match-name="maquette"/>
+  <table-filter match-schema="public" match-name="message"/>
+  <table-filter match-schema="public" match-name="niveau"/>
+  <table-filter match-schema="public" match-name="paiement"/>
+  <table-filter match-schema="public" match-name="responsable"/>
+  <table-filter match-schema="public" match-name="secretaire"/>
+  <table-filter match-schema="public" match-name="semestre"/>
+  <table-filter match-schema="public" match-name="ue"/>
+  <table-filter match-schema="public" match-name="utilisateur"/>
+</hibernate-reverse-engineering>
+

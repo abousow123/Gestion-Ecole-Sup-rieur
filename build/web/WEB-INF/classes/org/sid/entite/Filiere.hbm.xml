@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Filiere" table="FILIERE">
+        <id name="codefiliere" type="java.lang.String">
+            <column name="CODEFILIERE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="domaine" class="org.sid.entite.Domaine" fetch="join">
+            <column name="DOMAINE" />
+        </many-to-one>
+        <many-to-one name="enseignantResponsable" class="org.sid.entite.EnseignantResponsable" fetch="join">
+            <column name="ENSEIGNANTRESPONSABLE" />
+        </many-to-one>
+        <property name="libelleFiliere" type="java.lang.String">
+            <column name="LIBELLEFILIERE" />
+        </property>
+        <set name="classes" table="CLASSE" inverse="false" lazy="true">
+            <key>
+                <column name="CODEFILIERE" />
+            </key>
+            <one-to-many class="org.sid.entite.Classe" />
+        </set>
+    </class>
+    
+    
+    
+</hibernate-mapping>
+
+

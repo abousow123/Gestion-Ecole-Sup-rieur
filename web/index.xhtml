@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        
+         <h:form>
+            <h:panelGrid id="panel1" columns="2" border="1"
+                         cellpadding="5" cellspacing="1">
+                <f:facet name="header">
+                    <h:outputText value="Add Customer Information"/>
+                </f:facet>
+                <h:outputLabel value="First Namer:"/>
+                <h:inputText value="#{etudiantBean.prenom}" id="fn"/>
+                <h:outputLabel value="Last Name:"/>
+                <h:inputText value="#{etudiantBean.nom}" id="ln"/>
+                <h:outputLabel value="Email:"/>
+                <h:inputText value="#{etudiantBean.email}" id="eml"/>
+                <h:outputLabel value="TEL:"/>
+                <h:inputText value="#{etudiantBean.telephone}" id="s"/>
+                
+                <f:facet name="footer">
+                    
+                    <h:commandButton value="Save" action="#{etudiantBean.ajouterUser()}">
+                    <f:ajax render="fn ln eml s" execute="@form"/>
+                        </h:commandButton>
+                </f:facet>
+            </h:panelGrid>
+             
+        </h:form>
+        
+        
+             <h:panelGrid id="panel1" columns="2" 
+                 cellpadding="5" cellspacing="1" style="margin-left: 100px">
+                <f:facet name="header" >
+                    <h:outputText value="Supprimer utilisateur"/>
+                </f:facet>  
+                 
+                 <h:outputLabel value="Code:"/>
+                 <h:inputText value="#{utilisateurBean.codeutilisateur}" id="ensnom"/>
+                 
+                 <h:commandButton value="supprimer" action="#{utilisateurBean.supprimerUsers()}">
+                    <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/>
+                    </h:commandButton>
+                 
+                 
+             </h:panelGrid>
+        <h:form>
+            
+        </h:form>
+        
+        <br />
+        
+           
+        
+        
+      
+        
+       
+
+        
+        
+        
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
+</html>
+

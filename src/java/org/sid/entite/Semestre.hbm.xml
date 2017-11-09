@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Semestre" table="SEMESTRE">
+        <id name="codesemestre" type="java.lang.String">
+            <column name="CODESEMESTRE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="maquette" class="org.sid.entite.Maquette" fetch="join">
+            <column name="MAQUETTE" />
+        </many-to-one>
+        <property name="libelleSemestre" type="java.lang.String">
+            <column name="LIBELLESEMESTRE" />
+        </property>
+        <property name="dateDebut" type="java.util.Date">
+            <column name="DATEDEBUT" />
+        </property>
+        <property name="dateFin" type="java.util.Date">
+            <column name="DATEFIN" />
+        </property>
+        <set name="emploisDuTempses" table="EMPLOISDUTEMPS" inverse="false" lazy="true">
+            <key>
+                <column name="CODESEMESTRE" />
+            </key>
+            <one-to-many class="org.sid.entite.EmploisDuTemps" />
+        </set>
+        <set name="ues" table="UE" inverse="false" lazy="true">
+            <key>
+                <column name="CODESEMESTRE" />
+            </key>
+            <one-to-many class="org.sid.entite.Ue" />
+        </set>
+    </class>
+</hibernate-mapping>

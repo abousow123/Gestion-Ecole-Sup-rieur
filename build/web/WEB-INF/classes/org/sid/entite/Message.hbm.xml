@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 2, 2017 2:41:10 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.sid.entite.Message" table="MESSAGE">
+        <id name="codemessage" type="java.lang.String">
+            <column name="CODEMESSAGE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="utilisateur" class="org.sid.entite.Utilisateur" fetch="join">
+            <column name="UTILISATEUR" />
+        </many-to-one>
+        <property name="objet" type="java.lang.String">
+            <column name="OBJET" />
+        </property>
+        <property name="contenue" type="java.lang.String">
+            <column name="CONTENUE" />
+        </property>
+        <property name="destinataire" type="java.lang.String">
+            <column name="DESTINATAIRE" />
+        </property>
+    </class>
+</hibernate-mapping>

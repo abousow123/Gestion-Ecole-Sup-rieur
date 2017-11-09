@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <!--bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+
+<bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+    p:driverClassName="${jdbc.driverClassName}"
+    p:url="${jdbc.url}"
+    p:username="${jdbc.username}"
+    p:password="${jdbc.password}" /-->
+
+    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
+    
+    <bean id ="absence"    class="org.sid.entite.Absence"></bean>
+   <bean id ="administrateur"  class="org.sid.entite.Administrateur"></bean>
+   <bean id ="classe"  class="org.sid.entite.Classe"></bean>
+   <bean id ="comptable"  class="org.sid.entite.Comptable"></bean>
+   <bean id ="cours"  class="org.sid.entite.Cours"></bean>
+   <bean id ="domaine"  class="org.sid.entite.Domaine"></bean>
+   <bean id ="ec"  class="org.sid.entite.Ec"></bean>
+   <bean id ="emplois_du_temps"  class="org.sid.entite.EmploisDuTemps"></bean>
+   <bean id ="enseignant"  class="org.sid.entite.Enseignant"></bean>
+   <bean id ="enseignant_responsable"  class="org.sid.entite.EnseignantResponsable"></bean>
+   <bean id ="etablissement"  class="org.sid.entite.Etablissement"></bean>
+   <bean id ="etudiant"  class="org.sid.entite.Etudiant"></bean>
+   <bean id ="evaluer"  class="org.sid.entite.Evaluer"></bean>
+   <bean id ="facture"  class="org.sid.entite.Facture"></bean>
+   <bean id ="filiere"  class="org.sid.entite.Filiere"></bean>
+   <bean id ="maquette"  class="org.sid.entite.Maquette"></bean>
+   <bean id ="message"  class="org.sid.entite.Message"></bean>
+   <bean id ="niveau"  class="org.sid.entite.Niveau" ></bean>
+   <bean id ="paiement"  class="org.sid.entite.Paiement"></bean>
+   <bean id ="responsable"  class="org.sid.entite.Responsable"></bean>
+   <bean id ="secretaire"  class="org.sid.entite.Secretaire"></bean>
+   <bean id ="semestre"  class="org.sid.entite.Semestre"></bean>
+   <bean id ="ue"  class="org.sid.entite.Ue"></bean>
+   <bean id ="utilisateur"  class="org.sid.entite.Utilisateur" init-method="init"></bean>
+    
+    <bean id ="AbsenceBean"  class="org.sid.metier.AbsenceBean">
+    
+    </bean>
+    
+     <bean id ="etudiantBean"  class="org.sid.metier.EtudiantBean" >
+    </bean>
+    
+    <bean id ="ueDao"  class="org.sid.dao.UeDao"></bean>
+
+</beans>
