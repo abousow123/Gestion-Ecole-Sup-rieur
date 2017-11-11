@@ -23,7 +23,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		HibernateUtil.getSessionFactory() ;
+		//HibernateUtil.getSessionFactory() ;
                 
 //                AdministrateurDao ad = new AdministrateurDao() ;
 //
@@ -45,13 +45,15 @@ public class Test {
 //            NiveauDao ni = new NiveauDao() ;
 //            Niveau n = new Niveau(5);
 //            ni.addNiveau(n);
-/* ClasseDao cd = new ClasseDao() ;
+// ClasseDao cd = new ClasseDao() ;
 
-            Classe c = cd.getClasse("sds12");
+           // Classe c = cd.getClasse("sds12");
             
-            
-            
-            c.setCodeclasse("dgf12");
+          //  Classe  cs = new Classe("sbd2", "M1", 25, "type") ;
+            ClasseDao classeDao = new ClasseDao() ;
+           // classeDao.addClasse(cs) ;
+            Classe c = classeDao.getClasse("sbd2") ;
+      //      c.setCodeclasse("dgf12");
             
            EtudiantBean dao = new EtudiantBean("Sow", "MAYA", "20/01/2001", "Dakar", "7562256","dkr", "sdsd", c);
             
@@ -59,7 +61,7 @@ public class Test {
            // Etudiant e = new Etudiant() ;
            // e.setCodeutilisateur("900010136AD");
             
-            dao.ajouterUser();*/
+            dao.ajouterUser();
          
          // dao1.supprimerEtudiant("3001") ;
           //  System.out.println("hello: ");
