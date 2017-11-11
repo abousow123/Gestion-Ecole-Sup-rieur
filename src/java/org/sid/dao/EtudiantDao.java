@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.sid.entite.Classe;
 import org.sid.entite.Etudiant;
+import org.sid.entite.Utilisateur;
 import org.sid.util.HibernateUtil;
 
 /**
@@ -62,7 +63,7 @@ public class EtudiantDao implements IEtudiantDao{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            Etudiant etu = (Etudiant) session.load(Etudiant.class, code);
+            Utilisateur etu = (Utilisateur) session.load(Utilisateur.class, code);
             session.delete(etu);
             session.getTransaction().commit();
         } catch (RuntimeException e) {
@@ -93,6 +94,24 @@ public class EtudiantDao implements IEtudiantDao{
 	            session.close();
 	        }
 	        return etu;
+    }
+
+    @Override
+    public Utilisateur getEtudiant(String code) {
+           Utilisateur user = null ;
+	        Session session = HibernateUtil.getSessionFactory().openSession();
+	        try {
+	             session.beginTransaction();
+                     user = (Utilisateur)session.get(Utilisateur.class, code) ;
+	        } catch (RuntimeException e) {
+	            e.printStackTrace();
+	        } finally {
+	            session.flush();
+	            session.close();
+	        }
+        
+        
+        return user ;
     }
 
    

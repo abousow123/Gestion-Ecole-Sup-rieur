@@ -66,5 +66,21 @@ public class ClasseDao implements IClasseDao{
         }
         return classe;
     }
+
+    @Override
+    public Classe getClasse(String code) {
+        Classe c = null ;
+	        Session session = HibernateUtil.getSessionFactory().openSession();
+	        try {
+	             session.beginTransaction();
+                     c = (Classe)session.get(Utilisateur.class, code) ;
+	        } catch (RuntimeException e) {
+	            e.printStackTrace();
+	        } finally {
+	            session.flush();
+	            session.close();
+	        }
+        return c ;
+    }
      
 }

@@ -17,4 +17,5 @@ public interface IClasseDao {
      public void modifierClasse(Classe cla);
      public void supprimerClasse(String codeclasse);
      public List<Classe> listeClasses() ;
+     public Classe getClasse(String code) ;
 }

@@ -8,10 +8,12 @@
             <column name="CODEUTILISATEUR" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="classe" class="org.sid.entite.Classe" fetch="join">
-            <column name="CLASSE" />
-        </many-to-one>
+       
         <one-to-one name="utilisateur" class="org.sid.entite.Utilisateur"></one-to-one>
+        
+         <many-to-one name="classe" class="org.sid.entite.Classe" fetch="select">
+            <column name="codeclasse" length="254" not-null="false" />
+        </many-to-one>
         <property name="responsableclasse" type="java.lang.String">
             <column name="RESPONSABLECLASSE" />
         </property>

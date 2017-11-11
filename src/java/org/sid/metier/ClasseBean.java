@@ -40,6 +40,10 @@ public class ClasseBean implements Serializable{
         this.nombreeEtudiant = nombreeEtudiant;
         this.type = type;
     }
+
+    public ClasseBean() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void ajoutClasse(){
         Classe classe = new Classe() ;

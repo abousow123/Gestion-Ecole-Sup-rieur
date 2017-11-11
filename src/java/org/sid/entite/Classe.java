@@ -23,6 +23,14 @@ public class Classe  implements java.io.Serializable {
     public Classe() {
     }
 
+    public Classe(String codeclasse, String lbelleClasse, Integer nombreeEtudiant, String type) {
+        this.codeclasse = codeclasse;
+        this.lbelleClasse = lbelleClasse;
+        this.nombreeEtudiant = nombreeEtudiant;
+        this.type = type;
+    }
+
+    
 	
     public Classe(String codeclasse, Filiere filiere, Niveau niveau) {
         this.codeclasse = codeclasse;

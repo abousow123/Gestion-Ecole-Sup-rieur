@@ -30,5 +30,6 @@
   <table-filter match-schema="public" match-name="semestre"/>
   <table-filter match-schema="public" match-name="ue"/>
   <table-filter match-schema="public" match-name="utilisateur"/>
+  
 </hibernate-reverse-engineering>
 

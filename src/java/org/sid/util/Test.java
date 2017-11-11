@@ -1,12 +1,14 @@
 package org.sid.util;
 
 import org.sid.dao.AdministrateurDao;
+import org.sid.dao.ClasseDao;
 import org.sid.dao.EnseignantDao;
 import org.sid.dao.EtudiantDao;
 import org.sid.dao.NiveauDao;
 import org.sid.dao.UeDao;
 import org.sid.dao.UtilisateurDao;
 import org.sid.entite.Administrateur;
+import org.sid.entite.Classe;
 import org.sid.entite.Etudiant;
 import org.sid.entite.Niveau;
 import org.sid.entite.Semestre;
@@ -43,15 +45,24 @@ public class Test {
 //            NiveauDao ni = new NiveauDao() ;
 //            Niveau n = new Niveau(5);
 //            ni.addNiveau(n);
+/* ClasseDao cd = new ClasseDao() ;
 
+            Classe c = cd.getClasse("sds12");
             
-        //   EtudiantBean dao = new EtudiantBean("xcxs", "My", "20/01/1992", "céli", "855625", "zssds", "dakar", "gabon", "jfdd", "125485632", "w", "dxcxx") ;
+            
+            
+            c.setCodeclasse("dgf12");
+            
+           EtudiantBean dao = new EtudiantBean("Sow", "MAYA", "20/01/2001", "Dakar", "7562256","dkr", "sdsd", c);
             
            // EtudiantDao dao1 = new EtudiantDao() ;
            // Etudiant e = new Etudiant() ;
            // e.setCodeutilisateur("900010136AD");
             
-           // dao.ajouterUser();
+            dao.ajouterUser();*/
+         
+         // dao1.supprimerEtudiant("3001") ;
+          //  System.out.println("hello: ");
             
 
 	}

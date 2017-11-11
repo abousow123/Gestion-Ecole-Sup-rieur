@@ -25,11 +25,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @ManagedBean
 @SessionScoped
 public class EtudiantBean implements Serializable{
-      private String codeutilisateur;
+     private String codeutilisateur;
      private String nom;
      private String prenom;
      private String datedenaissance;
-     String lieudenaissance ;
+     private String lieudenaissance ;
      private String telephone;
      private String adresse;
      private String email;
@@ -38,6 +38,8 @@ public class EtudiantBean implements Serializable{
      
      
       EtudiantDao etuDao= new EtudiantDao();
+
+    
 
    
 
@@ -61,18 +63,21 @@ public class EtudiantBean implements Serializable{
         this.utilisateur = utilisateur;
     }
 
-
-
-    public EtudiantBean(String nom, String prenom, String datedenaissance,String lieudenaissance,String telephone, String adresse, String nationalite, String email) {
+    public EtudiantBean(String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String email, Classe classe) {
         this.nom = nom;
         this.prenom = prenom;
         this.datedenaissance = datedenaissance;
-        this.lieudenaissance = lieudenaissance ;
+        this.lieudenaissance = lieudenaissance;
         this.telephone = telephone;
         this.adresse = adresse;
         this.email = email;
-        
+        this.classe = classe;
     }
+
+
+
+
+    
     
     
 
@@ -163,17 +168,14 @@ public class EtudiantBean implements Serializable{
        // EtudiantDao etuDao= new EtudiantDao();
       //  Utilisateur user=(Utilisateur)factory.getBean("utilisateur");
         Utilisateur user = new Utilisateur() ;
-        user.setCodeutilisateur("300");
+        user.setCodeutilisateur("3007");
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
-       
+        user.setLieudenaissance(lieudenaissance);
         user.setTelephone(telephone);
         user.setAdresse(adresse);
-       
         user.setEmail(email);
-        
-      
         if(userDao.addUtilisateur(user)){
            // Etudiant etu=(Etudiant) factory.getBean("etudiant");
         	Etudiant etu = new Etudiant() ;
@@ -193,6 +195,14 @@ public class EtudiantBean implements Serializable{
         return etuDao.listEtudiantsClasse(classe) ;
     }   
     
+    
+    public void modifierEtudiant(){
+    
+        Etudiant etudiant = new Etudiant() ;
+   
+        
+        etuDao.modifierEtudiant(etudiant);
+    }
 //    public Etudiant oneEtudiant(String code){
 //        etuDao.
 //    }

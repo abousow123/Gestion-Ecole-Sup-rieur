@@ -69,7 +69,7 @@ public class Utilisateur  implements java.io.Serializable {
     
     
     
-    public Utilisateur(String codeutilisateur, String nom, String prenom, String datedenaissance, String situationMatrimonial, String telephone, String adresse, String ville, String pays, String email, Integer boitePostale, String cin, String login, String password, Etudiant etudiant, Set<Message> messages, Responsable responsable, Administrateur administrateur, Secretaire secretaire, Comptable comptable, Enseignant enseignant) {
+    public Utilisateur(String codeutilisateur, String nom, String prenom, String datedenaissance,String telephone, String adresse, String ville, String pays, String email, Integer boitePostale, String cin, String login, String password, Etudiant etudiant, Set<Message> messages, Responsable responsable, Administrateur administrateur, Secretaire secretaire, Comptable comptable, Enseignant enseignant) {
        this.codeutilisateur = codeutilisateur;
        this.nom = nom;
        this.prenom = prenom;
@@ -108,22 +108,20 @@ public class Utilisateur  implements java.io.Serializable {
         this.password = password;
         
     }
-    
-    public Utilisateur( String nom, String prenom,String situaionM, String telephone, String adresse, String ville, String pays, String email, String cin, String login, String password) {
-        
+
+    public Utilisateur(String codeutilisateur, String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String nationalite, String email) {
+        this.codeutilisateur = codeutilisateur;
         this.nom = nom;
         this.prenom = prenom;
-        
+        this.datedenaissance = datedenaissance;
+        this.lieudenaissance = lieudenaissance;
         this.telephone = telephone;
         this.adresse = adresse;
-        
-        
+        this.nationalite = nationalite;
         this.email = email;
-        
-        this.login = login;
-        this.password = password;
-        
     }
+    
+  
 
     public Utilisateur(String codeutilisateur, String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String nationalite, String email, String login, String password, String sms, String selection) {
         this.codeutilisateur = codeutilisateur;
