@@ -23,10 +23,13 @@ public class Etudiant  implements java.io.Serializable  {
     }
 
 	
-    public Etudiant( Utilisateur utilisateur) {
+    public Etudiant( Utilisateur utilisateur,Classe classe) {
         
         this.utilisateur = utilisateur;
+        this.classe = classe ;
     }
+    
+   
 
     public Classe getClasse() {
         return classe;

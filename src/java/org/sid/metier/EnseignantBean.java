@@ -280,7 +280,7 @@ public class EnseignantBean implements Serializable{
         user.setAdresse(adresse);
        
         user.setEmail(email);
-       ;
+       
         user.setLogin(login);
         user.setPassword(password);
         userDao.modifierUtilisateur(user);

@@ -73,7 +73,7 @@ public class ClasseDao implements IClasseDao{
 	        Session session = HibernateUtil.getSessionFactory().openSession();
 	        try {
 	             session.beginTransaction();
-                     c = (Classe)session.get(Utilisateur.class, code) ;
+                     c = (Classe)session.get(Classe.class, code) ;
 	        } catch (RuntimeException e) {
 	            e.printStackTrace();
 	        } finally {

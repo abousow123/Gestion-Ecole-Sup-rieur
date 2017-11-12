@@ -10,12 +10,15 @@
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etudiant.hbm.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/IUtilisateurDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/EtudiantBean.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/FiliereBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etudiant.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Classe.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/hibernate.cfg.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Utilisateur.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/UtilisateurBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/util/Test.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Utilisateur.hbm.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/FactureBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Classe.hbm.xml</file>
         </group>
     </open-files>

@@ -42,7 +42,7 @@ public class ClasseBean implements Serializable{
     }
 
     public ClasseBean() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
     
     public void ajoutClasse(){

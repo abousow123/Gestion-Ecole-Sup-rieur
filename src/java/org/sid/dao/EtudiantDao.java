@@ -84,7 +84,7 @@ public class EtudiantDao implements IEtudiantDao{
 	        Session session = HibernateUtil.getSessionFactory().openSession();
 	        try {
 	            trns = session.beginTransaction();
-                    Query q = session.createQuery("select * from etudiant where etudiant.codeclasse=:x") ;
+                    Query q = session.createQuery("select m from Etudiant m where m.classe.codeclasse=:x") ;
                     q.setParameter("x",classe) ;
 	            etu = q.list();
 	        } catch (RuntimeException e) {

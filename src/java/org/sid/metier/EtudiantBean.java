@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.sid.dao.ClasseDao;
 import org.springframework.context.ApplicationContext;
 import org.sid.dao.EtudiantDao;
 import org.sid.dao.UtilisateurDao;
@@ -168,7 +169,7 @@ public class EtudiantBean implements Serializable{
        // EtudiantDao etuDao= new EtudiantDao();
       //  Utilisateur user=(Utilisateur)factory.getBean("utilisateur");
         Utilisateur user = new Utilisateur() ;
-        user.setCodeutilisateur("3007");
+        user.setCodeutilisateur("301");
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
@@ -179,11 +180,14 @@ public class EtudiantBean implements Serializable{
         if(userDao.addUtilisateur(user)){
            // Etudiant etu=(Etudiant) factory.getBean("etudiant");
         	Etudiant etu = new Etudiant() ;
+               // ClasseDao cd = new ClasseDao() ;
+                 
             etu.setCodeutilisateur(userDao.selectionUsersByCall(telephone).getCodeutilisateur());
             user.setCodeutilisateur(userDao.selectionUsersByCall(telephone).getCodeutilisateur());
             etu.setClasse(classe);
-          
+             
             etu.setUtilisateur(user);
+            System.out.println("org.sid.metier.EtudiantBean.ajouterUser()");
             etuDao.addEtudiant(etu);
         }
       //  this.sms= "Etudiant ajouter avec succes!";
@@ -195,6 +199,9 @@ public class EtudiantBean implements Serializable{
         return etuDao.listEtudiantsClasse(classe) ;
     }   
     
+    public Utilisateur getEtudiant(String code){
+        return etuDao.getEtudiant(code) ;
+    }
     
     public void modifierEtudiant(){
     
