@@ -1,6 +1,7 @@
 package org.sid.util;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.sid.dao.AdministrateurDao;
 import org.sid.dao.ClasseDao;
@@ -25,7 +26,10 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		HibernateUtil.getSessionFactory() ;
+		//HibernateUtil.getSessionFactory() ;
+                
+                Date d = new Date() ;
+                System.out.println(d.toString());
                 
 //                AdministrateurDao ad = new AdministrateurDao() ;
 //
@@ -79,6 +83,9 @@ public class Test {
          
          // dao1.supprimerEtudiant("3001") ;
           //  System.out.println("hello: ");
+          
+          ClasseBean bean =new ClasseBean("M1", "dfdf", 25, "df") ;
+          bean.ajoutClasse();
             
 
 	}

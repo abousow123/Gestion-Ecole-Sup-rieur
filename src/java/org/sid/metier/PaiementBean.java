@@ -6,6 +6,7 @@
 package org.sid.metier;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.sid.dao.EtudiantDao;
@@ -33,6 +34,11 @@ public class PaiementBean implements Serializable{
      private String scolarite;
      private String datePaiement;
 
+    public PaiementBean() {
+    }
+     
+     
+
     public PaiementBean(String codepaiement, String etudiant,String couverture, String scolarite, String datePaiement) {
         this.codepaiement = codepaiement;
         this.codeUser = etudiant;
@@ -49,6 +55,8 @@ public class PaiementBean implements Serializable{
           paiement.setCouverture(couverture);
           paiement.setMontant(montant);
           paiement.setNb_mois(nbmois);
+           
+          datePaiement = new Date().toString() ;
           paiement.setDatePaiement(datePaiement);
           Etudiant e = ed.getEtudiantE(codeUser) ;
           paiement.setEtudiant(e);
