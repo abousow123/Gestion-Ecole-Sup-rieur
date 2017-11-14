@@ -33,15 +33,10 @@ public class EnseignantBean implements Serializable{
      private String codeutilisateur;
      private String nom;
      private String prenom;
-     private String datedenaissance;
-     private String situationMatrimonial;
      private String telephone;
      private String adresse;
-     private String ville;
-     private String pays;
+     private String nationalite;
      private String email;
-     private Integer boitePostale;
-     private String cin;
      private String login;
      private String password;
      private String sms,selection;
@@ -55,9 +50,34 @@ public class EnseignantBean implements Serializable{
         return courses;
     }
 
+    public String getNationalite() {
+        return nationalite;
+    }
+
+    public void setNationalite(String nationalite) {
+        this.nationalite = nationalite;
+    }
+
+    
+    
     public void setCourses(Set<Cours> courses) {
         this.courses = courses;
     }
+
+    public EnseignantBean(String nom, String prenom, String telephone, String adresse, String nationalite, String email, String login, String password, String grade, String status) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.adresse = adresse;
+        this.nationalite = nationalite;
+        this.email = email;
+        this.login = login;
+        this.password = password;
+        this.grade = grade;
+        this.status = status;
+    }
+    
+    
 
     public EnseignantResponsable getEnseignantResponsable() {
         return enseignantResponsable;
@@ -146,21 +166,7 @@ public class EnseignantBean implements Serializable{
         this.prenom = prenom;
     }
 
-    public String getDatedenaissance() {
-        return datedenaissance;
-    }
-
-    public void setDatedenaissance(String datedenaissance) {
-        this.datedenaissance = datedenaissance;
-    }
-
-    public String getSituationMatrimonial() {
-        return situationMatrimonial;
-    }
-
-    public void setSituationMatrimonial(String situationMatrimonial) {
-        this.situationMatrimonial = situationMatrimonial;
-    }
+  
 
     public String getTelephone() {
         return telephone;
@@ -178,21 +184,7 @@ public class EnseignantBean implements Serializable{
         this.adresse = adresse;
     }
 
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getPays() {
-        return pays;
-    }
-
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
+   
 
     public String getEmail() {
         return email;
@@ -202,22 +194,7 @@ public class EnseignantBean implements Serializable{
         this.email = email;
     }
 
-    public Integer getBoitePostale() {
-        return boitePostale;
-    }
-
-    public void setBoitePostale(Integer boitePostale) {
-        this.boitePostale = boitePostale;
-    }
-
-    public String getCin() {
-        return cin;
-    }
-
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
-
+  
     public String getLogin() {
         return login;
     }
@@ -242,7 +219,7 @@ public class EnseignantBean implements Serializable{
         user.setCodeutilisateur("700");
         user.setNom(nom);
         user.setPrenom(prenom);
-        user.setDatedenaissance(datedenaissance);
+        
      
         user.setTelephone(telephone);
         user.setAdresse(adresse);
@@ -267,14 +244,15 @@ public class EnseignantBean implements Serializable{
         effacerAll();
     }
     
-     public void modifierUsers() {
-        UtilisateurDao userDao = new UtilisateurDao();
+     public void modifierUsers(String code) {
+        EnseignantDao userDao = new EnseignantDao();
         //Utilisateur user=(Utilisateur)factory.getBean("utilisateur");
         Utilisateur user= new Utilisateur() ;
-        user.setCodeutilisateur(codeutilisateur);
+       
+       // user.setCodeutilisateur(codeutilisateur);
         user.setNom(nom);
         user.setPrenom(prenom);
-        user.setDatedenaissance(datedenaissance);
+        
        
         user.setTelephone(telephone);
         user.setAdresse(adresse);
@@ -283,7 +261,12 @@ public class EnseignantBean implements Serializable{
        
         user.setLogin(login);
         user.setPassword(password);
-        userDao.modifierUtilisateur(user);
+        
+         Enseignant en = new Enseignant();
+         en.setGrade(grade);
+         en.setStatus(status);
+        
+        userDao.modifierEnseignant(user, en, code);
         this.sms="Enseignant modifier avec succes!";
         effacerAll();
     }
@@ -308,7 +291,7 @@ public class EnseignantBean implements Serializable{
         System.out.println(user.getPrenom());
         this.nom = user.getNom();
         this.prenom = user.getPrenom();
-        this.datedenaissance = user.getDatedenaissance();
+        
 
         this.telephone = user.getTelephone();
         this.adresse = user.getAdresse();
@@ -322,15 +305,12 @@ public class EnseignantBean implements Serializable{
     private void effacerAll() {
          this.nom = "";
         this.prenom = "";
-        this.datedenaissance = "";
-        this.situationMatrimonial = "";
+    
         this.telephone = "";
         this.adresse = "";
-        this.ville = "";
-        this.pays = "";
+      
         this.email = "";
-        this.boitePostale = 0;
-        this.cin = "";
+      
         this.login = "";
         this.password = "";
     }

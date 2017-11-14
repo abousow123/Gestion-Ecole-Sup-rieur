@@ -38,12 +38,27 @@ public class UtilisateurDao implements IUtilisateurDao{
     }
 
     @Override
-    public void modifierUtilisateur(Utilisateur user) {
+    public void modifierUtilisateur(Utilisateur ens,String code) {
        Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            session.update(user);
+             Utilisateur e = (Utilisateur) session.get(Utilisateur.class, code) ;
+            e.setNom(ens.getNom());
+            e.setPrenom(ens.getPrenom());
+            e.setDatedenaissance(ens.getDatedenaissance());
+            e.setLieudenaissance(ens.getLieudenaissance());
+            e.setAdresse(ens.getAdresse());
+            e.setTelephone(ens.getTelephone());
+            e.setEmail(ens.getEmail());
+            e.setNationalite(ens.getNationalite());
+            e.setSelection(ens.getSelection());
+            e.setSms(ens.getSms());
+            e.setLogin(ens.getLogin());
+            e.setPassword(ens.getPassword());
+            
+            session.update(e);
+            //session.update(user);
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) {

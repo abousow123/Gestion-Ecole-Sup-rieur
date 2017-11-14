@@ -25,7 +25,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//HibernateUtil.getSessionFactory() ;
+		HibernateUtil.getSessionFactory() ;
                 
 //                AdministrateurDao ad = new AdministrateurDao() ;
 //
@@ -60,12 +60,12 @@ public class Test {
            
           //  System.out.println(c.getCodeclasse());
             
-           EtudiantBean dao = new EtudiantBean();
+          /* EtudiantBean dao = new EtudiantBean();
            ArrayList<Etudiant>  es = (ArrayList<Etudiant>) dao.AllEtudiantClasse("sbd2" );
            
            for(int i = 0;i<es.size();i++){
                System.out.println(es.get(i).getUtilisateur().getNom());
-           }
+           }*/
            
            //dao.ajouterUser();
             

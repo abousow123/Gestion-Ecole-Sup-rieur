@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+              xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+<body style="Background :#286690;"> 
+<p:layout fullPage="true">
+ 
+    <p:layoutUnit position="north" size="100"  >
+        <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background :#ECF3E6;" >
+        <p:submenu label="Accueil" icon="ui-icon-document">
+            
+            <p:menuitem value="Mot du Recteur" url="#" />
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Maquettes de Formation" icon="ui-icon-pencil">
+            <p:menuitem value="Liste Complete" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Choisir Filiere" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Help" icon="ui-icon-help">
+            <p:menuitem value="Contents" url="#" />
+            <p:submenu label="Search" icon="ui-icon-search">
+                <p:submenu label="Text">
+                    <p:menuitem value="Workspace" url="#" />
+                </p:submenu>
+                <p:menuitem value="File" url="#" />
+            </p:submenu>
+        </p:submenu>
+
+        <p:submenu label="Actions" icon="ui-icon-gear">
+            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                <p:menuitem value="Save"   icon="ui-icon-disk" update="messages"/>
+                <p:menuitem value="Update"   icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+            </p:submenu>
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                <p:menuitem value="Delete"   icon="ui-icon-close" update="messages" ajax="false"/>
+            </p:submenu>
+        </p:submenu>
+
+        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+
+        <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+            <p:commandButton type="button" value="Administration" icon="ui-icon-extlink"  />
+        </f:facet>
+    </p:menubar>
+    
+
+</h:form> 
+
+ 
+
+
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
+        <h:outputText value="South unit content." />
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
+        <h:outputText value="West unit content." />
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+        <h:outputText value="Right unit content." />
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+       <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true"  style="margin-left: 200px; margin-top :50px;">
+    <p:graphicImage  value="images/#{image}"    alt="Image Description for #{image}" title="#{image}"/>
+    
+</p:galleria>
+
+ 
+<p:imageSwitch effect="zoom"   >
+    <ui:repeat value="#{imagesView.images}" var="image">
+        <p:graphicImage value="images/#{image}" />
+    </ui:repeat>
+</p:imageSwitch>
+   
+
+    </p:layoutUnit>
+ 
+</p:layout>
+</body> 
+</html>

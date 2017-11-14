@@ -9,7 +9,7 @@ import org.sid.entite.Utilisateur;
  */
 public interface IUtilisateurDao {
     public boolean addUtilisateur(Utilisateur user);
-    public void modifierUtilisateur(Utilisateur user);
+    public void modifierUtilisateur(Utilisateur user,String code);
     public void supprimerUtilisateur(String code);
     public List<Utilisateur> listeUsers();
     public Utilisateur selectionUsersByCall(String telephone);

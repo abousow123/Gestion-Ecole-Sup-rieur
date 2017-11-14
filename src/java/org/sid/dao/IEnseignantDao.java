@@ -11,7 +11,7 @@ import org.sid.entite.Utilisateur;
  */
 public interface IEnseignantDao {
     public boolean addEnseignant(Enseignant ens);
-    public void modifierEnseignant(Enseignant ens);
+    public void modifierEnseignant(Utilisateur ens,Enseignant en,String code);
     public void supprimerEnseignant(String code);
     public List<Utilisateur> listeUsers();
     public Utilisateur selectionUsersByCall(String telephone);

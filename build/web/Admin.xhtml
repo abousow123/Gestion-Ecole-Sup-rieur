@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="ADMINISATRATION" icon="ui-icon-document">
+              
+          </p:submenu>
+         <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+            
+   <p:commandButton value="Authentification" type="button" onclick="PF('dlg2').show();" />
+        </f:facet>
+    </p:menubar>
+</h:form>
+</h:head> 
+<body style="Background :#1AAEDB;" > 
+ <h:form>            
+        
+     
+    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />       
+        
+        <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="300" width ="500"  >
+     
+    
+      <h:panelGrid columns="2" cellpadding="5"   >
+      <b style="text-align: center;font-family: Algerian; font-size: 14px;">Authentification</b>
+      <br />
+      
+            <h:outputLabel for="username" value="Username:" />
+            <p:inputText id="username"     label="username" />
+ 
+            <h:outputLabel for="password" value="Password:" />
+            <p:password id="password"    label="password" />
+ 
+            <f:facet name="footer">
+                <p:commandButton value="Login" update="growl" 
+                                 oncomplete="handleLoginRequest(xhr, status, args)" actionListener="#{UtilisateurBean}"/>
+            </f:facet>  
+         
+        </h:panelGrid>
+ 
+     
+</p:dialog>   
+</h:form> 
+ 
+ <h:form>
+ <h3>FORMATION</h3>
+    <p:tabView orientation="left">
+        <p:tab title="Professeur">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/slide2.jpg" />
+                <h:outputText
+                    value="Des Genies Civil en pratique frequents.." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Secretaire">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/image4.jpg" />
+                <h:outputText value=" Une Equipe , Une Famille.." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Responsable">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/labo.jpg" />
+                <h:outputText value="Une Formtion en Medecine Bien equipée..." />
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+</h:form> 
+   
+
+ 
+ 
+  
+ </body> 
+</html>

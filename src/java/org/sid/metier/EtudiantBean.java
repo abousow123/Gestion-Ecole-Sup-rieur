@@ -36,6 +36,25 @@ public class EtudiantBean implements Serializable{
      private String email;
      private Classe classe;
      private Utilisateur utilisateur;
+     private String codeClasse ;
+     private String filiere;
+
+    public String getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(String filiere) {
+        this.filiere = filiere;
+    }
+
+    public EtudiantDao getEtuDao() {
+        return etuDao;
+    }
+
+    public void setEtuDao(EtudiantDao etuDao) {
+        this.etuDao = etuDao;
+    }
+     
      
      
       EtudiantDao etuDao= new EtudiantDao();
@@ -64,7 +83,33 @@ public class EtudiantBean implements Serializable{
         this.utilisateur = utilisateur;
     }
 
-    public EtudiantBean(String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String email, Classe classe) {
+    public String getLieudenaissance() {
+        return lieudenaissance;
+    }
+
+    public void setLieudenaissance(String lieudenaissance) {
+        this.lieudenaissance = lieudenaissance;
+    }
+
+    public String getCodeClasse() {
+        return codeClasse;
+    }
+
+    public void setCodeClasse(String codeClasse) {
+        this.codeClasse = codeClasse;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
+    }
+    
+    
+
+    public EtudiantBean(String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String email, String classe) {
         this.nom = nom;
         this.prenom = prenom;
         this.datedenaissance = datedenaissance;
@@ -72,7 +117,7 @@ public class EtudiantBean implements Serializable{
         this.telephone = telephone;
         this.adresse = adresse;
         this.email = email;
-        this.classe = classe;
+        this.codeClasse = classe;
     }
 
 
@@ -169,7 +214,7 @@ public class EtudiantBean implements Serializable{
        // EtudiantDao etuDao= new EtudiantDao();
       //  Utilisateur user=(Utilisateur)factory.getBean("utilisateur");
         Utilisateur user = new Utilisateur() ;
-        user.setCodeutilisateur("301");
+        user.setCodeutilisateur("302");
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
@@ -184,10 +229,12 @@ public class EtudiantBean implements Serializable{
                  
             etu.setCodeutilisateur(userDao.selectionUsersByCall(telephone).getCodeutilisateur());
             user.setCodeutilisateur(userDao.selectionUsersByCall(telephone).getCodeutilisateur());
+            ClasseDao cd = new ClasseDao() ;
+            classe = cd.getClasse(codeClasse) ;
             etu.setClasse(classe);
              
             etu.setUtilisateur(user);
-            System.out.println("org.sid.metier.EtudiantBean.ajouterUser()");
+           // System.out.println("org.sid.metier.EtudiantBean.ajouterUser()");
             etuDao.addEtudiant(etu);
         }
       //  this.sms= "Etudiant ajouter avec succes!";
@@ -203,12 +250,25 @@ public class EtudiantBean implements Serializable{
         return etuDao.getEtudiant(code) ;
     }
     
-    public void modifierEtudiant(){
+    public void modifierEtudiant(String code){
     
+         Utilisateur user= new Utilisateur() ;
+       
+       // user.setCodeutilisateur(codeutilisateur);
+        user.setNom(nom);
+        user.setPrenom(prenom);
+        user.setDatedenaissance(datedenaissance);
+        user.setLieudenaissance(lieudenaissance);
+        user.setTelephone(telephone);
+        user.setAdresse(adresse);
+        user.setEmail(email);
+       
         Etudiant etudiant = new Etudiant() ;
-   
+        etudiant.setClasse(classe);
+       
+       
         
-        etuDao.modifierEtudiant(etudiant);
+        etuDao.modifierEtudiant(user,etudiant,code);
     }
 //    public Etudiant oneEtudiant(String code){
 //        etuDao.

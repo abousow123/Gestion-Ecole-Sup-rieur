@@ -259,7 +259,7 @@ public class UtilisateurBean implements Serializable{
       
         user.setLogin(login);
         user.setPassword(password);
-        userDao.modifierUtilisateur(user);
+//        userDao.modifierUtilisateur(user);
         this.sms="Utilisateur modifier avec succes";
         effacerAll();
     }

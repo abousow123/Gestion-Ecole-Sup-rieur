@@ -12,7 +12,8 @@ public class Paiement  implements java.io.Serializable {
 
      private String codepaiement;
      private Etudiant etudiant;
-     private Facture facture;
+     private String montant ;
+     private String nbmois ;
      private String couverture;
      private String scolarite;
      private String typedepaiement;
@@ -20,18 +21,26 @@ public class Paiement  implements java.io.Serializable {
      private String annee;
      private Set<Facture> factures = new HashSet<Facture>(0);
 
+    public String getNbmois() {
+        return nbmois;
+    }
+
+    public void setNbmois(String nbmois) {
+        this.nbmois = nbmois;
+    }
+
     public Paiement() {
     }
 
 	
-    public Paiement(String codepaiement, Facture facture) {
+    public Paiement(String codepaiement) {
         this.codepaiement = codepaiement;
-        this.facture = facture;
+        
     }
-    public Paiement(String codepaiement, Etudiant etudiant, Facture facture, String couverture, String scolarite, String typedepaiement, String datePaiement, String annee, Set<Facture> factures) {
+    public Paiement(String codepaiement, Etudiant etudiant, String couverture, String scolarite, String typedepaiement, String datePaiement, String annee, Set<Facture> factures) {
        this.codepaiement = codepaiement;
        this.etudiant = etudiant;
-       this.facture = facture;
+       
        this.couverture = couverture;
        this.scolarite = scolarite;
        this.typedepaiement = typedepaiement;
@@ -54,13 +63,7 @@ public class Paiement  implements java.io.Serializable {
     public void setEtudiant(Etudiant etudiant) {
         this.etudiant = etudiant;
     }
-    public Facture getFacture() {
-        return this.facture;
-    }
     
-    public void setFacture(Facture facture) {
-        this.facture = facture;
-    }
     public String getCouverture() {
         return this.couverture;
     }
@@ -102,6 +105,22 @@ public class Paiement  implements java.io.Serializable {
     
     public void setFactures(Set<Facture> factures) {
         this.factures = factures;
+    }
+
+    public String getMontant() {
+        return montant;
+    }
+
+    public void setMontant(String montant) {
+        this.montant = montant;
+    }
+
+    public String getNb_mois() {
+        return nbmois;
+    }
+
+    public void setNb_mois(String nb_mois) {
+        this.nbmois = nb_mois;
     }
 
 

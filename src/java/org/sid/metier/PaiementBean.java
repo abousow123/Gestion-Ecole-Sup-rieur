@@ -8,10 +8,12 @@ package org.sid.metier;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.sid.dao.EtudiantDao;
 import org.sid.dao.PaiementDao;
 import org.sid.entite.Etudiant;
 import org.sid.entite.Facture;
 import org.sid.entite.Paiement;
+import org.sid.entite.Utilisateur;
 
 /**
  *
@@ -24,15 +26,16 @@ public class PaiementBean implements Serializable{
     
      private String codepaiement;
      private Etudiant etudiant;
-     private Facture facture;
+     private String codeUser ;
+     private String montant;
+     private String nbmois;
      private String couverture;
      private String scolarite;
      private String datePaiement;
 
-    public PaiementBean(String codepaiement, Etudiant etudiant, Facture facture, String couverture, String scolarite, String datePaiement) {
+    public PaiementBean(String codepaiement, String etudiant,String couverture, String scolarite, String datePaiement) {
         this.codepaiement = codepaiement;
-        this.etudiant = etudiant;
-        this.facture = facture;
+        this.codeUser = etudiant;
         this.couverture = couverture;
         this.scolarite = scolarite;
         this.datePaiement = datePaiement;
@@ -41,19 +44,34 @@ public class PaiementBean implements Serializable{
       public void ajoutPaiment(){
           Paiement paiement = new Paiement();
           PaiementDao dao = new PaiementDao() ;
-          paiement.setCodepaiement(codepaiement);
+          EtudiantDao ed = new EtudiantDao() ;
+          paiement.setCodepaiement("Paie1");
           paiement.setCouverture(couverture);
+          paiement.setMontant(montant);
+          paiement.setNb_mois(nbmois);
           paiement.setDatePaiement(datePaiement);
-          paiement.setEtudiant(etudiant);
-          paiement.setFacture(facture);
+          Etudiant e = ed.getEtudiantE(codeUser) ;
+          paiement.setEtudiant(e);
+          
           paiement.setScolarite(scolarite);
           
           dao.addPaiement(paiement);
+          System.out.println("Paiment enregistrer avec succés!!!!!!");
       }
     
     public String getCodepaiement() {
         return codepaiement;
     }
+
+    public String getCodeUser() {
+        return codeUser;
+    }
+
+    public void setCodeUser(String codeUser) {
+        this.codeUser = codeUser;
+    }
+    
+    
 
     public void setCodepaiement(String codepaiement) {
         this.codepaiement = codepaiement;
@@ -67,13 +85,7 @@ public class PaiementBean implements Serializable{
         this.etudiant = etudiant;
     }
 
-    public Facture getFacture() {
-        return facture;
-    }
-
-    public void setFacture(Facture facture) {
-        this.facture = facture;
-    }
+ 
 
     public String getCouverture() {
         return couverture;
@@ -97,6 +109,22 @@ public class PaiementBean implements Serializable{
 
     public void setDatePaiement(String datePaiement) {
         this.datePaiement = datePaiement;
+    }
+
+    public String getMontant() {
+        return montant;
+    }
+
+    public void setMontant(String montant) {
+        this.montant = montant;
+    }
+
+    public String getNbmois() {
+        return nbmois;
+    }
+
+    public void setNbmois(String nbmois) {
+        this.nbmois = nbmois;
     }
      
     

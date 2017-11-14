@@ -2,71 +2,121 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <style>
+            tfoot{
+                text-align: center;
+            }
+            thead{
+                color: black;
+            }
+            td{
+                font-weight: bold;
+            }
+            .sms{
+                font-size: small;
+                color: green;
+            }
+        </style>
+        <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background :#FAF7F9;" >
+        <p:submenu label="SG Taches" icon="icon/icon-accueil.png">
+            
+             
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Inscription" icon="ui-icon-pencil">
+            <p:menuitem value="Etudiant" url="index_1.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="indexProf.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+        <p:submenu label="Liste" icon="ui-icon-pencil">
+            <p:menuitem value="Liste Etudiant" url="" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Liste Professeur" url=" " icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+         <p:submenu label="Document" icon="ui-icon-pencil">
+            <p:menuitem value="Attestation" url=" " icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Releves de Notes" url=" " icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Paiement" icon="ui-icon-gear">
+        
+          
+             
+        </p:submenu>
+</p:menubar>
+</h:form>
+
     </h:head>
     <h:body>
-        Hello from Facelets
-        
-         <h:form>
-            <h:panelGrid id="panel1" columns="2" border="1"
-                         cellpadding="5" cellspacing="1">
-                <f:facet name="header">
-                    <h:outputText value="Add Customer Information"/>
-                </f:facet>
-                <h:outputLabel value="First Namer:"/>
-                <h:inputText value="#{etudiantBean.prenom}" id="fn"/>
-                <h:outputLabel value="Last Name:"/>
-                <h:inputText value="#{etudiantBean.nom}" id="ln"/>
-                <h:outputLabel value="Email:"/>
-                <h:inputText value="#{etudiantBean.email}" id="eml"/>
-                <h:outputLabel value="TEL:"/>
-                <h:inputText value="#{etudiantBean.telephone}" id="s"/>
+       <h:form>
+           <p:panel id="panel" header="Formulaire Etudiant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:0px; margin-left: 300px; width: 900px">
                 
-                <f:facet name="footer">
-                    
-                    <h:commandButton value="Save" action="#{etudiantBean.ajouterUser()}">
-                    <f:ajax render="fn ln eml s" execute="@form"/>
-                        </h:commandButton>
-                </f:facet>
-            </h:panelGrid>
-             
-        </h:form>
-        
-        
-             <h:panelGrid id="panel1" columns="2" 
-                 cellpadding="5" cellspacing="1" style="margin-left: 100px">
-                <f:facet name="header" >
-                    <h:outputText value="Supprimer utilisateur"/>
-                </f:facet>  
-                 
-                 <h:outputLabel value="Code:"/>
-                 <h:inputText value="#{utilisateurBean.codeutilisateur}" id="ensnom"/>
-                 
-                 <h:commandButton value="supprimer" action="#{utilisateurBean.supprimerUsers()}">
-                    <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/>
-                    </h:commandButton>
-                 
-                 
-             </h:panelGrid>
-        <h:form>
-            
-        </h:form>
-        
-        <br />
-        
-           
-        
-        
-      
-        
-       
+            <h:panelGrid columns="2" cellpadding="5">
+               <p:outputLabel value="Nom:"/>
+               <p:inputText  value="#{etudiantBean.nom}" id="etunom" size="40"/>
+                
+                <p:outputLabel value="Prenom:"/>
+                <p:inputText  value="#{etudiantBean.prenom}" id="etuprenom" size="40"/>
+                
+                <p:outputLabel value="Date de naissance:"/>
+                <p:inputText  value="#{etudiantBean.datedenaissance}" id="etudate" size="40"/>
+                
+                <p:outputLabel value="Lieu de Naissance:"/>
+                <p:inputText   value="#{etudiantBean.lieudenaissance}" id="etulieu" size="40"/>
+                
+                <p:outputLabel value="Adresse:"/>
+                <p:inputText value="#{etudiantBean.adresse}"  id="etuadresse" size="40"/>
+                
+                <p:outputLabel value="Telephone:"/>
+                <p:inputText  value="#{etudiantBean.telephone}" id="etutelephone" size="40"/>
+                
+               
 
-        
-        
-        
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+                <p:outputLabel value="Nationalite:"/>
+                <p:inputText  id="etunational" size="40"/>
+                
+                <p:outputLabel value="Filiere:"/>
+                <p:selectOneListbox id="fil"   scrollHeight="60" >
+            <f:selectItem itemLabel="Informatique" itemValue="1" />
+            <f:selectItem itemLabel="Mathematique" itemValue="2" />
+            <f:selectItem itemLabel="Eau et Environnement" itemValue="3" />
+             <f:selectItem itemLabel="Genie Civil" itemValue="4" />
+            <f:selectItem itemLabel="Management et gestion" itemValue="5" />
+        </p:selectOneListbox>
+                
+                <p:outputLabel value="Niveau:"/>
+                
+                <p:selectOneListbox id="select"  value="#{etudiantBean.filiere}" scrollHeight="60">
+            <f:selectItem itemLabel="Licence 1" itemValue="1" />
+            <f:selectItem itemLabel="Licence 2" itemValue="2" />
+            <f:selectItem itemLabel="Licence 3" itemValue="3" />
+             <f:selectItem itemLabel="Master 1" itemValue="2" />
+            <f:selectItem itemLabel="Master 2" itemValue="3" />
+        </p:selectOneListbox>
+                 
+                
+            </h:panelGrid>
+                 
+                <f:facet name="footer">
+                    <h:outputLabel   id="sms" styleClass="sms"/>
+                    <p:commandButton value="Save"  action="#{etudiantBean.ajouterUser()}"  icon="ui-icon-check"  style=" background-color: blue"  >
+                    <f:ajax render="etunom etuprenom etudate etulieu etuadresse enstelephone etunational" execute="@form"/>
+                    </p:commandButton>
+                    <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
+                </f:facet>
+           </p:panel>
+        </h:form>    
+        <br />
+        <h:link outcome="Admin" value="Primefaces welcome page" />
     </h:body>
 </html>
 

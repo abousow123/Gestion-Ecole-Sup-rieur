@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+
+	<h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background : #C9E7F0;" >
+        <p:submenu label="Accueil" icon="icon/icon-accueil.png">
+            
+            <p:menuitem value="Mot du Recteur" url="#" />
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Maquettes de Formation" icon="ui-icon-pencil">
+            <p:menuitem value="Liste Complete" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Choisir Filiere" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Help" icon="ui-icon-help">
+            <p:menuitem value="Contents" url="#" />
+            <p:submenu label="Search" icon="ui-icon-search">
+                <p:submenu label="Text">
+                    <p:menuitem value="Workspace" url="#" />
+                </p:submenu>
+                <p:menuitem value="File" url="#" />
+            </p:submenu>
+        </p:submenu>
+
+        <p:submenu label="Actions" icon="ui-icon-gear">
+            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                <p:menuitem value="Save"   icon="ui-icon-disk" update="messages"/>
+                <p:menuitem value="Update"   icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+            </p:submenu>
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                <p:menuitem value="Delete"   icon="ui-icon-close" update="messages" ajax="false"/>
+            </p:submenu>
+        </p:submenu>
+
+        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+
+      
+        <p:submenu label="Vous etes Qui???" style="margin-left : 400px;">
+                <p:menuitem style="Background :#1AAEDB;" value="Professeur" url="Admin.xhtml" />
+                <p:menuitem style="Background :#1AAEDB;" value="Etudiant" url="http://www.primefaces.org" />
+                 <p:menuitem style="Background :#1AAEDB;" value="Secretaire" url="Admin.xhtml" />
+             </p:submenu>      
+           
+    </p:menubar>
+    
+
+</h:form> 
+
+ 
+
+
+
+</h:head>
+<body style="Background: #C9E7F0;">
+	<br />
+	<br />
+ 
+	
+	<h:form> 
+    <p:dataScroller  value="#{imagesView.filieres}" var="car"  chunkSize="10">
+        <f:facet name="header">
+            NOS FILIERES
+        </f:facet>
+ 
+        <h:panelGrid columns="2" style="width:100%"  columnClasses="logo,detail">
+                     
+            <p:graphicImage value="images/#{image}"  /> 
+ 
+            <p:outputPanel>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputText value="Filiere:" />
+                    <h:outputText value=" #{car}" style="font-weight: bold"/>
+ 
+                    <h:outputText value="Niveaux:" />
+                    <h:outputText value="L1-M2" style="font-weight: bold"/>
+ 
+                    <h:outputText value="Maquettes" />
+                    <h:outputText value="Matieres Composantes et Metiers" style="font-weight: bold"/>
+                    
+   
+    
+     
+    <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+        <p:fileDownload value="#{fileDownloadView.file}" />
+    </p:commandButton>
+ 
+                </h:panelGrid>
+            </p:outputPanel>
+        </h:panelGrid>
+        </p:dataScroller>
+        </h:form>
+	<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
+</body>
+</html>

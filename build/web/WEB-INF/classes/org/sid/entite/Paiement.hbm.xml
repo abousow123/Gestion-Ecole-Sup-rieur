@@ -8,12 +8,20 @@
             <column name="CODEPAIEMENT" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="etudiant" class="org.sid.entite.Etudiant" fetch="join">
-            <column name="ETUDIANT" />
+      
+        
+        <many-to-one name="etudiant" class="org.sid.entite.Etudiant" fetch="select">
+            <column name="codeutilisateur" length="254" not-null="false" />
         </many-to-one>
-        <many-to-one name="facture" class="org.sid.entite.Facture" fetch="join">
-            <column name="FACTURE" />
-        </many-to-one>
+        
+        <property name="nbmois" type="java.lang.String">
+            <column name="NBMOIS" />
+        </property>
+        
+        <property name="montant" type="java.lang.String">
+            <column name="MONTANT" />
+        </property>
+        
         <property name="couverture" type="java.lang.String">
             <column name="COUVERTURE" />
         </property>

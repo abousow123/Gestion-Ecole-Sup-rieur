@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+  <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background : #C9E7F0;" >
+        <p:submenu label="Accueil" icon="icon/icon-accueil.png">
+            
+            <p:menuitem value="Mot du Recteur" url="#" />
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Maquettes de Formation" icon="ui-icon-pencil">
+            <p:menuitem value="Liste Complete" url="Tableau_de_maquettes" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Choisir Filiere" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Help" icon="ui-icon-help">
+            <p:menuitem value="Contents" url="#" />
+            <p:submenu label="Search" icon="ui-icon-search">
+                <p:submenu label="Text">
+                    <p:menuitem value="Workspace" url="#" />
+                </p:submenu>
+                <p:menuitem value="File" url="#" />
+            </p:submenu>
+        </p:submenu>
+
+        <p:submenu label="Actions" icon="ui-icon-gear">
+            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                <p:menuitem value="Save"   icon="ui-icon-disk" update="messages"/>
+                <p:menuitem value="Update"   icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+            </p:submenu>
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                <p:menuitem value="Delete"   icon="ui-icon-close" update="messages" ajax="false"/>
+            </p:submenu>
+        </p:submenu>
+
+        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+
+      
+        <p:submenu label="Vous etes Qui???" style="margin-left : 400px;">
+                <p:menuitem style="Background :#1AAEDB;" value="Professeur" url="Admin.xhtml" />
+                <p:menuitem style="Background :#1AAEDB;" value="Etudiant" url="http://www.primefaces.org" />
+                 <p:menuitem style="Background :#1AAEDB;" value="Secretaire" url="Admin.xhtml" />
+             </p:submenu>      
+           
+    </p:menubar>
+    
+
+</h:form> 
+
+ 
+
+</h:head> 
+<body style="Background :#1AAEDB;" > 
+
+ 
+ 
+ <p:layout style="min-width:400px;min-height:500px;">
+   
+    <p:layoutUnit position="west" resizable="true" size="100" minSize="800" >
+       <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true"  style="margin-left: 200px; margin-top :50px;">
+    <p:graphicImage  value="images/#{image}"    alt="l'Excellence notre devise" title="Aperçu de l'ecole "/>
+    
+</p:galleria>
+<b style="font-family: Verdana, sans-serif; font-size: 11px;" >Notre Université localisé a dakar est aujordh'ui parmis les Meilleurs<br />
+Vis a vis qualité et Equipement Complet qu'on offre a nos Etudiants.
+</b>
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+    <b style="font-family: Verdana, sans-serif; font-size: 9px;" >Des Centres de Recherches et Recouvrement </b>
+       <p:imageSwitch  style="margin-left: 30px; margin-top :50px;"  effect="zoom"   >
+    <ui:repeat value="#{imagesView.images}" var="image">
+        <p:graphicImage value="images/#{image}" />
+    </ui:repeat>
+   </p:imageSwitch>
+  <b style="font-family: Verdana, sans-serif; font-size: 11px;">La loi n° 2011- 05 du 30 mars 2011, relative à l'organisation du système Licence, Master,
+<br />Doctorat (LMD) dans les établissements d'enseignement supérieur, a créé le diplôme de
+licence qui sanctionne un niveau validé par l'obtention de 180 crédits.</b>
+ 
+    </p:layoutUnit>
+      
+</p:layout>
+ 
+ 
+ <h3>FORMATION</h3>
+ 
+
+ 
+ 
+ <p:layout style="min-width:400px;min-height:200px;">
+   
+    <p:layoutUnit position="west" resizable="true" size="100" minSize="600">
+    
+    <b style="font-family: Verdana, sans-serif; font-size: 11px;"> Depuis 2010 notre institut a pris naissance et cesse de faire des bons résultatas <br />
+     Voici de prés l'evolution de l'ecole sur ces dernieres années.
+     </b><br /><br />
+    <p:chart type="bar" model="#{chartView.combinedModel}" style="height:200px;width:400px;" />
+    <!-- p:chart type="line" model="#{chartView.animatedModel1}" style="width:400px; margin-left: 450px; margin-top: 10px;" /> --> 
+     <br /><br />
+   <h:link outcome="Tableau_de_maquettes"> Voir nos Maquettes de formations</h:link>
+       
+          </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+     <b style="font-family: Verdana, sans-serif; font-size: 11px;"> Depuis 2010 notre institut a pris naissance et cesse de faire des bons résultatas <br />
+     Voici de prés l'evolution de l'ecole sur ces dernieres années.
+     </b><br /><br />
+     <p:chart type="line" model="#{chartView.animatedModel1}" style="height:200px;width:300px;  " /> 
+     
+    
+    <!--p:chart type="bar" model="#{chartView.combinedModel}" style="height:300px;width:400px" />  -->
+     
+     <h3> Des Ateliers de Partage  </h3>
+<p:graphicImage value="images/atelier.jpg" />
+ 
+ 
+    </p:layoutUnit>
+    
+</p:layout>
+
+
+ 
+   
+ 
+  </body> 
+</html>

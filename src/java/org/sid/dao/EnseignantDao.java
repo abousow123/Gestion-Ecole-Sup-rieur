@@ -39,12 +39,19 @@ public class EnseignantDao implements IEnseignantDao {
     }
 
     @Override
-    public void modifierEnseignant(Enseignant ens) {
+    public void modifierEnseignant(Utilisateur ens,Enseignant en,String code) {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
+             UtilisateurDao ud = new UtilisateurDao() ;
+            ud.modifierUtilisateur(ens, code);
+            
             trns = session.beginTransaction();
-            session.update(ens);
+           
+            Enseignant e = (Enseignant) session.get(Enseignant.class, code) ;
+            e.setGrade(en.getGrade());
+            e.setStatus(en.getStatus());
+            session.update(e);
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) {

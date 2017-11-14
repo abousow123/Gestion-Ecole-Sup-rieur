@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+ <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background :#FAF7F9;" >
+        <p:submenu label="SG Taches" icon="icon/icon-accueil.png">
+            
+             
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Inscription" icon="ui-icon-pencil">
+            <p:menuitem value="Etudiant" url="index.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="indexProf.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+         <p:submenu label="Document" icon="ui-icon-pencil">
+            <p:menuitem value="Attestation" url=" " icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Releves de Notes" url=" " icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Paiement" icon="ui-icon-gear">
+        
+          
+             
+        </p:submenu>
+</p:menubar>
+</h:form>
+
+</h:head> 
+<body> 
+ 
+ <h:form>
+ <h2 style="font-family: Verdana, sans-serif; font-size: 22px;">Modules Et Fonctions de SG</h2>
+    <p:tabView orientation="left">
+        <p:tab title="Inscription">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/inscrit.jpg" width="140" height="140"/>
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 14px;"
+                    value="Dans cette Partie Vous aurez la possibilité d'inscrire un Etudiant et Eleve selon une liste des champs a remplir
+                    .L'Ecole utilise la gestion digitale pour une bonne organisation et avoir de l'aperçu sur les eleves ainsi que les professeurs" />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Tresorie">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/tresor.jpg"  width="140" height="140" />
+                <h:outputText style="font-family: Verdana, sans-serif; font-size:14px;" value=" La Gestion de trésor permet de controler les modalités de paiement d'un etudiant tout en sachant s'il a remplit ou pas ses droits." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Planning">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/emploi.jpg" width="140" height="140"/>
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 14px;" value="Une Formtion en Medecine Bien equipée..." />
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+</h:form> 
+   
+
+ 
+ 
+ </body> 
+</html>
