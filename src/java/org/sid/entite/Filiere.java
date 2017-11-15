@@ -12,20 +12,21 @@ public class Filiere  implements java.io.Serializable {
 
      private String codefiliere;
      private Domaine domaine;
-     private EnseignantResponsable enseignantResponsable;
+     private Enseignant enseignantResponsable;
      private String libelleFiliere;
+     private Set<Etudiant> etudiants = new HashSet<Etudiant>(0);
      private Set<Classe> classes = new HashSet<Classe>(0);
 
     public Filiere() {
     }
 
 	
-    public Filiere(String codefiliere, Domaine domaine, EnseignantResponsable enseignantResponsable) {
+    public Filiere(String codefiliere, Domaine domaine, Enseignant enseignantResponsable) {
         this.codefiliere = codefiliere;
         this.domaine = domaine;
         this.enseignantResponsable = enseignantResponsable;
     }
-    public Filiere(String codefiliere, Domaine domaine, EnseignantResponsable enseignantResponsable, String libelleFiliere, Set<Classe> classes) {
+    public Filiere(String codefiliere, Domaine domaine, Enseignant enseignantResponsable, String libelleFiliere, Set<Classe> classes) {
        this.codefiliere = codefiliere;
        this.domaine = domaine;
        this.enseignantResponsable = enseignantResponsable;
@@ -47,11 +48,11 @@ public class Filiere  implements java.io.Serializable {
     public void setDomaine(Domaine domaine) {
         this.domaine = domaine;
     }
-    public EnseignantResponsable getEnseignantResponsable() {
+    public Enseignant getEnseignantResponsable() {
         return this.enseignantResponsable;
     }
     
-    public void setEnseignantResponsable(EnseignantResponsable enseignantResponsable) {
+    public void setEnseignantResponsable(Enseignant enseignantResponsable) {
         this.enseignantResponsable = enseignantResponsable;
     }
     public String getLibelleFiliere() {
@@ -69,6 +70,15 @@ public class Filiere  implements java.io.Serializable {
         this.classes = classes;
     }
 
+    public Set<Etudiant> getEtudiants() {
+        return etudiants;
+    }
+
+    public void setEtudiants(Set<Etudiant> etudiants) {
+        this.etudiants = etudiants;
+    }
+
+    
 
 
 

@@ -12,9 +12,11 @@ import javax.faces.bean.SessionScoped;
 import org.sid.dao.ClasseDao;
 import org.springframework.context.ApplicationContext;
 import org.sid.dao.EtudiantDao;
+import org.sid.dao.FiliereDao;
 import org.sid.dao.UtilisateurDao;
 import org.sid.entite.Classe;
 import org.sid.entite.Etudiant;
+import org.sid.entite.Filiere;
 import org.sid.entite.Utilisateur;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -37,16 +39,27 @@ public class EtudiantBean implements Serializable{
      private Classe classe;
      private Utilisateur utilisateur;
      private String codeClasse ;
-     private String filiere;
+     private Filiere filiere;
+     private String f ;
 
-    public String getFiliere() {
+    public Filiere getFiliere() {
         return filiere;
     }
 
-    public void setFiliere(String filiere) {
+    public void setFiliere(Filiere filiere) {
         this.filiere = filiere;
     }
 
+    public String getF() {
+        return f;
+    }
+
+    public void setF(String f) {
+        this.f = f;
+    }
+
+    
+    
     public EtudiantDao getEtuDao() {
         return etuDao;
     }
@@ -106,6 +119,8 @@ public class EtudiantBean implements Serializable{
     public void setContext(String context) {
         this.context = context;
     }
+    
+    
     
     
 
@@ -214,7 +229,7 @@ public class EtudiantBean implements Serializable{
        // EtudiantDao etuDao= new EtudiantDao();
       //  Utilisateur user=(Utilisateur)factory.getBean("utilisateur");
         Utilisateur user = new Utilisateur() ;
-        user.setCodeutilisateur("302");
+        user.setCodeutilisateur("300");
         user.setNom(nom);
         user.setPrenom(prenom);
         user.setDatedenaissance(datedenaissance);
@@ -232,7 +247,11 @@ public class EtudiantBean implements Serializable{
             ClasseDao cd = new ClasseDao() ;
             classe = cd.getClasse(codeClasse) ;
             etu.setClasse(classe);
-             
+            
+            FiliereDao fd = new FiliereDao() ;
+            filiere = fd.getFiliere(f) ;
+            
+            etu.setFiliere(filiere);
             etu.setUtilisateur(user);
            // System.out.println("org.sid.metier.EtudiantBean.ajouterUser()");
             etuDao.addEtudiant(etu);
@@ -242,15 +261,16 @@ public class EtudiantBean implements Serializable{
     }
     
     
-    public List<Etudiant> AllEtudiantClasse(String classe){
-        return etuDao.listEtudiantsClasse(classe) ;
+    public List<Etudiant> AllEtudiantClasse(){
+        
+        return etuDao.listEtudiantsClasse(codeClasse) ;
     }   
     
-    public Utilisateur getEtudiant(String code){
-        return etuDao.getEtudiant(code) ;
+    public Utilisateur getEtudiant(){
+        return etuDao.getEtudiant(codeutilisateur) ;
     }
     
-    public void modifierEtudiant(String code){
+    public void modifierEtudiant(){
     
          Utilisateur user= new Utilisateur() ;
        
@@ -268,7 +288,7 @@ public class EtudiantBean implements Serializable{
        
        
         
-        etuDao.modifierEtudiant(user,etudiant,code);
+        etuDao.modifierEtudiant(user,etudiant,codeutilisateur);
     }
 //    public Etudiant oneEtudiant(String code){
 //        etuDao.
@@ -279,10 +299,10 @@ public class EtudiantBean implements Serializable{
          this.nom = "";
         this.prenom = "";
         this.datedenaissance = "";
-  
+        this.lieudenaissance = "" ;
         this.telephone = "";
         this.adresse = "";
-      
+        
         this.email = "";
         
     }

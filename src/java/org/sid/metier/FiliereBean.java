@@ -47,7 +47,7 @@ public class FiliereBean implements Serializable{
         filiere.setCodefiliere(codefiliere);
         filiere.setLibelleFiliere(libelleFiliere);
         filiere.setDomaine(domaine);
-        filiere.setEnseignantResponsable(enseignantResponsable);
+        //filiere.setEnseignantResponsable(enseignantResponsable);
         
         dao.addFiliere(filiere);
         

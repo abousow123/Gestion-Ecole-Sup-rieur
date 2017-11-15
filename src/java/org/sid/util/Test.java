@@ -26,7 +26,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//HibernateUtil.getSessionFactory() ;
+		HibernateUtil.getSessionFactory() ;
                 
                 Date d = new Date() ;
                 System.out.println(d.toString());
@@ -84,8 +84,8 @@ public class Test {
          // dao1.supprimerEtudiant("3001") ;
           //  System.out.println("hello: ");
           
-          ClasseBean bean =new ClasseBean("M1", "dfdf", 25, "df") ;
-          bean.ajoutClasse();
+          //ClasseBean bean =new ClasseBean("M1", "dfdf", 25, "df") ;
+         // bean.ajoutClasse();
             
 
 	}

@@ -22,7 +22,7 @@
                 color: green;
             }
         </style>
-        <h:form >	
+     <h:form >	
     <p:growl id="messages"/>
 
     <p:menubar style="Background :#FAF7F9;" >
@@ -37,13 +37,9 @@
             <p:menuitem value="Etudiant" url="etudiant.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
             <p:menuitem value="Professeur" url="inscrire_prof.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
         </p:submenu>
-        <p:submenu label="Liste" icon="ui-icon-pencil">
-            <p:menuitem value="Liste Etudiant" url="" icon="ui-icon-arrowreturnthick-1-w" />
-            <p:menuitem value="Liste Professeur" url=" " icon="ui-icon-arrowreturnthick-1-e" />
-        </p:submenu>
 
          <p:submenu label="Document" icon="ui-icon-pencil">
-            <p:menuitem value="Attestation" url=" " icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Attestation" url="Attestation.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
             <p:menuitem value="Releves de Notes" url=" " icon="ui-icon-arrowreturnthick-1-e" />
         </p:submenu>
 
@@ -55,35 +51,45 @@
 </p:menubar>
 </h:form>
 
-    </h:head>
+   </h:head>
     <h:body>
        <h:form>
-           <p:panel id="panel" header="Formulaire Etudiant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:0px; margin-left: 300px; width: 900px">
+           <p:panel id="panel" header="Formulaire Enseignant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:0px; margin-left: 300px; width: 900px">
                 
             <h:panelGrid columns="2" cellpadding="5">
-               <p:outputLabel value="CodeEtudiant:"/>
-               <p:inputText  value="#{paiementBean.codeUser}" id="etunom" size="40"/>
+               <p:outputLabel value="Nom:"/>
+               <p:inputText value="#{enseignantBean.nom}"   id="ensnom" size="40"/>
                 
-                <p:outputLabel value="Nombre de mois:"/>
-                <p:inputText  value="#{paiementBean.nbmois}" id="etuprenom" size="40"/>
+                <p:outputLabel value="Prenom:"/>
+                <p:inputText  value="#{enseignantBean.prenom}" id="ensprenom" size="40"/>
                 
-                <p:outputLabel value="Montant:"/>
-                <p:inputText  value="#{paiementBean.montant}" id="etudate" size="40"/>
+            
+                <p:outputLabel value="Adresse:"/>
+                <p:inputText value="#{enseignantBean.adresse}"  id="ensAdresse" size="40"/>
+                
+                 <p:outputLabel value="Nationalité:"/>
+                <p:inputText value="#{enseignantBean.nationalite}"  id="ensnationalite" size="40"/>
+                
+                <p:outputLabel value="Telephone:"/>
+                <p:inputText  value="#{enseignantBean.telephone}" id="enstelephone" size="40"/>
                 
                
-               
-
-               
                 
-          
-                 
+                <p:outputLabel value="Email:"/>
+                <p:inputText  value="#{enseignantBean.email}" id="ensEmail" size="40"/>
+                
+                <p:outputLabel value="Grade:"/>
+                <p:inputText value="#{enseignantBean.grade}"  id="ensgrade" size="40"/>
+                
+                <p:outputLabel value="Status:"/>
+                <p:inputText  value="#{enseignantBean.status}" id="ensStatus" size="40"/>
                 
             </h:panelGrid>
                  
                 <f:facet name="footer">
                     <h:outputLabel   id="sms" styleClass="sms"/>
-                    <p:commandButton value="Save"  action="#{paiementBean.ajoutPaiment()}"  icon="ui-icon-check"  style=" background-color: blue"  >
-                   <!-- <f:ajax render="etunom etuprenom etudate etulieu etuadresse enstelephone etunational" execute="@form"/>  -->
+                    <p:commandButton value="Save"  action="#{enseignantBean.ajouterUser()}"  icon="ui-icon-check"  style=" background-color: blue">
+                <!--    <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/> -->
                     </p:commandButton>
                     <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
                 </f:facet>

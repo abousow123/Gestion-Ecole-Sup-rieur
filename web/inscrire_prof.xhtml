@@ -34,8 +34,8 @@
         </p:submenu>
 
         <p:submenu label="Inscription" icon="ui-icon-pencil">
-            <p:menuitem value="Etudiant" url="index.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
-            <p:menuitem value="Professeur" url="indexProf.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+            <p:menuitem value="Etudiant" url="etudiant.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="inscrire_prof.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
         </p:submenu>
 
          <p:submenu label="Document" icon="ui-icon-pencil">
@@ -63,14 +63,17 @@
                 <p:outputLabel value="Prenom:"/>
                 <p:inputText  value="#{enseignantBean.prenom}" id="ensprenom" size="40"/>
                 
-                <p:outputLabel value="Telephone:"/>
-                <p:inputText  value="#{enseignantBean.telephone}" id="enstelephone" size="40"/>
-                
+            
                 <p:outputLabel value="Adresse:"/>
                 <p:inputText value="#{enseignantBean.adresse}"  id="ensAdresse" size="40"/>
                 
-                <p:outputLabel value="Nationalité:"/>
+                 <p:outputLabel value="Nationalité:"/>
                 <p:inputText value="#{enseignantBean.nationalite}"  id="ensnationalite" size="40"/>
+                
+                <p:outputLabel value="Telephone:"/>
+                <p:inputText  value="#{enseignantBean.telephone}" id="enstelephone" size="40"/>
+                
+               
                 
                 <p:outputLabel value="Email:"/>
                 <p:inputText  value="#{enseignantBean.email}" id="ensEmail" size="40"/>
@@ -86,7 +89,7 @@
                 <f:facet name="footer">
                     <h:outputLabel   id="sms" styleClass="sms"/>
                     <p:commandButton value="Save"  action="#{enseignantBean.ajouterUser()}"  icon="ui-icon-check"  style=" background-color: blue">
-                    <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/>
+                <!--    <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/> -->
                     </p:commandButton>
                     <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
                 </f:facet>

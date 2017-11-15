@@ -34,8 +34,8 @@
         </p:submenu>
 
         <p:submenu label="Inscription" icon="ui-icon-pencil">
-            <p:menuitem value="Etudiant" url="index_1.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
-            <p:menuitem value="Professeur" url="indexProf.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+            <p:menuitem value="Etudiant" url="etudiant.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="inscrire_prof.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
         </p:submenu>
         <p:submenu label="Liste" icon="ui-icon-pencil">
             <p:menuitem value="Liste Etudiant" url="" icon="ui-icon-arrowreturnthick-1-w" />
@@ -83,7 +83,7 @@
                 <f:facet name="footer">
                     <h:outputLabel   id="sms" styleClass="sms"/>
                     <p:commandButton value="Save"  action="#{paiementBean.ajoutPaiment()}"  icon="ui-icon-check"  style=" background-color: blue"  >
-                    <f:ajax render="etunom etuprenom etudate etulieu etuadresse enstelephone etunational" execute="@form"/>
+                   <!-- <f:ajax render="etunom etuprenom etudate etulieu etuadresse enstelephone etunational" execute="@form"/>  -->
                     </p:commandButton>
                     <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
                 </f:facet>

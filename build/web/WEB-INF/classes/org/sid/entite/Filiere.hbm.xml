@@ -11,7 +11,7 @@
         <many-to-one name="domaine" class="org.sid.entite.Domaine" fetch="join">
             <column name="DOMAINE" />
         </many-to-one>
-        <many-to-one name="enseignantResponsable" class="org.sid.entite.EnseignantResponsable" fetch="join">
+        <many-to-one name="enseignantResponsable" class="org.sid.entite.Enseignant" fetch="join">
             <column name="ENSEIGNANTRESPONSABLE" />
         </many-to-one>
         <property name="libelleFiliere" type="java.lang.String">
@@ -23,6 +23,14 @@
             </key>
             <one-to-many class="org.sid.entite.Classe" />
         </set>
+        
+        <set name="etudiants" table="ETUDIANT" inverse="false" lazy="true">
+            <key>
+                <column name="CODECLASSE" />
+            </key>
+            <one-to-many class="org.sid.entite.Etudiant" />
+        </set>
+        
     </class>
     
     

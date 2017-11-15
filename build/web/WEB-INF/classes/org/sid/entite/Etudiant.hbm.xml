@@ -14,6 +14,11 @@
          <many-to-one name="classe" class="org.sid.entite.Classe" fetch="select">
             <column name="codeclasse" length="254" not-null="false" />
         </many-to-one>
+        
+         <many-to-one name="filiere" class="org.sid.entite.Filiere" fetch="select">
+            <column name="codefiliere" length="254" not-null="false" />
+        </many-to-one>
+        
         <property name="responsableclasse" type="java.lang.String">
             <column name="RESPONSABLECLASSE" />
         </property>

@@ -14,6 +14,7 @@ public class Etudiant  implements java.io.Serializable  {
      private Classe classe ;
      private Utilisateur utilisateur;
      private String responsableclasse;
+     private Filiere filiere;
      private Set<Evaluer> evaluers = new HashSet<Evaluer>(0);
      private Set<Paiement> paiements = new HashSet<Paiement>(0);
      private Set<Dossier> dossiers = new HashSet<Dossier>(0);
@@ -95,6 +96,16 @@ public class Etudiant  implements java.io.Serializable  {
     public void setAbsences(Set<Absence> absences) {
         this.absences = absences;
     }
+
+    public Filiere getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(Filiere filiere) {
+        this.filiere = filiere;
+    }
+    
+    
 }
 
 

@@ -8,4 +8,5 @@ import org.sid.entite.Filiere;
  */
 public interface IFiliereDao {
     public void addFiliere(Filiere fil);
+     Filiere getFiliere(String code);
 }

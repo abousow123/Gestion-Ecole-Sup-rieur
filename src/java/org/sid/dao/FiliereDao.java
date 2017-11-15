@@ -2,7 +2,10 @@ package org.sid.dao ;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.sid.entite.Enseignant;
+import org.sid.entite.Etudiant;
 import org.sid.entite.Filiere;
+import org.sid.entite.Utilisateur;
 import org.sid.util.HibernateUtil;
 
 /**
@@ -28,6 +31,24 @@ public class FiliereDao implements IFiliereDao {
             session.flush();
             session.close();
         }
+    }
+    
+     @Override
+    public Filiere getFiliere(String code) {
+           Filiere user = null ;
+	        Session session = HibernateUtil.getSessionFactory().openSession();
+	        try {
+	             session.beginTransaction();
+                     user = (Filiere)session.get(Filiere.class, code) ;
+	        } catch (RuntimeException e) {
+	            e.printStackTrace();
+	        } finally {
+	            session.flush();
+	            session.close();
+	        }
+        
+        
+        return user ;
     }
     
 }
