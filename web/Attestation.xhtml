@@ -85,7 +85,7 @@
                 <f:facet name="footer">
                     <h:outputLabel   id="sms" styleClass="sms"/>
                     <p:commandButton value="Generer"    icon="ui-icon-check"  style=" background-color: blue" actionListener="#{AttestationPDF.getDocument}" >
-                    <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/>
+                   <!--   <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/> -->
                     </p:commandButton>
                     <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
                 </f:facet>

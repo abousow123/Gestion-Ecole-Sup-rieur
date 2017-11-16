@@ -26,10 +26,10 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		HibernateUtil.getSessionFactory() ;
+		//HibernateUtil.getSessionFactory() ;
                 
-                Date d = new Date() ;
-                System.out.println(d.toString());
+              //  Date d = new Date() ;
+               // System.out.println(d.toString());
                 
 //                AdministrateurDao ad = new AdministrateurDao() ;
 //
@@ -37,9 +37,9 @@ public class Test {
                           
 //
 		//Utilisateur utilisateur = new Utilisateur("sow", "abou","marier", "775822453", "fdfg", "fgj", "bvbf", "dfdf", "dfd","dfd", "gfdf");
-              //  EtudiantBean etudiantBean = new EtudiantBean("sow", "abou","marier", "775822453", "fdfg", "fgj", "bvbf", "dfdf", "dfd","dfd", "gfdf") ;
+                EtudiantBean etudiantBean = new EtudiantBean("Sow", "Omar", "12/01/2001", "dakar", "785325", "sds", "sdc", "Licence 1", "f1");
                 
-               // etudiantBean.ajouterUser();
+                etudiantBean.ajouterUser();
                 
 //
 //		ad.addAdministrateur(new Administrateur(utilisateur));

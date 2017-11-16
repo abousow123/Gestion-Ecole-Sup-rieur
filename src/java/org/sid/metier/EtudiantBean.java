@@ -34,6 +34,7 @@ public class EtudiantBean implements Serializable{
      private String datedenaissance;
      private String lieudenaissance ;
      private String telephone;
+     private String nationalite;
      private String adresse;
      private String email;
      private Classe classe;
@@ -56,6 +57,14 @@ public class EtudiantBean implements Serializable{
 
     public void setF(String f) {
         this.f = f;
+    }
+
+    public String getNationalite() {
+        return nationalite;
+    }
+
+    public void setNationalite(String nationalite) {
+        this.nationalite = nationalite;
     }
 
     
@@ -124,7 +133,7 @@ public class EtudiantBean implements Serializable{
     
     
 
-    public EtudiantBean(String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String email, String classe) {
+    public EtudiantBean(String nom, String prenom, String datedenaissance, String lieudenaissance, String telephone, String adresse, String email, String classe,String f) {
         this.nom = nom;
         this.prenom = prenom;
         this.datedenaissance = datedenaissance;
@@ -133,6 +142,7 @@ public class EtudiantBean implements Serializable{
         this.adresse = adresse;
         this.email = email;
         this.codeClasse = classe;
+        this.f = f ;
     }
 
 
@@ -236,6 +246,7 @@ public class EtudiantBean implements Serializable{
         user.setLieudenaissance(lieudenaissance);
         user.setTelephone(telephone);
         user.setAdresse(adresse);
+        user.setNationalite(nationalite);
         user.setEmail(email);
         if(userDao.addUtilisateur(user)){
            // Etudiant etu=(Etudiant) factory.getBean("etudiant");
@@ -269,6 +280,8 @@ public class EtudiantBean implements Serializable{
     public Utilisateur getEtudiant(){
         return etuDao.getEtudiant(codeutilisateur) ;
     }
+    
+    
     
     public void modifierEtudiant(){
     

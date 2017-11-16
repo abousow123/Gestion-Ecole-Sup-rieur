@@ -8,9 +8,7 @@
             <column name="CODEFILIERE" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="domaine" class="org.sid.entite.Domaine" fetch="join">
-            <column name="DOMAINE" />
-        </many-to-one>
+       
         <many-to-one name="enseignantResponsable" class="org.sid.entite.Enseignant" fetch="join">
             <column name="ENSEIGNANTRESPONSABLE" />
         </many-to-one>
@@ -26,7 +24,7 @@
         
         <set name="etudiants" table="ETUDIANT" inverse="false" lazy="true">
             <key>
-                <column name="CODECLASSE" />
+                <column name="CODEFILIERE" />
             </key>
             <one-to-many class="org.sid.entite.Etudiant" />
         </set>

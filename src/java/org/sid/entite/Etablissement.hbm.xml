@@ -8,9 +8,7 @@
             <column name="CODEETABLISSEMENT" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="responsable" class="org.sid.entite.Responsable" fetch="join">
-            <column name="RESPONSABLE" />
-        </many-to-one>
+       
         <property name="libelleEtablissemant" type="java.lang.String">
             <column name="LIBELLEETABLISSEMANT" />
         </property>

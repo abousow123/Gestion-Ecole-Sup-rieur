@@ -8,12 +8,6 @@
             <column name="CODEUTILISATEUR" />
             <generator class="assigned" />
         </id>
-        <one-to-one name="enseignant" class="org.sid.entite.Enseignant"></one-to-one>
-        <set name="filieres" table="FILIERE" inverse="false" lazy="true">
-            <key>
-                <column name="CODEUTILISATEUR" />
-            </key>
-            <one-to-many class="org.sid.entite.Filiere" />
-        </set>
+       
     </class>
 </hibernate-mapping>

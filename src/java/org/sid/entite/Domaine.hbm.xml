@@ -8,9 +8,7 @@
             <column name="CODEDOMAINE" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="etablissement" class="org.sid.entite.Etablissement" fetch="join">
-            <column name="ETABLISSEMENT" />
-        </many-to-one>
+        
         <property name="nomDomaine" type="java.lang.String">
             <column name="NOMDOMAINE" />
         </property>

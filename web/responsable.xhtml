@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            tfoot{
+                text-align: center;
+            }
+            thead{
+                color: black;
+            }
+            td{
+                font-weight: bold;
+            }
+            .sms{
+                font-size: small;
+                color: green;
+            }
+        </style>
+     <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background :#FAF7F9;" >
+        <p:submenu label="SG Taches" icon="icon/icon-accueil.png">
+            
+             
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Inscription" icon="ui-icon-pencil">
+            <p:menuitem value="Etudiant" url="etudiant.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="inscrire_prof.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+         <p:submenu label="Document" icon="ui-icon-pencil">
+            <p:menuitem value="Attestation" url="Attestation.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Releves de Notes" url=" " icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Paiement" icon="ui-icon-gear">
+        
+          
+             
+        </p:submenu>
+</p:menubar>
+</h:form>
+
+   </h:head>
+    <h:body>
+       <h:form>
+           <p:panel id="panel" header="Formulaire Responsable" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:0px; margin-left: 300px; width: 900px">
+                
+            <h:panelGrid columns="2" cellpadding="5">
+               <p:outputLabel value="Nom:"/>
+               <p:inputText value="#{responsableBean.nom}"   id="ensnom" size="40"/>
+                
+                <p:outputLabel value="Prenom:"/>
+                <p:inputText  value="#{responsableBean.prenom}" id="ensprenom" size="40"/>
+                
+            
+                <p:outputLabel value="Adresse:"/>
+                <p:inputText value="#{responsableBean.adresse}"  id="ensAdresse" size="40"/>
+                
+          
+                
+                <p:outputLabel value="Telephone:"/>
+                <p:inputText  value="#{responsableBean.telephone}" id="enstelephone" size="40"/>
+                
+               
+                
+                <p:outputLabel value="Email:"/>
+                <p:inputText  value="#{responsableBean.email}" id="ensEmail" size="40"/>
+                
+              
+            </h:panelGrid>
+                 
+                <f:facet name="footer">
+                    <h:outputLabel   id="sms" styleClass="sms"/>
+                    <p:commandButton value="Save"  action="#{responsableBean.ajouterUser()}"  icon="ui-icon-check"  style=" background-color: blue">
+                <!--    <f:ajax render="ensnom ensprenom ensdate ensmatrimonial enstelephone sms" execute="@form"/> -->
+                    </p:commandButton>
+                    <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
+                </f:facet>
+           </p:panel>
+        </h:form>    
+        <br />
+        <h:link outcome="Admin" value="Primefaces welcome page" />
+    </h:body>
+</html>
+

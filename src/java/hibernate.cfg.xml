@@ -9,8 +9,8 @@
     <property name="hibernate.connection.password">Fouta798</property>
     
      <property name="show_sql">true</property>
-  <!--   -->
-     <property name="hibernate.hbm2ddl.auto">create</property> 
+     
+  <!--   <property name="hibernate.hbm2ddl.auto">create</property> -->
     
        <mapping resource="org/sid/entite/Semestre.hbm.xml"/>
          <mapping resource="org/sid/entite/Absence.hbm.xml"/>

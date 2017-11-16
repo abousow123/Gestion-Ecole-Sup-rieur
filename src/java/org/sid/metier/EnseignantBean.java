@@ -219,7 +219,7 @@ public class EnseignantBean implements Serializable{
         user.setCodeutilisateur("700");
         user.setNom(nom);
         user.setPrenom(prenom);
-        
+        user.setNationalite(nationalite);
      
         user.setTelephone(telephone);
         user.setAdresse(adresse);
@@ -240,8 +240,10 @@ public class EnseignantBean implements Serializable{
             ens.setUtilisateur(user);
             ensDao.addEnseignant(ens);
                     }
+         effacerAll();
+        
         this.sms= "Enseignant ajouter avec succes!";
-        effacerAll();
+       
     }
     
      public void modifierUsers(String code) {
