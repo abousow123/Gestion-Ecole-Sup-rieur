@@ -7,12 +7,14 @@ import org.sid.dao.AdministrateurDao;
 import org.sid.dao.ClasseDao;
 import org.sid.dao.EnseignantDao;
 import org.sid.dao.EtudiantDao;
+import org.sid.dao.FiliereDao;
 import org.sid.dao.NiveauDao;
 import org.sid.dao.UeDao;
 import org.sid.dao.UtilisateurDao;
 import org.sid.entite.Administrateur;
 import org.sid.entite.Classe;
 import org.sid.entite.Etudiant;
+import org.sid.entite.Filiere;
 import org.sid.entite.Niveau;
 import org.sid.entite.Semestre;
 import org.sid.entite.Ue;
@@ -37,9 +39,9 @@ public class Test {
                           
 //
 		//Utilisateur utilisateur = new Utilisateur("sow", "abou","marier", "775822453", "fdfg", "fgj", "bvbf", "dfdf", "dfd","dfd", "gfdf");
-                EtudiantBean etudiantBean = new EtudiantBean("Sow", "Omar", "12/01/2001", "dakar", "785325", "sds", "sdc", "Licence 1", "f1");
+               // EtudiantBean etudiantBean = new EtudiantBean("Sow", "Omar", "12/01/2001", "dakar", "785325", "sds", "sdc", "Licence 1", "f1");
                 
-                etudiantBean.ajouterUser();
+              //  etudiantBean.ajouterUser();
                 
 //
 //		ad.addAdministrateur(new Administrateur(utilisateur));
@@ -64,12 +66,23 @@ public class Test {
            
           //  System.out.println(c.getCodeclasse());
             
-          /* EtudiantBean dao = new EtudiantBean();
-           ArrayList<Etudiant>  es = (ArrayList<Etudiant>) dao.AllEtudiantClasse("sbd2" );
+         // EtudiantDao dap = new EtudiantDao();
+           EtudiantBean dao = new EtudiantBean();
+           
+            FiliereDao fd = new FiliereDao() ;
+            Filiere f =  fd.getFiliere("f1") ;
+            
+            ClasseDao cd = new ClasseDao();
+            Classe c = cd.getClasse("Licence 1");
+           
+            dao.setCodeClasse(c.getCodeclasse());
+            dao.setF(f.getCodefiliere());
+            
+           ArrayList<Etudiant>  es =  (ArrayList<Etudiant>) dao.AllEtudiantClasse() ;
            
            for(int i = 0;i<es.size();i++){
-               System.out.println(es.get(i).getUtilisateur().getNom());
-           }*/
+               System.out.println(es.get(i).getUtilisateur().getNom()+" "+es.get(i).getUtilisateur().getPrenom());
+           }
            
            //dao.ajouterUser();
             

@@ -83,14 +83,15 @@ public class EtudiantDao implements IEtudiantDao{
     }
 
     @Override
-    public List<Etudiant> listEtudiantsClasse(String classe) {
+    public List<Etudiant> listEtudiantsClasse(String classe,String f) {
           List<Etudiant> etu = new ArrayList<>();
 	        Transaction trns = null;
 	        Session session = HibernateUtil.getSessionFactory().openSession();
 	        try {
 	            trns = session.beginTransaction();
-                    Query q = session.createQuery("select m from Etudiant m where m.classe.codeclasse=:x") ;
+                    Query q = session.createQuery("select m from Etudiant m where m.classe.codeclasse=:x and m.filiere.codefiliere=:y") ;
                     q.setParameter("x",classe) ;
+                    q.setParameter("y",f) ;
 	            etu = q.list();
 	        } catch (RuntimeException e) {
 	            e.printStackTrace();

@@ -6,9 +6,14 @@
 package org.sid.metier ;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.RowEditEvent;
 import org.sid.dao.ClasseDao;
 import org.springframework.context.ApplicationContext;
 import org.sid.dao.EtudiantDao;
@@ -42,6 +47,28 @@ public class EtudiantBean implements Serializable{
      private String codeClasse ;
      private Filiere filiere;
      private String f ;
+    
+    private Map<String,String> map  ;
+    private Map<String,String> fili  ;
+
+    
+    
+    public EtudiantBean(){
+        map = new LinkedHashMap<>() ;
+        fili = new LinkedHashMap<>() ;
+        
+        map.put("Licence 1", "Licence 1");
+        map.put("Licence 2", "Licence 2");
+        map.put("Licence 3", "Licence 3");
+        map.put("Master 1", "Master 1");
+        map.put("Master 2", "Master 2");
+        
+        fili.put("Information", "Information");
+        fili.put("Genie Civil", "Genie Civil");
+        fili.put("Management et gestion", "Management et gestion");
+        
+        
+    }
 
     public Filiere getFiliere() {
         return filiere;
@@ -58,6 +85,24 @@ public class EtudiantBean implements Serializable{
     public void setF(String f) {
         this.f = f;
     }
+
+    public Map<String, String> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, String> map) {
+        this.map = map;
+    }
+
+    public Map<String, String> getFili() {
+        return fili;
+    }
+
+    public void setFili(Map<String, String> fili) {
+        this.fili = fili;
+    }
+    
+    
 
     public String getNationalite() {
         return nationalite;
@@ -163,8 +208,8 @@ public class EtudiantBean implements Serializable{
     
     String context = ApplicationContext.FACTORY_BEAN_PREFIX ;
 
-    public EtudiantBean() {
-    }
+//    public EtudiantBean() {
+//    }
 
 	
     public EtudiantBean(String codeutilisateur) {
@@ -274,8 +319,13 @@ public class EtudiantBean implements Serializable{
     
     public List<Etudiant> AllEtudiantClasse(){
         
-        return etuDao.listEtudiantsClasse(codeClasse) ;
+        return etuDao.listEtudiantsClasse(codeClasse,f) ;
     }   
+    
+    public List<Utilisateur> all(){
+        UtilisateurBean bean = new UtilisateurBean();
+        return bean.getAllUsers() ;
+    }
     
     public Utilisateur getEtudiant(){
         return etuDao.getEtudiant(codeutilisateur) ;
@@ -300,7 +350,6 @@ public class EtudiantBean implements Serializable{
         etudiant.setClasse(classe);
        
        
-        
         etuDao.modifierEtudiant(user,etudiant,codeutilisateur);
     }
 //    public Etudiant oneEtudiant(String code){
@@ -318,6 +367,33 @@ public class EtudiantBean implements Serializable{
         
         this.email = "";
         
+    }
+    
+     public void supprimerEtudiant(){
+         etuDao.supprimerEtudiant(codeutilisateur);
+     }
+    
+    private void addChamp(){
+        this.setNom(this.getNom());
+        this.setPrenom(this.getPrenom());
+        this.setAdresse(this.getAdresse());
+    }
+    
+     public void onRowEdit(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("L'utilisateur modifié ","Numero: "+ ((Etudiant) event.getObject()).getCodeutilisateur());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        Etudiant etudiant = new Etudiant() ;
+        etudiant.setUtilisateur(((Etudiant) event.getObject()).getUtilisateur());
+        etudiant.setCodeutilisateur(etudiant.getUtilisateur().getCodeutilisateur());
+        etudiant.setResponsableclasse(((Etudiant) event.getObject()).getResponsableclasse());
+        modifierEtudiant(); 
+        AllEtudiantClasse();
+
+    }
+     
+       public void onRowCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Modification annulle", "Numero: "+((Etudiant) event.getObject()).getCodeutilisateur());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
 }

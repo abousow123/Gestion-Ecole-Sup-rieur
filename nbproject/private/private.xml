@@ -5,20 +5,25 @@
         <group>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Filiere.hbm.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/responsable.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Ec.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Admin.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etablissement.hbm.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Evaluer.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/IFactureDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/IFiliereDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Responsable.hbm.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Tableau_de_maquettes.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etablissement.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etudiant.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Dossier.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/liste.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Filiere.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Classe.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/EvaluerId.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/hibernate.cfg.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Attestation.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/paiement.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/EmploisDuTemps.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/ResponsableBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Responsable.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Classe.hbm.xml</file>

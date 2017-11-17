@@ -15,7 +15,7 @@ public interface IEtudiantDao {
     public boolean addEtudiant(Etudiant etudiant);
     public void modifierEtudiant(Utilisateur ens,Etudiant et, String code);
     //public void supprimerEtudiant(String code);
-    public List<Etudiant> listEtudiantsClasse(String classe) ;
+    public List<Etudiant> listEtudiantsClasse(String classe,String f) ;
     public Utilisateur  getEtudiant(String code) ;
     Etudiant getEtudiantE(String code) ;
     

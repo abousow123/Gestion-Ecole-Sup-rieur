@@ -53,8 +53,9 @@ public class PaiementBean implements Serializable{
           EtudiantDao ed = new EtudiantDao() ;
           paiement.setCodepaiement("Paie1");
           paiement.setCouverture(couverture);
-          paiement.setMontant(montant);
-          paiement.setNb_mois(nbmois);
+          
+          paiement.setMontant(Double.parseDouble(montant));
+          paiement.setNb_mois(Integer.parseInt(nbmois));
            
           datePaiement = new Date().toString() ;
           paiement.setDatePaiement(datePaiement);

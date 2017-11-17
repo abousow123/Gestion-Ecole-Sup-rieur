@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Liste des Etudiants</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+    <p:growl id="msgs" showDetail="true" />
+ 
+        <p:dataTable id="datalist"
+                     value="#{etudiantBean.all()}"
+                         var="item"
+                         rowKey="#{item.codeutilisateur}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                          style=" font-size: 13px "
+                          selectionMode="single"
+                          selection="#{etudiantBean.etudiant}"
+                         editable="true"
+                         
+                         >
+                <!--
+                         To enable Lazy Loading, please copy/replace the following lines above,
+                         and be sure to replace the word HASH with the # symbol:
+                
+                         value="HASH{administrateurController.lazyItems}"
+                         lazy="true"
+                         rowKey="HASH{item.numUtilisateur}"  <<< Remove this line
+                -->
+                <p:ajax event="rowEdit" listener="#{etudiantBean.onRowEdit}" update=":form:msgs" />
+                <p:ajax event="rowEditCancel" listener="#{etudiantBean.onRowCancel}" update=":form:msgs" />
+       <p:column headerText="code utilisateur">
+           <h:outputText value="#{etudiantBean.codeutilisateur}"/>
+                </p:column>
+
+
+                <p:column headerText="Prenom">
+                    
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.prenom}"/></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{item.utilisateur.prenom}" /></f:facet>
+                    </p:cellEditor>               
+                </p:column>
+                
+                <p:column headerText="nom">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.nom}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.nom}" /></f:facet>
+                    </p:cellEditor> 
+                </p:column>
+
+
+                <p:column headerText="date de naissance">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.datedenaissance}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.datedenaissance}"  /></f:facet>
+                    </p:cellEditor> 
+                </p:column>
+                
+                <p:column  headerText="Telephone">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.telephone}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.telephone}"  /></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+
+                <p:column headerText="adresse">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.adresse}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.adresse}"  /></f:facet>
+                    </p:cellEditor>
+                </p:column>
+               
+                <p:column headerText="Email">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.email}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.email}"  /></f:facet>
+                    </p:cellEditor>
+                </p:column>
+             
+                
+               
+                
+                  
+                
+                <p:column style="width:32px;text-align: center">
+                    <f:facet name="header">
+                        <h:outputText value="Detail"/>
+                    </f:facet>
+             <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search" title="View">
+                 <f:setPropertyActionListener value="#{item}" target="#{item.utilisateur}" />
+            </p:commandButton>
+        </p:column>
+                 
+                <p:column style="width:50px">
+                    <f:facet name="header">
+                        <h:outputText value="Modifier"/>
+                    </f:facet>
+           <p:rowEditor />
+       </p:column>
+        <p:column style="width:32px;text-align: center">
+           <f:facet name="header">
+                 <h:outputText value="Supprimer"/>
+            </f:facet>
+            <p:commandButton   icon="ui-icon-trash" actionListener="#{etudiantBean.supprimerEtudiant()}" update=":form:msgs">
+                <f:setPropertyActionListener value="#{item}" target="#{etudiantBean.etudiant}" />
+                <p:confirm  header="Confirmation" message="Etes vous sûre?" icon="ui-icon-alert" />
+           </p:commandButton>
+        </p:column>
+               <!-- <p:column style="width:2px;text-align: center">
+                    <f:facet name="header">
+                        <h:outputText value="Supprimer"/>
+                    </f:facet>
+                    <p:commandButton id="deleteButton"  icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{enseignantBean.deleteEnseignant()}"  >
+                 <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+               </p:column> -->
+                            </p:dataTable>
+
+<p:dialog header="Info detaillee" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="carDetail" style="text-align:center;">
+            <p:panelGrid  columns="2" rendered="#{not empty etudiantBean.etudiant}" columnClasses="label,value">
+                
+                <h:outputText value="CodeUtilisateur:" />
+                <h:outputText value="#{etudiantBean.codeutilisateur}" />
+ 
+                <h:outputText value="Prenom:" />
+                <h:outputText value="#{etudiantBean.prenom}" />
+ 
+                <h:outputText value="Nom:" />
+                <h:outputText value="#{etudiantBean.nom}" />
+ 
+                <h:outputText value="Telephone:" />
+                <h:outputText value="#{etudiantBean.etudiant.telephone}" />
+                
+                <h:outputText value="Date de naissance:" />
+                <h:outputText value="#{etudiantBean.etudiant.datedenaissance}" />
+ 
+                <h:outputText value="Adresse:" />
+                <h:outputText value="#{etudiantBean.adresse}" />
+ 
+               
+                
+                <h:outputText value="Email:" />
+                <h:outputText value="#{etudiantBean.email}" />
+ 
+              
+                
+               
+ 
+                
+                
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog> 
+    <p:confirmDialog  rendered="#{not empty etudiantBean.etudiant}" global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Oui" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" actionListener="#{etudiantBean.supprimerEtudiant()}" update=":form:msgs"/>
+        <p:commandButton value="Non" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
+    </h:form>
+    </h:body>
+</html>
+

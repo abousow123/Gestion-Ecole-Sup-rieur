@@ -12,8 +12,8 @@ public class Paiement  implements java.io.Serializable {
 
      private String codepaiement;
      private Etudiant etudiant;
-     private String montant ;
-     private String nbmois ;
+     private double montant ;
+     private int nbmois ;
      private String couverture;
      private String scolarite;
      private String typedepaiement;
@@ -21,11 +21,11 @@ public class Paiement  implements java.io.Serializable {
      private String annee;
      private Set<Facture> factures = new HashSet<Facture>(0);
 
-    public String getNbmois() {
+    public int getNbmois() {
         return nbmois;
     }
 
-    public void setNbmois(String nbmois) {
+    public void setNbmois(int nbmois) {
         this.nbmois = nbmois;
     }
 
@@ -107,19 +107,19 @@ public class Paiement  implements java.io.Serializable {
         this.factures = factures;
     }
 
-    public String getMontant() {
+    public double getMontant() {
         return montant;
     }
 
-    public void setMontant(String montant) {
+    public void setMontant(double montant) {
         this.montant = montant;
     }
 
-    public String getNb_mois() {
+    public int getNb_mois() {
         return nbmois;
     }
 
-    public void setNb_mois(String nb_mois) {
+    public void setNb_mois(int nb_mois) {
         this.nbmois = nb_mois;
     }
 
