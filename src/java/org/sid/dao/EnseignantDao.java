@@ -85,13 +85,14 @@ public class EnseignantDao implements IEnseignantDao {
     }
 
     @Override
-    public List<Utilisateur> listeUsers() {
-        List<Utilisateur> users = new ArrayList<Utilisateur>();
+    public List<Enseignant> listsEnseignant() {
+        List<Enseignant> users = new ArrayList<>();
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            users = session.createQuery("select * from Utilisateur").list();
+            Query q = session.createQuery("select e from Enseignant e");
+            users = q.list() ;
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {

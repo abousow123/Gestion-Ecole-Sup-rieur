@@ -11,7 +11,7 @@ public class Etablissement  implements java.io.Serializable {
 
 
      private String codeetablissement;
-     private Responsable responsable;
+     private Enseignant responsable;
      private String libelleEtablissemant;
      private Set<Domaine> domaines = new HashSet<Domaine>(0);
 
@@ -19,11 +19,11 @@ public class Etablissement  implements java.io.Serializable {
     }
 
 	
-    public Etablissement(String codeetablissement, Responsable responsable) {
+    public Etablissement(String codeetablissement, Enseignant responsable) {
         this.codeetablissement = codeetablissement;
         this.responsable = responsable;
     }
-    public Etablissement(String codeetablissement, Responsable responsable, String libelleEtablissemant, Set<Domaine> domaines) {
+    public Etablissement(String codeetablissement, Enseignant responsable, String libelleEtablissemant, Set<Domaine> domaines) {
        this.codeetablissement = codeetablissement;
        this.responsable = responsable;
        this.libelleEtablissemant = libelleEtablissemant;
@@ -37,11 +37,11 @@ public class Etablissement  implements java.io.Serializable {
     public void setCodeetablissement(String codeetablissement) {
         this.codeetablissement = codeetablissement;
     }
-    public Responsable getResponsable() {
+    public Enseignant getResponsable() {
         return this.responsable;
     }
     
-    public void setResponsable(Responsable responsable) {
+    public void setResponsable(Enseignant responsable) {
         this.responsable = responsable;
     }
     public String getLibelleEtablissemant() {

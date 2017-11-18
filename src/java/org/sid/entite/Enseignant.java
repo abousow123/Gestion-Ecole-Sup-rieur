@@ -11,6 +11,8 @@ public class Enseignant  implements java.io.Serializable {
      private Utilisateur utilisateur;
      private String grade;
      private String status;
+     
+      private Set<Etablissement> etablissements = new HashSet<Etablissement>(0);
      private Set<Cours> courses = new HashSet<Cours>(0);
      private EnseignantResponsable enseignantResponsable;
 
@@ -39,6 +41,17 @@ public class Enseignant  implements java.io.Serializable {
     public Utilisateur getUtilisateur() {
         return this.utilisateur;
     }
+
+    public Set<Etablissement> getEtablissements() {
+        return etablissements;
+    }
+
+    public void setEtablissements(Set<Etablissement> etablissements) {
+        this.etablissements = etablissements;
+    }
+
+    
+    
     
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;

@@ -14,11 +14,11 @@
             <column name="codeutilisateur" length="254" not-null="false" />
         </many-to-one>
         
-        <property name="nbmois" type="java.lang.String">
+        <property name="nbmois" type="int">
             <column name="NBMOIS" />
         </property>
         
-        <property name="montant" type="java.lang.String">
+        <property name="montant" type="double">
             <column name="MONTANT" />
         </property>
         
@@ -31,10 +31,10 @@
         <property name="typedepaiement" type="java.lang.String">
             <column name="TYPEDEPAIEMENT" />
         </property>
-        <property name="datePaiement" type="java.lang.String">
+        <property name="datePaiement" type="java.util.Date">
             <column name="DATEPAIEMENT" />
         </property>
-        <property name="annee" type="java.lang.String">
+        <property name="annee" type="java.util.Date">
             <column name="ANNEE" />
         </property>
         <set name="factures" table="FACTURE" inverse="false" lazy="true">

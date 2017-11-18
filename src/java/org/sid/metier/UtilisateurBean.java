@@ -5,10 +5,14 @@ package org.sid.metier;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.sid.dao.EnseignantDao;
+import org.sid.dao.SecretaireDao;
 import org.sid.dao.UtilisateurDao;
 import org.sid.entite.Administrateur;
 import org.sid.entite.Comptable;
@@ -39,6 +43,19 @@ public class UtilisateurBean implements Serializable{
      private String nationalite;
      
      private String email;
+     
+     private Map<String,String> map  ;
+    
+     
+     
+     
+     
+    
+     
+     
+     
+     
+     
     
      private String login;
      private String password;
@@ -50,6 +67,7 @@ public class UtilisateurBean implements Serializable{
      private Comptable comptable;
      private Enseignant enseignant;
      private String sms,selection;
+     private String choix ;
 
     public String getSms() {
         return sms;
@@ -58,6 +76,16 @@ public class UtilisateurBean implements Serializable{
     public void setSms(String sms) {
         this.sms = sms;
     }
+
+    public String getChoix() {
+        return choix;
+    }
+
+    public void setChoix(String choix) {
+        this.choix = choix;
+    }
+    
+    
 
     public String getSelection() {
         return selection;
@@ -74,6 +102,14 @@ public class UtilisateurBean implements Serializable{
 //	}
 
     public UtilisateurBean() {
+         map = new LinkedHashMap<>() ;
+        
+        
+        map.put("Professeur", "Professeur");
+        map.put("Secretaire", "Secretaire");
+       
+        
+      
     }
 
 	
@@ -216,8 +252,92 @@ public class UtilisateurBean implements Serializable{
     public void setLieudenaissance(String lieudenaissance) {
         this.lieudenaissance = lieudenaissance;
     }
+
+    public Map<String, String> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, String> map) {
+        this.map = map;
+    }
+
+   
+    
+    boolean verifProf(){
+        
+         EnseignantDao dao = new EnseignantDao() ;
+            for(int i=0;i<dao.listsEnseignant().size();i++){
+                if(login.equalsIgnoreCase(dao.listsEnseignant().get(i).getUtilisateur().getLogin()) &&
+                        codeutilisateur.equalsIgnoreCase(dao.listsEnseignant().get(i).getCodeutilisateur())){
+                    
+                    return true;
+                    
+                    
+                }
+               
+            }
+        
+        
+        return  false ;
+    }
+    
+     boolean verifSecr(){
+        
+        SecretaireDao dao = new SecretaireDao() ;
+            for(int i=0;i<dao.listsSecretaire().size();i++){
+                if(login.equalsIgnoreCase(dao.listsSecretaire().get(i).getUtilisateur().getLogin()) &&
+                        codeutilisateur.equalsIgnoreCase(dao.listsSecretaire().get(i).getCodeutilisateur())){
+                    
+                    return true;
+                    
+                    
+                }
+               
+            }
+        
+        
+        return  false ;
+    }
     
     
+    
+    public String authentification(){
+        
+        
+        
+        if(getChoix().equalsIgnoreCase("Professeur")){
+            
+                if(verifProf()) return "etudiant.xhtml" ;      
+            
+        }
+        
+        if(getChoix().equalsIgnoreCase("Secretaire")){
+           // if(verifSecr())
+                return "Layout.xhtml" ;
+            
+            
+        }
+        
+        return "" ;
+    }
+    
+    
+    
+    
+    public String gotoPageSg(){
+        
+        return "Sgpage.xhtml";
+  
+    }
+    
+    
+    
+    
+    public static String gotoPageProf(){
+        
+   
+        return "Layout.xhtml";
+    }
     
     
 

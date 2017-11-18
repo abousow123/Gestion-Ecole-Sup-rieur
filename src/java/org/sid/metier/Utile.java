@@ -3,15 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vues;
+package org.sid.metier;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import org.primefaces.model.DefaultScheduleEvent;
 
 /**
  *
  * @author sowb
  */
-public class ListeEtudiants {
-    private String choixSg="secretaire";
-    private String choixProf="Professeur";
+@ManagedBean
+@SessionScoped
+public class Utile extends DefaultScheduleEvent{
+     private String choixSg="secretaire";
+    private String choixProf="Professe";
+    
+    public Utile(){
+        super();
+    }
+    
 
     public String getChoixSg() {
         return choixSg;

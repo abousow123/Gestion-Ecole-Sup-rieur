@@ -214,6 +214,9 @@ public class AdministrateurBean implements Serializable{
         effacerAll();
     }
 
+    
+    
+    
     private void effacerAll() {
          this.nom = "";
         this.prenom = "";

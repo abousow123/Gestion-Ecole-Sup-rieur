@@ -12,7 +12,7 @@
     <p:growl id="msgs" showDetail="true" />
  
         <p:dataTable id="datalist"
-                     value="#{etudiantBean.all()}"
+                     value="#{etudiantBean.all}"
                          var="item"
                          rowKey="#{item.codeutilisateur}"
                          paginator="true"
@@ -20,7 +20,7 @@
                          rowsPerPageTemplate="10,20,30,40,50"
                           style=" font-size: 13px "
                           selectionMode="single"
-                          selection="#{etudiantBean.etudiant}"
+                          selection="#{etudiantBean.codeutilisateur}"
                          editable="true"
                          
                          >
@@ -42,15 +42,15 @@
                 <p:column headerText="Prenom">
                     
                     <p:cellEditor>
-                        <f:facet name="output"><h:outputText value="#{item.utilisateur.prenom}"/></f:facet>
-                        <f:facet name="input"><p:inputText  value="#{item.utilisateur.prenom}" /></f:facet>
+                        <f:facet name="output"><h:outputText value="#{item.prenom}"/></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{item.prenom}" /></f:facet>
                     </p:cellEditor>               
                 </p:column>
                 
                 <p:column headerText="nom">
                     <p:cellEditor>
-                        <f:facet name="output"><h:outputText value="#{item.utilisateur.nom}"/></f:facet>
-                        <f:facet name="input"><p:inputText value="#{item.utilisateur.nom}" /></f:facet>
+                        <f:facet name="output"><h:outputText value="#{item.nom}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.nom}" /></f:facet>
                     </p:cellEditor> 
                 </p:column>
 

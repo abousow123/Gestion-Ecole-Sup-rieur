@@ -226,9 +226,9 @@ public class EnseignantBean implements Serializable{
         
        
         user.setEmail(email);
-      
-        user.setLogin(login);
-        user.setPassword(password);
+        
+        user.setLogin(nom+prenom+"@ucad.com");
+        
         if(userDao.addUtilisateur(user)){
            // Enseignant ens=(Enseignant) factory.getBean("enseignant");
             

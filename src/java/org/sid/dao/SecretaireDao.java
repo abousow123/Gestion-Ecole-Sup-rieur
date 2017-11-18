@@ -1,7 +1,11 @@
 package org.sid.dao ;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.sid.entite.Enseignant;
 import org.sid.entite.Secretaire;
 import org.sid.util.HibernateUtil;
 
@@ -69,6 +73,25 @@ public class SecretaireDao implements ISecretaireDao{
             session.flush();
             session.close();
         }
+    }
+    
+    
+     @Override
+    public List<Secretaire> listsSecretaire() {
+        List<Secretaire> users = new ArrayList<>();
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            Query q = session.createQuery("select e from Secretaire e");
+            users = q.list() ;
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+        return users;
     }
     
 }

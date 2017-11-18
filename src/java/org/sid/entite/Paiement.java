@@ -1,6 +1,7 @@
 package org.sid.entite ;
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public class Paiement  implements java.io.Serializable {
      private String couverture;
      private String scolarite;
      private String typedepaiement;
-     private String datePaiement;
+     private Date datePaiement;
      private String annee;
      private Set<Facture> factures = new HashSet<Facture>(0);
 
@@ -37,7 +38,7 @@ public class Paiement  implements java.io.Serializable {
         this.codepaiement = codepaiement;
         
     }
-    public Paiement(String codepaiement, Etudiant etudiant, String couverture, String scolarite, String typedepaiement, String datePaiement, String annee, Set<Facture> factures) {
+    public Paiement(String codepaiement, Etudiant etudiant, String couverture, String scolarite, String typedepaiement, Date datePaiement, String annee, Set<Facture> factures) {
        this.codepaiement = codepaiement;
        this.etudiant = etudiant;
        
@@ -85,11 +86,11 @@ public class Paiement  implements java.io.Serializable {
     public void setTypedepaiement(String typedepaiement) {
         this.typedepaiement = typedepaiement;
     }
-    public String getDatePaiement() {
+    public Date getDatePaiement() {
         return this.datePaiement;
     }
     
-    public void setDatePaiement(String datePaiement) {
+    public void setDatePaiement(Date datePaiement) {
         this.datePaiement = datePaiement;
     }
     public String getAnnee() {

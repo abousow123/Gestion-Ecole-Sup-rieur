@@ -21,6 +21,13 @@
             </key>
             <one-to-many class="org.sid.entite.Cours" />
         </set>
+        
+         <set name="etablissements" table="ETABLISSEMENT" inverse="false" lazy="true">
+            <key>
+                <column name="CODEUTILISATEUR" />
+            </key>
+            <one-to-many class="org.sid.entite.Etablissement" />
+        </set>
         <one-to-one name="enseignantResponsable" class="org.sid.entite.EnseignantResponsable"></one-to-one>
     </class>
 </hibernate-mapping>

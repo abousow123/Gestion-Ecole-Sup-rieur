@@ -63,7 +63,7 @@ public class EtudiantBean implements Serializable{
         map.put("Master 1", "Master 1");
         map.put("Master 2", "Master 2");
         
-        fili.put("Information", "Information");
+        fili.put("Informatique", "Informatique");
         fili.put("Genie Civil", "Genie Civil");
         fili.put("Management et gestion", "Management et gestion");
         
@@ -292,6 +292,7 @@ public class EtudiantBean implements Serializable{
         user.setTelephone(telephone);
         user.setAdresse(adresse);
         user.setNationalite(nationalite);
+        user.setLogin(nom+prenom+"@ucad.com");
         user.setEmail(email);
         if(userDao.addUtilisateur(user)){
            // Etudiant etu=(Etudiant) factory.getBean("etudiant");

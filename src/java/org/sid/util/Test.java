@@ -22,6 +22,7 @@ import org.sid.entite.Utilisateur;
 import org.sid.metier.AdministrateurBean;
 import org.sid.metier.ClasseBean;
 import org.sid.metier.EtudiantBean;
+import vues.ImagesView;
 
 public class Test {
 
@@ -67,7 +68,7 @@ public class Test {
           //  System.out.println(c.getCodeclasse());
             
          // EtudiantDao dap = new EtudiantDao();
-           EtudiantBean dao = new EtudiantBean();
+        /*   EtudiantBean dao = new EtudiantBean();
            
             FiliereDao fd = new FiliereDao() ;
             Filiere f =  fd.getFiliere("f1") ;
@@ -82,7 +83,7 @@ public class Test {
            
            for(int i = 0;i<es.size();i++){
                System.out.println(es.get(i).getUtilisateur().getNom()+" "+es.get(i).getUtilisateur().getPrenom());
-           }
+           }*/
            
            //dao.ajouterUser();
             
@@ -95,7 +96,12 @@ public class Test {
           //  dao.ajouterUser();
          
          // dao1.supprimerEtudiant("3001") ;
-          //  System.out.println("hello: ");
+            
+            EnseignantDao dao = new EnseignantDao() ;
+            for(int i=0;i<dao.listsEnseignant().size();i++){
+                System.out.println(dao.listsEnseignant().get(i).getGrade());
+            }
+            
           
           //ClasseBean bean =new ClasseBean("M1", "dfdf", 25, "df") ;
          // bean.ajoutClasse();

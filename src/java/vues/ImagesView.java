@@ -13,6 +13,30 @@ public class ImagesView {
     private List <String> filieres;
     
     
+    
+    
+     private String choixSg="secretaire";
+    private String choixProf="Professeur";
+
+    public String getChoixSg() {
+        return choixSg;
+    }
+
+    public void setChoixSg(String choixSg) {
+        this.choixSg = choixSg;
+    }
+
+    public String getChoixProf() {
+        return choixProf;
+    }
+
+    public void setChoixProf(String choixProf) {
+        this.choixProf = choixProf;
+    }
+    
+    
+    
+    
      
     @PostConstruct
     public void init() {

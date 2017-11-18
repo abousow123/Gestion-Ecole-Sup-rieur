@@ -6,46 +6,65 @@
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Filiere.hbm.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/responsable.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Ec.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/AdministrateurBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Admin.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etablissement.hbm.xml</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Evaluer.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/vues/ListeEtudiants.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/IFactureDao.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/IFiliereDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Responsable.hbm.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/DossierBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Tableau_de_maquettes.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etablissement.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etudiant.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Dossier.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/liste.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Filiere.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Classe.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/EvaluerId.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/hibernate.cfg.xml</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Attestation.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/listeEtudiant(1).xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/paiement.xhtml</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/EmploisDuTemps.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/ResponsableBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Responsable.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Classe.hbm.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Admin_1.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Facture.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/ResponsableDao.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/FiliereDao.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Enseignant.hbm.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Page1.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/EtudiantDao.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Domaine.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Secretaire.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Layout.xhtml</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/EtudiantBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/FiliereBean.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Cours.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/EnseignantBean.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/util/Test.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Sgpage.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Utilisateur.hbm.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/EnseignantDao.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Enseignant.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/SecretaireBean.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Paiement.hbm.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Evaluer.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/IFiliereDao.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Paiement.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Etudiant.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Dossier.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/liste.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Classe.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/hibernate.cfg.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/util/Increment.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/UtilisateurBean.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Attestation.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/EmploisDuTemps.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/ResponsableDao.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/FiliereDao.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/vues/ImagesView.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Domaine.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/EcDao.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/EtudiantBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/etudiant.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/inscrire_prof.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/PaiementBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/EnseignantResponsable.hbm.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Utilisateur.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/util/Test.java</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Sgpage.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/Utile.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Domaine.hbm.xml</file>
-            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Utilisateur.hbm.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/IEnseignantDao.java</file>
         </group>
     </open-files>
 </project-private>

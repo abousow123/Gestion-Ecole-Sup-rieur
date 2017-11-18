@@ -29,14 +29,14 @@ public class SecretaireBean implements Serializable{
      private String nom;
      private String prenom;
      private String datedenaissance;
+     private String lieudenaissance;
      private String situationMatrimonial;
      private String telephone;
      private String adresse;
-     private String ville;
-     private String pays;
+     private String nationalite ;
+     
      private String email;
-     private Integer boitePostale;
-     private String cin;
+     
      private String login;
      private String password;
      private String sms;
@@ -120,21 +120,8 @@ public class SecretaireBean implements Serializable{
         this.adresse = adresse;
     }
 
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getPays() {
-        return pays;
-    }
-
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
+   
+    
 
     public String getEmail() {
         return email;
@@ -144,21 +131,7 @@ public class SecretaireBean implements Serializable{
         this.email = email;
     }
 
-    public Integer getBoitePostale() {
-        return boitePostale;
-    }
-
-    public void setBoitePostale(Integer boitePostale) {
-        this.boitePostale = boitePostale;
-    }
-
-    public String getCin() {
-        return cin;
-    }
-
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
+    
 
     public String getLogin() {
         return login;
@@ -174,6 +147,22 @@ public class SecretaireBean implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getLieudenaissance() {
+        return lieudenaissance;
+    }
+
+    public void setLieudenaissance(String lieudenaissance) {
+        this.lieudenaissance = lieudenaissance;
+    }
+
+    public String getNationalite() {
+        return nationalite;
+    }
+
+    public void setNationalite(String nationalite) {
+        this.nationalite = nationalite;
     }
     
     
@@ -192,8 +181,9 @@ public class SecretaireBean implements Serializable{
         
         user.setEmail(email);
        
-        user.setLogin(login);
-        user.setPassword(password);
+        user.setLogin(nom+prenom+"@ucad.com");
+        user.setNationalite(nationalite);
+        user.setLieudenaissance(lieudenaissance);
         if(userDao.addUtilisateur(user)){
            // Secretaire secret=(Secretaire) factory.getBean("secretaire");
         	Secretaire secret = new Secretaire() ;
@@ -213,11 +203,11 @@ public class SecretaireBean implements Serializable{
         this.situationMatrimonial = "";
         this.telephone = "";
         this.adresse = "";
-        this.ville = "";
-        this.pays = "";
+        
+        
         this.email = "";
-        this.boitePostale = 0;
-        this.cin = "";
+       
+        
         this.login = "";
         this.password = "";
     }

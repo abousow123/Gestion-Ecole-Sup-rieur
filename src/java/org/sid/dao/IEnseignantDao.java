@@ -13,7 +13,7 @@ public interface IEnseignantDao {
     public boolean addEnseignant(Enseignant ens);
     public void modifierEnseignant(Utilisateur ens,Enseignant en,String code);
     public void supprimerEnseignant(String code);
-    public List<Utilisateur> listeUsers();
+    public List<Enseignant> listsEnseignant() ;
     public Utilisateur selectionUsersByCall(String telephone);
     public Utilisateur selectionUsers(String selection);
 }
