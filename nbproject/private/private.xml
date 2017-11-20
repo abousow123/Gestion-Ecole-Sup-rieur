@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/responsable.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/EnseignantDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Enseignant.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/SecretaireBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Layout1.xhtml</file>
@@ -17,21 +18,29 @@
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/vues/FileDownloadView.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/listeEtudiant(1).xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/UtilisateurBean.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Layout11.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Attestation.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/WEB-INF/web.xml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/paiement.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/formations.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/SecretaireDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/formulaireEtudiant1.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/WEB-INF/applicationContext.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Admin_1.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/UtilisateurDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/META-INF/context.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/vues/AttestationPDF.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/dao/EtudiantDao.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Secretaire.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/vues/Filedown.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/paiement_1.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Layout.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/EtudiantBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/entite/Semestre.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/welcomePrimefaces.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/etudiant.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/EnseignantBean.java</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/WEB-INF/dispatcher-servlet.xml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/metier/PaiementBean.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/inscrire_prof.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/adminprof.xhtml</file>
@@ -39,6 +48,7 @@
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/listeEnseignant.xhtml</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/org/sid/util/Test.java</file>
             <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/web/Sgpage.xhtml</file>
+            <file>file:/home/sowb/NetBeansProjects/GestionEcoleSupp/src/java/vues/File.java</file>
         </group>
     </open-files>
 </project-private>

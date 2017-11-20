@@ -9,7 +9,7 @@
 
 
 	<h:form >	
-    <p:growl id="messages"/>
+    <p:growl id="messages"/>   
 
     <p:menubar style="Background : #C9E7F0;" >
         <p:submenu label="Accueil" icon="icon/icon-accueil.png">
@@ -67,41 +67,28 @@
 	<br />
 	<br />
  
-	
-	<h:form> 
-    <p:dataScroller  value="#{imagesView.filieres}" var="car"  chunkSize="10">
-        <f:facet name="header">
-            NOS FILIERES
-        </f:facet>
+	<h:form id="form">           
+    <p:growl id="msgs" showDetail="true" />
  
-        <h:panelGrid columns="2" style="width:100%"  columnClasses="logo,detail">
-                     
-            <p:graphicImage value="images/#{image}"  /> 
+    <h3 style="margin-top:0">Basic</h3>
+    <p:accordionPanel>
+        <p:tab title="Mathematiques">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="images/inscrit.jpg" />
+                <h:outputText
+                    value=" Objectifs : Acquérir les méthodes permettant de maîtriser la conception et le développement d’architectures logicielles de qualité, en particulier les techniques de gestions de projets Agile et les outils de gestion du cycle de vie du logiciel." />
  
-            <p:outputPanel>
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputText value="Filiere:" />
-                    <h:outputText value=" #{car}" style="font-weight: bold"/>
+  <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
+    <p:graphicImage name="/demo/images/ajaxloadingbar.gif" />
+</p:dialog>
  
-                    <h:outputText value="Niveaux:" />
-                    <h:outputText value="L1-M2" style="font-weight: bold"/>
- 
-                    <h:outputText value="Maquettes" />
-                    <h:outputText value="Matieres Composantes et Metiers" style="font-weight: bold"/>
-                    
-   
-    
-     
+<h:form>
     <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
         <p:fileDownload value="#{fileDownloadView.file}" />
     </p:commandButton>
+</h:form>
  
-                </h:panelGrid>
-            </p:outputPanel>
-        </h:panelGrid>
-        </p:dataScroller>
-        </h:form>
-	<script type="text/javascript">
+<script type="text/javascript">
 function start() {
     PF('statusDialog').show();
 }
@@ -110,5 +97,69 @@ function stop() {
     PF('statusDialog').hide();
 }
 </script>
-</body>
+ 
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Informatique">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="images/inscrit.jpg" />
+                <h:outputText value="On parle plus généralement de la discipline mathématique que de formations à proprement parler. Pour étudier les mathématiques à un niveau supérieur et devenir un spécialiste en la matière, il existe néanmoins des formations de bac+2 à bac+6 qui enseignent les mathématiques pures et/ou appliquées à d’autres sciences comme la physique, la biologie, la chimie, l’informatique, l’astrophysique, les sciences de l’ingénieur ou encore les sciences humaines." />
+  <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
+    <p:graphicImage name="/demo/images/ajaxloadingbar.gif" />
+</p:dialog>
+ 
+<h:form>
+    <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+        <p:fileDownload value="#{file.file}" />
+    </p:commandButton>
+</h:form>
+ 
+<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
+ 
+ 
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Eau et Environnement">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="images/inscrit.jpg" />
+                <h:outputText value="Notre vision
+
+Un monde plus durable et solidaire où les principes d'un développement soutenable se traduisent par un environnement préservé où chacun puisse être respecté et acteur de son devenir.
+Notre mission
+
+Contribuer à préserver l'environnement, limiter les changements climatiques et leurs conséquences, réduire la précarité énergétique et améliorer les conditions de vie des populations. Le GERES propose des solutions énergétiques à la fois comme vecteur
+ de développement économique et social et comme alternative aux systèmes existants dommageables à l'environnement." />
+                
+                <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
+    <p:graphicImage name="/demo/images/ajaxloadingbar.gif" />
+</p:dialog>
+ 
+<h:form>
+    <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+        <p:fileDownload value="#{filedown.file}" />
+    </p:commandButton>
+</h:form>
+ 
+<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
+	</h:form>
+	  </body>
 </html>

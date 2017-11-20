@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+ <h:form >	
+    <p:growl id="messages"/>
+    
+    <p:menubar style="background : #C9E7F0;background-color:  menu; height: 40px" >
+        <p:menuitem value="Accueil" outcome="Layout1" icon="ui-icon-close" />
+        <p:submenu label="Formation"  style="font-family: inherit">
+            <p:menuitem value="Voir nos maquettes" url="Tableau_de_maquettes.xhtml"  />
+            <p:menuitem value="Voir nos formations" url="formations.xhtml"  />
+        </p:submenu>
+
+        <p:submenu label="Conditions d'acces" style="font-family: inherit">
+            <p:menuitem value="Concours" url="#" />
+            <p:menuitem value="Selection sur dossier" url="#" />
+        </p:submenu>
+
+        <p:submenu label="Contacts"  style="font-family: inherit">
+                <p:menuitem value="Telephone"  url="#"/>
+                <p:menuitem value="Email"   url="#"/>
+        </p:submenu>
+
+      
+       <f:facet name="options">
+          
+            
+   <p:commandButton value="Se connecter" type="button" onclick="PF('dlg2').show(); "  />
+        </f:facet>
+        
+        
+           
+    </p:menubar>
+    
+    
+    
+
+</h:form> 
+
+</h:head> 
+<body  style="background :#1AAEDB"> 
+ 
+ <h:form>
+ <!--<h2 style="font-family: Verdana, sans-serif; font-size: 22px">Modules Et Fonctions de SG</h2>-->
+ <p:tabView orientation="left" style="height: 600px">
+        <p:tab title="Informatique">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/inscrit.jpg" width="140" height="140"/>
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 20px;"
+                    value="Nous offrons des formations en informatique. Cette formation dure de la licence1 au doctorat.
+                    Durant la formation vous voulez apprendre les differentes langages utilises pour developper que se soit des applications web ou mobiles.
+                    Elle offre aussi l'opportunite aux etudiants de pouvoir maitriser les differentes SGBD qui existent comme
+                    Mysql,Oracle entre autres." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="PCSM">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/tresor.jpg"  width="140" height="140" />
+                <h:outputText style="font-family: Verdana, sans-serif; font-size:20px;" value="PCSM comme son nom l'indique physique chimie et sciences de la matiere.
+                              Elle offre l'opportunité aux étudiants de pouvoir etre professeur en physique ou professeur en physique et chimie.
+                              Elle a comme matieres les mathematiques,physiques,chimie,mecanique generale,..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="MPI">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/emploi.jpg" width="140" height="140"/>
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 14px;" value="Une Formtion en Medecine Bien equipée..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="BCGS">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/emploi.jpg" width="140" height="140"/>
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 14px;" value="Une Formtion en Medecine Bien equipée..." />
+            </h:panelGrid>
+        </p:tab>
+        
+       <p:tab title="Presentation du systeme LMD">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/lmd.png" width="340" height="340"/>
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 14px;" value="La loi n° 2011-05 du 30 mars 2011, relative à l'organisation du système Licence, Master, Doctorat (LMD) dans les institutions d'enseignement supérieur, a créé un doctorat unique qui se substitue à tous les doctorats existant à l'heure actuelle dans le système d'enseignement supérieur sénégalais :  
+- le doctorat d'Etat (y compris les doctorats d'Etat d'économie, de gestion, de droit, de sciences politiques et sciences pharmaceutiques) ;  
+  - le doctorat de 3ème Cycle;  
+  - le diplôme de docteur ingénieur;  
+  - le diplôme de docteur d'université;  
+Le troisième cycle des institutions d'enseignement supérieur ne comprend désormais que la préparation du diplôme de doctorat qui sanctionne un niveau correspondant à l'obtention de 180 crédits, après le master.  
+Le présent projet de décret définit les conditions et modalités de préparation et de  délivrance du doctorat. Il s'agit de :  
+- l'habilitation et I'accréditation à délivrer le diplôme de doctorat accordées aux  institutions d'enseignement supérieur par arrêté du ministre chargé de  l'Enseignement supérieur après une évaluation de l'offre de formation et des projets  de création d'écoles doctorales par l'Autorité nationale d'Assurance Qualité de  l'Enseignement supérieur ;  
+- l'organisation de la formation au sein d'écoles doctorales qui sont des dispositifs  pluridisciplinaires regroupant des unités ou équipes de recherche;    
+  
+ -  l'intégration des enseignements, séminaires, ateliers et conférences dans la préparation du doctorat;   
+- la fixation de la durée de préparation du doctorat à trois ans avec la possibilité pour le doctorant de bénéficier d'un délai supplémentaire à titre dérogatoire;   
+ -   la rédaction et la soutenance d'une thèse.   
+ 1.  Il est par ailleurs créé une procédure de cotutelle de thèse entre les institutions  d'enseignement supérieur sénégalaises, d'une part, et entres elles et leurs homologues d'un pays étranger, d'autre part, visant à instaurer et à développer une coopération scientifique favorisant la mobilité des doctorants.   
+Telle est l'économie du présent projet de décret.  " />
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+</h:form> 
+   
+
+ 
+ 
+ </body> 
+</html>

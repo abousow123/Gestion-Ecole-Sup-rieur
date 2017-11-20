@@ -12,50 +12,47 @@
         </f:facet>
   <h:form >	
     <p:growl id="messages"/>
-    <p:button value="Accueil" outcome="Layout1" /> 
     
-   
-    
-    <p:menubar style="background : #C9E7F0;background-color:  menu; width: 1200px;margin-left: 120px" >
-        
-        
-         
-        
-        <p:submenu label="Formation"  style="font-family: inherit" >
+    <p:menubar style="background : #C9E7F0;background-color:  menu; height: 40px" >
+        <p:menuitem value="Accueil" outcome="Layout1" icon="ui-icon-close" />
+        <p:submenu label="Formation"  style="font-family: inherit">
             <p:menuitem value="Voir nos maquettes" url="Tableau_de_maquettes.xhtml"  />
-            <p:menuitem value="Choisir Filiere" url="#"  />
+            <p:menuitem value="Voir nos formations" url="formations.xhtml"  />
         </p:submenu>
 
         <p:submenu label="Conditions d'acces" style="font-family: inherit">
             <p:menuitem value="Concours" url="#" />
             <p:menuitem value="Selection sur dossier" url="#" />
-            <p:menuitem value="File" url="#" />
         </p:submenu>
 
         <p:submenu label="Contacts"  style="font-family: inherit">
-                <p:menuitem value="Save"  update="messages"/>
-                <p:menuitem value="Update"   update="messages"/>
+                <p:menuitem value="Telephone"  url="#"/>
+                <p:menuitem value="Email"   url="#"/>
         </p:submenu>
 
       
-
-      
-        <f:facet name="options">
-            <p:inputText style="margin-right:10px" placeholder="Search"/>
+       <f:facet name="options">
+          
             
    <p:commandButton value="Se connecter" type="button" onclick="PF('dlg2').show(); "  />
         </f:facet>
+        
+        
            
     </p:menubar>
     
     
     
-    
 
 </h:form> 
-    
-    
-    <h:form   >            
+
+ 
+
+</h:head> 
+<body style="background :#1AAEDB" > 
+
+ 
+     <h:form   >            
         
      
     <p:growl id="growl" sticky="true" showDetail="true" life="3000" />       
@@ -91,18 +88,13 @@
 </p:dialog>   
 </h:form> 
 
- 
-
-</h:head> 
-<body style="background :#1AAEDB" > 
-
- 
+    
  
  <p:layout style="min-width:400px;min-height:500px;">
    
     <p:layoutUnit position="west" resizable="true" size="100" minSize="800" >
-       <p:galleria value="#{imagesView.images}" var="image" panelWidth="800" panelHeight="400" showCaption="true"  style="margin-left: 30px">
-    <p:graphicImage  value="images/#{image}"    alt="l'Excellence notre devise" title="Aperçu de l'ecole " style="width: 800px;height: 500px"/>
+       <p:galleria value="#{imagesView.images}" var="image" panelWidth="800" panelHeight="450" showCaption="true"  style="margin-left: 30px">
+    <p:graphicImage  value="images/#{image}"    alt="l'Excellence notre devise" title="Aperçu de l'ecole " style="width: 800px;height: 450px"/>
     
 </p:galleria>
 <!--<b style="font-family: Verdana, sans-serif; font-size: 11px;" >Notre Université localisé a dakar est aujordh'ui parmis les Meilleurs<br />
@@ -112,14 +104,15 @@ Vis a vis qualité et Equipement Complet qu'on offre a nos Etudiants.
  
     <p:layoutUnit position="center">
     <!--<b style="font-family: Verdana, sans-serif; font-size: 9px;" >Des Centres de Recherches et Recouvrement </b>-->
-       <p:imageSwitch  style="margin-left: 40px"  effect="zoom"   >
-           <ui:repeat value="#{imagesView.images}" var="image">
-        <p:graphicImage value="images/#{image}"  style="width: 400px"/>
-    </ui:repeat>
-   </p:imageSwitch>
-  <b style="font-family: Verdana, sans-serif; font-size: 11px;">La loi n° 2011- 05 du 30 mars 2011, relative à l'organisation du système Licence, Master,
-<br />Doctorat (LMD) dans les établissements d'enseignement supérieur, a créé le diplôme de
-licence qui sanctionne un niveau validé par l'obtention de 180 crédits.</b>
+    <!--<p:panelGrid  style="margin-left: 40px"  >-->
+           <!--<ui:repeat value="#{imagesView.images}" var="image">-->
+        <p:graphicImage value="images/recteur.jpg"  style="width: 500px"/>
+    <!--</ui:repeat>-->
+    <!--</p:panelGrid>-->
+  <b style="font-family: initial; font-size: 20px">Le Recteur, Président de l'Assemblée de l'UCAD communique.
+      <br />Les bacheliers de l'année 2017, élèves d'un établissement public ou privé, désireux de s'inscrire 
+      <br />à l'Université Cheikh Anta Diop de DAKAR devront déposer leur dossier de demande d'admission auprès de leur chef d'établissement qui le fera parvenir au Rectorat.
+</b>
  
     </p:layoutUnit>
       
@@ -131,22 +124,22 @@ licence qui sanctionne un niveau validé par l'obtention de 180 crédits.</b>
 
  
  
- <p:layout style="min-width:400px;min-height:200px;">
+ <p:layout style="min-width:400px;min-height:100px;">
    
   <p:layoutUnit position="west" resizable="true" size="100" minSize="800">
     
-    <b style="font-family: Verdana, sans-serif; font-size: 11px;"> Depuis 2010 notre institut a pris naissance et cesse de faire des bons résultatas <br />
+    <b style="font-family: initial; font-size: 11px;"> Depuis 2010 notre institut a pris naissance et cesse de faire des bons résultatas <br />
      Voici de prés l'evolution de l'ecole sur ces dernieres années.
      </b><br /><br />
     <p:chart type="bar" model="#{chartView.combinedModel}" style="height:200px;width:400px;" />
     <!-- p:chart type="line" model="#{chartView.animatedModel1}" style="width:400px; margin-left: 450px; margin-top: 10px;" /> --> 
      <br /><br />
-   <h:link outcome="Tableau_de_maquettes"> Voir nos Maquettes de formations</h:link>
+   <!--<h:link outcome="Tableau_de_maquettes"> Voir nos Maquettes de formations</h:link>-->
        
   </p:layoutUnit>
  
     <p:layoutUnit position="center">
-     <b style="font-family: Verdana, sans-serif; font-size: 11px;"> Depuis 2010 notre institut a pris naissance et cesse de faire des bons resultatas <br />
+     <b style="font-family: initial; font-size: 11px;"> Depuis 2010 notre institut a pris naissance et cesse de faire des bons resultatas <br />
      Voici de pres l'evolution de l'ecole sur ces dernieres annees.
      </b><br /><br />
      <p:chart type="line" model="#{chartView.animatedModel1}" style="height:200px;width:300px;  " /> 

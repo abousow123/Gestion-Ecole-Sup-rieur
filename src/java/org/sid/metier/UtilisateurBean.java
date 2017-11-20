@@ -113,6 +113,7 @@ public class UtilisateurBean implements Serializable{
         
         map.put("Professeur", "Professeur");
         map.put("Secretaire", "Secretaire");
+        map.put("Etudiant", "Etudiant");
        
         
       
@@ -345,7 +346,9 @@ public class UtilisateurBean implements Serializable{
         
        // JOptionPane jOptionPane ;
       //  jOptionPane.S
-        
+      
+     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,prenom+" "+nom+ " Login ou Mot de passe incorrect", "PrimeFaces Rocks."));
+  
         return "Layout1.xhtml" ;
     }
     
