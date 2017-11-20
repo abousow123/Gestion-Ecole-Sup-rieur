@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            tfoot{
+                text-align: center;
+            }
+            thead{
+                color: black;
+            }
+            td{
+                font-weight: bold;
+            }
+            .sms{
+                font-size: small;
+                color: green;
+            }
+        </style>
+      <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background :#FAF7F9;" >
+        <p:submenu label="SG Taches" icon="icon/icon-accueil.png">
+            
+             
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Inscription" icon="ui-icon-pencil">
+            <p:menuitem value="Etudiant" url="formulaireEtudiant1.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="inscrire_prof.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+         <p:submenu label="Document" icon="ui-icon-pencil">
+            <p:menuitem value="Attestation" url="Attestation.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Releves de Notes" url="" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Paiement" icon="ui-icon-gear">
+            <p:menuitem value="ajouter un paiement" url="paiement.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+          
+             
+        </p:submenu>
+</p:menubar>
+</h:form>
+
+
+    </h:head>
+    <body>
+   <!-- <img src="resources/images/accueil/logo.png"  style=" position: absolute; margin-top:10px; margin-left: 50px; width: 250px" />-->
+  
+        <h:form >
+            <p:panel id="panel" header="Informations sur Etudiant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:0px; margin-left: 300px; width: 700px">
+ 
+            <p:messages id="msgs" />
+         <h:panelGrid columns="3" cellpadding="3" cellspacing="1" style=" font-family: inherit;font-size: 19px;" >
+            <p:outputLabel for="nom" value="Nom:" />
+            <p:inputText id="nom" value="#{etudiantBean.nom}" required="true" label="Nom" size="40" style="width: 300px">
+                <f:validateLength minimum="1" />
+            </p:inputText>
+            <p:message for="nom" display="icon" />
+            
+            <p:outputLabel for="prenom" value="Prenom:" />
+            <p:inputText id="prenom" value="#{etudiantBean.prenom}" required="true" label="prenom" size="17" style="width: 300px">
+                <f:validateLength minimum="1" />
+            </p:inputText>
+            <p:message for="prenom" display="icon" />
+ 
+            <p:outputLabel for="date" value="Date de Naissance:" />
+            <p:inputText id="date" value="#{etudiantBean.datedenaissance}" label="Date" required="true" size="17" style="width: 300px">
+                <f:validateLength minimum="1" /> 
+            </p:inputText>
+            <p:message for="date" display="icon" />
+            
+            
+             <p:outputLabel for="res" value="Lieu de naissance:" />
+             <p:inputText id="res" value="#{etudiantBean.lieudenaissance}" label="Lieu de naissance" required="true" size="17" style="width: 300px">
+                <f:validateLength minimum="1" /> 
+            </p:inputText>
+            <p:message for="res" display="icon" />
+            
+            
+             <p:outputLabel for="adresse" value="Adresse:" />
+            <p:inputText id="adresse" value="#{etudiantBean.adresse}" label="Adresse:"  size="17" style="width: 300px">
+                <f:validateLength  /> 
+            </p:inputText>
+            <p:message for="adresse" display="icon" />
+            
+            
+          
+            
+            
+             <p:outputLabel for="nat" value="Nationalite:" />
+             <p:inputText id="nat" value="#{etudiantBean.nationalite}" label="Nationalite"  size="17" required="true" style="width: 300px">
+                <f:validateLength  /> 
+            </p:inputText>
+            <p:message for="nat" display="icon" />
+            
+            
+            
+         <p:outputLabel for="telephone" value="Telephone:" />
+         <p:inputText id="telephone" value="#{etudiantBean.telephone}" type="number" label="Telephone:" required="true" size="17" style="width: 300px">
+                <f:validateLength minimum="1" /> 
+            </p:inputText>
+            <p:message for="telephone" display="icon" />
+            
+            
+            
+             <p:outputLabel for="email" value="Email:" />
+             <p:inputText id="email" value="#{etudiantBean.email}" label="Email:" required="true" size="40" style="width: 300px">
+                <f:validateLength minimum="1" /> 
+            </p:inputText>
+            <p:message for="email" display="icon" />
+            
+          
+            
+             
+           
+            <p:outputLabel for="filiere" value="Filiere:" />
+                <p:selectOneMenu id="filiere" value="#{etudiantBean.f}"  style="width: 300px" >
+                       <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.fili.entrySet()}"
+                                  var="entry" />
+                        <f:validateLength minimum="1" /> 
+                 
+                </p:selectOneMenu>
+             <br />
+                
+                <p:outputLabel for="niv" value="Niveau:"/>
+                  <p:selectOneMenu id="niv"  value="#{etudiantBean.codeClasse}" style="width: 300px;">
+                    <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.map.entrySet()}"
+                                  var="entry" />
+                     <f:validateLength minimum="1" /> 
+                </p:selectOneMenu>
+            
+            
+        </h:panelGrid>  
+             <br />
+              <br />
+            <p:commandButton  value="Valider" action="#{etudiantBean.ajouterUser()}" update="panel"  icon="ui-icon-check"  />
+            <p:button   value="Retour" icon="ui-icon-check"  outcome="Sgpage" style=" background-color: red; size: 20px; margin-left: 300px " />
+             <br />
+            <p:outputLabel value="#{etudiantBean.sms}" id="sms" styleClass="msg"/>
+    </p:panel>
+</h:form>
+</body>
+</html>

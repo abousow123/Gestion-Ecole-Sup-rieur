@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Paiement</title>
+        <style>
+            tfoot{
+                text-align: center;
+            }
+            thead{
+                color: black;
+            }
+            td{
+                font-weight: bold;
+            }
+            .sms{
+                font-size: small;
+                color: green;
+            }
+        </style>
+        <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background :#FAF7F9;" >
+        <p:submenu label="SG Taches" icon="icon/icon-accueil.png">
+            
+             
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Inscription" icon="ui-icon-pencil">
+            <p:menuitem value="Etudiant" url="index.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="indexProf.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+         <p:submenu label="Document" icon="ui-icon-pencil">
+            <p:menuitem value="Attestation" url=" " icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Releves de Notes" url=" " icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Paiement" icon="ui-icon-gear">
+        
+          
+             
+        </p:submenu>
+</p:menubar>
+</h:form>
+
+    </h:head>
+    <body style="Background :#1AAEDB;" >
+    <br />
+    <br />
+    
+    <h:form>
+                 
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    <p:wizard flowListener="#{userWizard.onFlowProcess}">
+        <p:tab id="personal" title="Personal">
+            <p:panel header="CHOIX FILIERE/CLASSE">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    <h:outputText value="FiLiere: *" />
+                     <p:selectOneListbox id="fil" value="#{etudiantBean.f}"  scrollHeight="60" >
+              <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.fili.entrySet()}"
+                                  var="entry" />
+        </p:selectOneListbox>
+                    <h:outputText value="Classe: *" />
+                    <p:selectOneListbox id="classe" value="#{etudiantBean.codeClasse}"  scrollHeight="60" >
+             <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.map.entrySet()}"
+                                  var="entry" />
+        </p:selectOneListbox>
+ 
+                     
+ 
+                    <h:outputText value="Skip to last: " />
+                    <h:selectBooleanCheckbox value="#{userWizard.skip}" />
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+  
+ 
+        <p:tab id="confirm" title="LISTE ETUDIANTE">
+            <p:panel header="LISTE ETUDIANTE ">
+                <p:dataTable var="car" value="#{etudiantBean.EtudiantClasse()}">
+    <p:column headerText="Id etudiant">
+        <h:outputText value="#{car.codeutilisateur}" />
+    </p:column>
+ 
+    <p:column headerText="Nom">
+        <h:outputText value="#{car.utilisateur.nom}" />
+    </p:column>
+ 
+    <p:column headerText="Prenom">
+        <h:outputText value="#{car.utilisateur.prenom}" />
+    </p:column>
+ 
+    <p:column headerText="Classe">
+        <h:outputText value="#{car.classe}" />
+    </p:column>
+    <p:column headerText="filiere">
+        <h:outputText value="#{car.filiere}" />
+    </p:column>
+</p:dataTable>
+ 
+                <p:commandButton value="Submit"   update="growl" process="@this"/>
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+ 
+</h:form>
+    </body>
+</html>

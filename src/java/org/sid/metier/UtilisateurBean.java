@@ -2,6 +2,7 @@
 package org.sid.metier;
 
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,8 +10,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.swing.JOptionPane;
+import org.primefaces.event.RowEditEvent;
 import org.sid.dao.EnseignantDao;
 import org.sid.dao.SecretaireDao;
 import org.sid.dao.UtilisateurDao;
@@ -307,18 +313,40 @@ public class UtilisateurBean implements Serializable{
         
         if(getChoix().equalsIgnoreCase("Professeur")){
             
-                if(verifProf()) return "etudiant.xhtml" ;      
+                if(verifProf()){ 
+                    ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+                    try {
+                            ec.redirect("adminprof.xhtml");
+                    } catch (IOException e) {
+    // TODO Auto-generated catch block
+                           e.printStackTrace();
+                    }
+                    //  return "adminprof.xhtml" ; 
+                }
+                    //return "adminprof.xhtml" ;      
             
         }
         
         if(getChoix().equalsIgnoreCase("Secretaire")){
-           // if(verifSecr())
-                return "Layout.xhtml" ;
+            if(verifSecr()) {
+                
+                ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+                    try {
+                            ec.redirect("Sgpage.xhtml");
+                    } catch (IOException e) {
+    // TODO Auto-generated catch block
+                           e.printStackTrace();
+                    }
+                
+            }
             
             
         }
         
-        return "" ;
+       // JOptionPane jOptionPane ;
+      //  jOptionPane.S
+        
+        return "Layout1.xhtml" ;
     }
     
     
@@ -392,7 +420,7 @@ public class UtilisateurBean implements Serializable{
     }
      
     public List<Utilisateur> getAllUsers() {
-        List<Utilisateur> users = new ArrayList<Utilisateur>();
+        List<Utilisateur> users = new ArrayList<>();
         UtilisateurDao userDao = new UtilisateurDao();
         users = userDao.listeUsers();
         return users;
@@ -429,5 +457,23 @@ public class UtilisateurBean implements Serializable{
        
         this.login = "";
         this.password = "";
+    }
+    
+    
+     public void onRowEdit(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("L'utilisateur modifié ","Numero: "+ ((Etudiant) event.getObject()).getCodeutilisateur());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        Etudiant etudiant = new Etudiant() ;
+        etudiant.setUtilisateur(((Etudiant) event.getObject()).getUtilisateur());
+        etudiant.setCodeutilisateur(etudiant.getUtilisateur().getCodeutilisateur());
+        etudiant.setResponsableclasse(((Etudiant) event.getObject()).getResponsableclasse());
+        modifierUsers(); 
+        
+
+    }
+     
+       public void onRowCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Modification annulle", "Numero: "+((Etudiant) event.getObject()).getCodeutilisateur());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }

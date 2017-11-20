@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="PROFESSEUR" icon="ui-icon-document">
+               
+          </p:submenu>
+          <p:submenu label="Notes" icon="ui-icon-document" ></p:submenu>
+          
+          <p:submenu label="Emploi du Temps" icon="ui-icon-document" ></p:submenu>
+          
+          
+         <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+            
+   <p:commandButton value="Deconnexion" type="button" onclick="PF('dlg2').show();" />
+        </f:facet>
+    </p:menubar>
+</h:form>
+</h:head> 
+<body style="Background :#1AAEDB;" > 
+  
+ <h:form>
+ <h3>FORMATION</h3>
+    <p:tabView orientation="left">
+        <p:tab title="Professeur">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/slide2.jpg" width="140" height="140"/>
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 11px;" 
+                    value="Des Genies Civil en pratique frequents.." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="NOTES">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/image4.jpg" width="140" height="140" />
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 11px;"  value="La gestion de notes 
+                Dans cette partie le prof va inserer les notes selon ses classes 
+                Ayant la possibilité d'ajouter de modifier et  ou de supprimer ces notes " />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Consultation Emploi du Temps">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage value="images/labo.jpg" width="140" height="140" />
+                <h:outputText style="font-family: Verdana, sans-serif; font-size: 11px;"  value="Dans cette partie vous aurez la possibilté de lancer votre suggestion, de modifier" />
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+</h:form> 
+   
+
+ 
+ 
+  
+ </body> 
+</html>

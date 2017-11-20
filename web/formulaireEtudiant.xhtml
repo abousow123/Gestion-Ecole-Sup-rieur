@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Form Etudiant</title>
+        </f:facet>
+    </h:head>
+    <body>
+   <!-- <img src="resources/images/accueil/logo.png"  style=" position: absolute; margin-top:10px; margin-left: 50px; width: 250px" />-->
+  
+        <h:form >
+            <p:panel id="panel" header="Informations sur Etudiant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; margin-top:0px; margin-left: 300px; width: 700px">
+ 
+            <p:messages id="msgs" />
+         <h:panelGrid columns="3" cellpadding="5" cellspacing="1" style=" font-family: fantasy;font-size: 19px">
+            <p:outputLabel for="nom" value="Nom:" />
+            <p:inputText id="nom" value="#{etudiantBean.nom}" required="true" label="Nom" size="17" style="margin-left: 50px;width: 300px">
+                <f:validateLength minimum="1" />
+            </p:inputText>
+            <p:message for="nom" display="icon" />
+            
+            <p:outputLabel for="prenom" value="Prenom:" />
+            <p:inputText id="prenom" value="#{etudiantBean.prenom}" required="true" label="prenom" size="17" style="margin-left: 50px;width: 300px">
+                <f:validateLength minimum="1" />
+            </p:inputText>
+            <p:message for="prenom" display="icon" />
+ 
+            <p:outputLabel for="date" value="Date de Naissance:" />
+            <p:inputText id="date" value="#{etudiantBean.datedenaissance}" label="Date" required="true" size="17" style="margin-left: 50px;width: 300px">
+                <f:validateLength minimum="1" /> 
+            </p:inputText>
+            <p:message for="date" display="icon" />
+            
+           <p:outputLabel for="lieu" value="Lieu de Naissance:"/>
+                <p:inputText   value="#{etudiantBean.lieudenaissance}" id="lieu" label="Lieu de Naissance" required="true" size="40" style="margin-left: 50px;width: 300px" >
+                 <f:validateLength minimum="1"/>
+                  </p:inputText>
+                <p:message for="lieu" display="icon"/>
+            
+           
+            
+            <p:outputLabel for="adresse" value="Adresse:" />
+            <p:inputText id="adresse" value="#{etudiantBean.adresse}" label="Adresse:"  size="17" style="margin-left: 50px;width: 300px">
+                <f:validateLength  /> 
+            </p:inputText>
+            <p:message for="adresse" display="icon" />
+            
+             <p:outputLabel for="nat" value="Nationalite:" />
+                <p:inputText  value="#{etudiantBean.nationalite}" id="nat" size="40" label="Nationalite" required="true" style="margin-left: 50px;width: 300px">
+                 </p:inputText>
+                <p:message for="nat" display="icon"/>
+                
+                
+                 <p:outputLabel for="telephone" value="Telephone:" />
+                 <p:inputText id="telephone" value="#{etudiantBean.telephone}" type="number" label="Telephone:" required="true" size="17" style="margin-left: 50px;width: 300px">
+                <f:validateLength minimum="1" /> 
+            </p:inputText>
+            <p:message for="telephone" display="icon" />
+            
+             <p:outputLabel for="email" value="Email:" />
+             <p:inputText id="email" value="#{etudiantBean.email}" label="Email:" required="true" size="17" style="margin-left: 50px;width: 300px">
+                <f:validateLength minimum="1" /> 
+            </p:inputText>
+            <p:message for="email" display="icon" />
+            
+            
+             <p:outputLabel for="filiere" value="Filiere:"/>
+            
+                
+                
+             <p:selectOneListbox id="filiere"  value="#{etudiantBean.f}" scrollHeight="60">
+                <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.fili.entrySet()}"
+                                  var="entry" />
+           
+        </p:selectOneListbox>
+                
+                <p:outputLabel value="Niveau:"/>
+                
+                <p:selectOneListbox id="select"  value="#{etudiantBean.codeClasse}" scrollHeight="60">
+                    <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.map.entrySet()}"
+                                  var="entry" />
+           
+                </p:selectOneListbox>
+            
+           
+        </h:panelGrid>         
+            <p:commandButton  value="Valider" action="#{etudiantBean.ajouterUser()}" update="panel"  icon="ui-icon-check"  />
+            <p:button   value="Retour" icon="ui-icon-check"  outcome="/welcomePrimefaces" style=" background-color: red; size: 20px; margin-left: 300px " />
+            <p:outputLabel value="#{etudiantBean.sms}" id="sms" styleClass="msg"/>
+    </p:panel>
+</h:form>
+</body>
+</html>

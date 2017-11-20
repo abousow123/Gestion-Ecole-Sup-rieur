@@ -9,6 +9,7 @@ import org.sid.dao.EnseignantDao;
 import org.sid.dao.EtudiantDao;
 import org.sid.dao.FiliereDao;
 import org.sid.dao.NiveauDao;
+import org.sid.dao.SecretaireDao;
 import org.sid.dao.UeDao;
 import org.sid.dao.UtilisateurDao;
 import org.sid.entite.Administrateur;
@@ -22,6 +23,7 @@ import org.sid.entite.Utilisateur;
 import org.sid.metier.AdministrateurBean;
 import org.sid.metier.ClasseBean;
 import org.sid.metier.EtudiantBean;
+import org.sid.metier.PaiementBean;
 import vues.ImagesView;
 
 public class Test {
@@ -30,9 +32,19 @@ public class Test {
 		// TODO Auto-generated method stub
 		
 		//HibernateUtil.getSessionFactory() ;
-                
-              //  Date d = new Date() ;
-               // System.out.println(d.toString());
+//                
+//                Date d = new Date() ;
+//                System.out.println(d.toString());
+
+//                 PaiementBean bean = new PaiementBean("201719sa39", "40000","2");
+//                 bean.ajoutPaiment();
+             
+             EtudiantBean eb = new EtudiantBean() ;
+             ArrayList<Utilisateur> al = eb.lep() ;
+             for(int i=0;i<al.size();i++){
+                 System.out.println(al.get(i).getNom());
+             }
+ 
                 
 //                AdministrateurDao ad = new AdministrateurDao() ;
 //
@@ -97,10 +109,30 @@ public class Test {
          
          // dao1.supprimerEtudiant("3001") ;
             
-            EnseignantDao dao = new EnseignantDao() ;
-            for(int i=0;i<dao.listsEnseignant().size();i++){
-                System.out.println(dao.listsEnseignant().get(i).getGrade());
-            }
+//            SecretaireDao dao = new SecretaireDao() ;
+//            for(int i=0;i<dao.listsSecretaire().size();i++){
+//                System.out.println(dao.listsSecretaire().get(i).getUtilisateur().getNom());
+//            }
+//
+           SecretaireDao dao = new SecretaireDao() ;
+//             
+//             System.out.println(dao.listsSecretaire().get(0).getUtilisateur().getNom()+" "+
+//             dao.listsSecretaire().get(0).getUtilisateur().getPrenom());
+             
+//             String login = "GueyeFatou@ucad.com";
+//             String codeutilisateur = "800070811SE" ;
+//             
+//            for(int i=0;i<dao.listsSecretaire().size();i++){
+//                if(login.equalsIgnoreCase(dao.listsSecretaire().get(i).getUtilisateur().getLogin()) &&
+//                        codeutilisateur.equalsIgnoreCase(dao.listsSecretaire().get(i).getCodeutilisateur())){
+//                    
+//                    System.out.println("Abou--------------------");
+//                    
+//                }
+//               
+//            }
+
+
             
           
           //ClasseBean bean =new ClasseBean("M1", "dfdf", 25, "df") ;

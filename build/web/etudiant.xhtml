@@ -60,57 +60,76 @@
     </h:head>
     <h:body>
        <h:form>
-           <p:panel id="panel" header="Formulaire Etudiant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:0px; margin-left: 300px; width: 900px">
-                
+           <p:panel id="panel" header="Formulaire Etudiant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:0px; margin-left: 300px; width: 700px">
+               <p:message id="msgs"/>
             <h:panelGrid columns="2" cellpadding="5">
-               <p:outputLabel value="Nom:"/>
-               <p:inputText  value="#{etudiantBean.nom}" id="etunom" size="40"/>
+                <p:outputLabel for="nom" value="Nom:"/>
+                <p:inputText  value="#{etudiantBean.nom}" id="nom" label="Nom" required="true" size="40" style="margin-left: 50px;width: 300px" >
+                <f:validateLength minimum="1"/>
+                </p:inputText>
+                <p:message for="nom" display="icon"/>
                 
-                <p:outputLabel value="Prenom:"/>
-                <p:inputText  value="#{etudiantBean.prenom}" id="etuprenom" size="40"/>
+                <p:outputLabel for="prenom" value="Prenom:"/>
+                <p:inputText  value="#{etudiantBean.prenom}" id="prenom" label="Prenom" required="true" size="40" style="margin-left: 50px;width: 300px">
+                <f:validateLength minimum="1"/>
+                 </p:inputText>
+                <p:message for="prenom" display="icon"/>
                 
-                <p:outputLabel value="Date de naissance:"/>
-                <p:inputText  value="#{etudiantBean.datedenaissance}" id="etudate" size="40"/>
+                <p:outputLabel for="date" value="Date de naissance:"/>
+                <p:inputText  value="#{etudiantBean.datedenaissance}" id="date" label="Date" required="true"  size="40" style="margin-left: 50px;width: 300px">
+                <f:validateLength minimum="1"/>
+                 </p:inputText>
+                <p:message for="date" display="icon"/>
                 
-                <p:outputLabel value="Lieu de Naissance:"/>
-                <p:inputText   value="#{etudiantBean.lieudenaissance}" id="etulieu" size="40"/>
+                <p:outputLabel for="lieu" value="Lieu de Naissance:"/>
+                <p:inputText   value="#{etudiantBean.lieudenaissance}" id="lieu" label="Lieu de Naissance" required="true" size="40" style="margin-left: 50px;width: 300px" >
+                 <f:validateLength minimum="1"/>
+                  </p:inputText>
+                <p:message for="lieu" display="icon"/>
                 
-                <p:outputLabel value="Adresse:"/>
-                <p:inputText value="#{etudiantBean.adresse}"  id="etuadresse" size="40"/>
+                <p:outputLabel for="adresse" value="Adresse:"/>
+                <p:inputText value="#{etudiantBean.adresse}"  id="adresse" label="Adresse" required="true" size="40" style="margin-left: 50px;width: 300px">
+                 </p:inputText>
+                <p:message for="adresse" display="icon"/>
                 
-                <p:outputLabel value="Telephone:"/>
-                <p:inputText  value="#{etudiantBean.telephone}" id="etutelephone" size="40"/>
                 
+                <p:outputLabel for="tel" value="Telephone:"/>
+                <p:inputText  value="#{etudiantBean.telephone}" id="tel" size="40" label="Telephone" required="true" style="margin-left: 50px;width: 300px">
+                 </p:inputText>
+                <p:message for="tel" display="icon"/>
                
 
-                <p:outputLabel value="Nationalite:"/>
-                <p:inputText  value="#{etudiantBean.nationalite}" id="etunational" size="40"/>
-                
+                <p:outputLabel for="nat" value="Nationalite:" />
+                <p:inputText  value="#{etudiantBean.nationalite}" id="nat" size="40" label="Nationalite" required="true" style="margin-left: 50px;width: 300px">
+                 </p:inputText>
+                <p:message for="nat" display="icon"/>
+                    
                 <p:outputLabel value="Filiere:"/>
-                <p:selectOneListbox id="fil" value="#{etudiantBean.f}"  scrollHeight="60" >
+                <p:selectOneMenu id="fil" value="#{etudiantBean.f}" style="margin-left: 50px;width: 300px" >
                        <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.fili.entrySet()}"
                                   var="entry" />
                  
-                </p:selectOneListbox>
+                </p:selectOneMenu>
                 
                 <p:outputLabel value="Niveau:"/>
                 
-                <p:selectOneListbox id="select"  value="#{etudiantBean.codeClasse}" scrollHeight="60">
+                <p:selectOneMenu id="select"  value="#{etudiantBean.codeClasse}" style="margin-left: 50px;width: 300px">
                     <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.map.entrySet()}"
                                   var="entry" />
            
-        </p:selectOneListbox>
+                </p:selectOneMenu>
                  
                 
             </h:panelGrid>
                  
-                <f:facet name="footer">
-                    <h:outputLabel   id="sms" styleClass="sms"/>
-                    <p:commandButton value="Save"  action="#{etudiantBean.ajouterUser()}"  icon="ui-icon-check"  style=" background-color: blue"  >
+               
+                   
+                    <p:commandButton value="Save"  action="#{etudiantBean.ajouterUser}"  icon="ui-icon-check"  style=" background-color: blue"  >
               <!--      <f:ajax render="etunom etuprenom etudate etulieu etuadresse enstelephone etunational" execute="@form"/>  -->
                     </p:commandButton>
                     <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
-                </f:facet>
+                    <h:outputLabel   id="sms" styleClass="msg" value="#{etudiantBean.sms}"/>
+                
            </p:panel>
         </h:form>    
         <br />

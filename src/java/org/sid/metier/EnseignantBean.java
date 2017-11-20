@@ -280,10 +280,10 @@ public class EnseignantBean implements Serializable{
         effacerAll();
     }
      
-    public List<Utilisateur> getAllUsers() {
-        List<Utilisateur> users = new ArrayList<>();
-        UtilisateurDao userDao = new UtilisateurDao();
-        users = userDao.listeUsers();
+    public ArrayList<Enseignant> allUsers() {
+        ArrayList<Enseignant> users = new ArrayList<>();
+        EnseignantDao ed = new EnseignantDao();
+        users = (ArrayList<Enseignant>) ed.listsEnseignant() ;
         return users;
     }
     

@@ -33,7 +33,9 @@ public class PaiementBean implements Serializable{
      private String couverture;
      private String scolarite;
      private Date datePaiement;
-
+     
+     static int i ;
+         
     public PaiementBean() {
     }
      
@@ -47,11 +49,23 @@ public class PaiementBean implements Serializable{
         this.datePaiement = datePaiement;
     }
 
+    public PaiementBean(String codeUser, String montant, String nbmois) {
+        this.codeUser = codeUser;
+        this.montant = montant;
+        this.nbmois = nbmois;
+        
+    }
+    
+    public int g(){
+        return i + 1 ;
+    }
+    
+
       public void ajoutPaiment(){
           Paiement paiement = new Paiement();
           PaiementDao dao = new PaiementDao() ;
           EtudiantDao ed = new EtudiantDao() ;
-          paiement.setCodepaiement("Paie1");
+          paiement.setCodepaiement("Pai9");
           paiement.setCouverture(couverture);
           
           paiement.setMontant(Double.parseDouble(montant));
@@ -61,7 +75,9 @@ public class PaiementBean implements Serializable{
           paiement.setDatePaiement(datePaiement);
           Etudiant e = ed.getEtudiantE(codeUser) ;
           paiement.setEtudiant(e);
-          
+          EtudiantDao dao1 = new EtudiantDao();
+           etudiant = dao1.getEtudiantE(codeUser) ;
+          paiement.setEtudiant(etudiant);
           paiement.setScolarite(scolarite);
           
           dao.addPaiement(paiement);

@@ -5,13 +5,16 @@
  */
 package org.sid.metier ;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.RowEditEvent;
 import org.sid.dao.ClasseDao;
@@ -47,6 +50,7 @@ public class EtudiantBean implements Serializable{
      private String codeClasse ;
      private Filiere filiere;
      private String f ;
+     private String sms;
     
     private Map<String,String> map  ;
     private Map<String,String> fili  ;
@@ -74,6 +78,15 @@ public class EtudiantBean implements Serializable{
         return filiere;
     }
 
+    public String getSms() {
+        return sms;
+    }
+
+    public void setSms(String sms) {
+        this.sms = sms;
+    }
+
+    
     public void setFiliere(Filiere filiere) {
         this.filiere = filiere;
     }
@@ -313,15 +326,34 @@ public class EtudiantBean implements Serializable{
            // System.out.println("org.sid.metier.EtudiantBean.ajouterUser()");
             etuDao.addEtudiant(etu);
         }
-      //  this.sms= "Etudiant ajouter avec succes!";
+       // this.sms= "Etudiant ajouter avec succes!";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,prenom+" "+nom+ " ajouter avec succes!", "PrimeFaces Rocks."));
         effacerAll();
     }
     
     
-    public List<Etudiant> AllEtudiantClasse(){
+     public ArrayList<Utilisateur> lep() {
+        ArrayList<Utilisateur> users = new ArrayList<>();
+        UtilisateurDao userDao = new UtilisateurDao();
+        users = (ArrayList<Utilisateur>) userDao.listeUsers();
+        return users;
+    }
+    
+    public ArrayList<Etudiant> EtudiantClasse(){
         
-        return etuDao.listEtudiantsClasse(codeClasse,f) ;
+        return (ArrayList<Etudiant>) etuDao.listEtudiantsClasse(codeClasse,f) ;
+        
     }   
+    
+    public void reset(){
+         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+                    try {
+                            ec.redirect("liste.xhtml");
+                    } catch (IOException e) {
+    // TODO Auto-generated catch block
+                           e.printStackTrace();
+                    }
+    }
     
     public List<Utilisateur> all(){
         UtilisateurBean bean = new UtilisateurBean();
@@ -347,7 +379,8 @@ public class EtudiantBean implements Serializable{
         user.setAdresse(adresse);
         user.setEmail(email);
        
-        Etudiant etudiant = new Etudiant() ;
+        EtudiantDao ed = new EtudiantDao() ;
+        Etudiant etudiant = ed.getEtudiantE(codeutilisateur)  ;
         etudiant.setClasse(classe);
        
        
@@ -365,7 +398,7 @@ public class EtudiantBean implements Serializable{
         this.lieudenaissance = "" ;
         this.telephone = "";
         this.adresse = "";
-        
+        this.nationalite = "";
         this.email = "";
         
     }
@@ -386,15 +419,17 @@ public class EtudiantBean implements Serializable{
         Etudiant etudiant = new Etudiant() ;
         etudiant.setUtilisateur(((Etudiant) event.getObject()).getUtilisateur());
         etudiant.setCodeutilisateur(etudiant.getUtilisateur().getCodeutilisateur());
-        etudiant.setResponsableclasse(((Etudiant) event.getObject()).getResponsableclasse());
+        //etudiant.setResponsableclasse(((Etudiant) event.getObject()).getResponsableclasse());
         modifierEtudiant(); 
-        AllEtudiantClasse();
+     
+        supprimerEtudiant();
 
     }
      
        public void onRowCancel(RowEditEvent event) {
         FacesMessage msg = new FacesMessage("Modification annulle", "Numero: "+((Etudiant) event.getObject()).getCodeutilisateur());
         FacesContext.getCurrentInstance().addMessage(null, msg);
+        
     }
     
 }

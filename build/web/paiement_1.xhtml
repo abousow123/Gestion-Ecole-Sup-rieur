@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Paiement</title>
+        <style>
+            tfoot{
+                text-align: center;
+            }
+            thead{
+                color: black;
+            }
+            td{
+                font-weight: bold;
+            }
+            .sms{
+                font-size: small;
+                color: green;
+            }
+        </style>
+        <h:form >	
+    <p:growl id="messages"/>
+
+    <p:menubar style="Background :#FAF7F9;" >
+        <p:submenu label="SG Taches" icon="icon/icon-accueil.png">
+            
+             
+            <p:separator />
+             
+        </p:submenu>
+
+        <p:submenu label="Inscription" icon="ui-icon-pencil">
+            <p:menuitem value="Etudiant" url="index.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Professeur" url="indexProf.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+         <p:submenu label="Document" icon="ui-icon-pencil">
+            <p:menuitem value="Attestation" url=" " icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Releves de Notes" url=" " icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+
+        <p:submenu label="Paiement" icon="ui-icon-gear">
+        
+          
+             
+        </p:submenu>
+</p:menubar>
+</h:form>
+
+    </h:head>
+    <body style="Background :#1AAEDB;">
+    <br />
+<br />
+    <h:form>
+                 
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    <p:wizard flowListener="#{userWizard.onFlowProcess}" >
+        <p:tab id="personal" title="Personal" >
+            <p:panel header="COMPTABILITE FIELDS">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value" >
+                    <h:outputText value="ID Etudiant: *" />
+                    <p:inputText value="#{paiementBean.codeUser}"   label="id"/>
+ 
+                    <h:outputText value="Montant: *" />
+                    <p:inputText value="#{paiementBean.montant}" label="montant"/>
+ 
+                    <h:outputText value="Nb Mois: " />
+                    <p:inputText value="#{paiementBean.nbmois}" />
+                    
+                    <h:outputText value="Skip to last: " />
+                    <h:selectBooleanCheckbox value="#{userWizard.skip}" />
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+  
+        <p:tab id="confirm" title="Confirmation">
+            <p:panel header="Confirmation">
+                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value=" Etudiant: " />
+                        <h:outputText value="#{paiementBean.etudiant.utilisateur.nom}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Montant: " />
+                        <h:outputText value="#{paiementBean.montant}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Nb de mois payes: " />
+                        <h:outputText  value="#{paiementBean.nbmois}"  styleClass="outputLabel"/>
+                        
+                         <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+       
+    </p:commandButton>
+ 
+                        <p:commandButton value="Valider" action="#{paiementBean.ajoutPaiment()}"   update="growl" process="@this"/>
+ 
+                    </h:panelGrid>
+ 
+                   
+ 
+                     
+                        
+                    </h:panelGrid>
+              
+ 
+                 
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+ 
+</h:form>
+    </body>
+</html>

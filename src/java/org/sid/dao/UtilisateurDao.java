@@ -119,7 +119,7 @@ public class UtilisateurDao implements IUtilisateurDao{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            users = session.createQuery("select * from Utilisateur").list();
+            users = session.createQuery("select m from Utilisateur m").list();
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {

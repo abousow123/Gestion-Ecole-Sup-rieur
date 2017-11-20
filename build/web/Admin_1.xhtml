@@ -16,7 +16,7 @@
          <f:facet name="options">
             <p:inputText style="margin-right:10px" placeholder="Search"/>
             
-   <p:commandButton value="Authentification" type="button" onclick="PF('dlg2').show();" />
+   <p:commandButton value="Authentification" type="button" onclick="PF('dlg2').show(); "  />
         </f:facet>
     </p:menubar>
 </h:form>
@@ -38,6 +38,8 @@
  
             <h:outputLabel for="password" value="Password:" />
             <p:password id="password"    label="password" value="#{utilisateurBean.codeutilisateur}"/>
+            
+            
             <h:outputLabel for="id" value="Vous etes:" />
             
             
@@ -46,7 +48,7 @@
                                   var="entry" />
            
         </p:selectOneListbox>
- 
+   
             <f:facet name="footer">
                 <p:commandButton value="Login" update="growl" 
                                  action="#{utilisateurBean.authentification()}"   oncomplete="handleLoginRequest(xhr, status, args)" />

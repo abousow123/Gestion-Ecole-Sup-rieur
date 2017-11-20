@@ -58,15 +58,171 @@
     </h:head>
 <h:body>
         
-    <p:dataTable var="etu" value="#{etudiantBean.AllEtudiantClasse(classe)}">
-    <p:column headerText="Id">
-        <h:outputText value="#{etu.classe}" />
-    </p:column>
+    <h:form>
+           <p:panel id="panel" header="Formulaire Etudiant" style=" font-family: inherit; text-align: center; font-size: 20px ;background-color:  dodgerblue; position: absolute; margin-top:px; margin-left: 300px; width: 900px">
+                
+            <h:panelGrid columns="2" cellpadding="5">
+    
+     <p:outputLabel value="Filiere:"/>
+                <p:selectOneListbox id="fil" value="#{etudiantBean.f}"  scrollHeight="60" >
+                       <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.fili.entrySet()}"
+                                  var="entry" />
+                 
+                </p:selectOneListbox>
+                
+                <p:outputLabel value="Niveau:"/>
+                
+                <p:selectOneListbox id="select"  value="#{etudiantBean.codeClasse}" scrollHeight="60">
+                    <f:selectItems itemLabel="#{entry.value}" itemValue="#{entry.key}" value="#{etudiantBean.map.entrySet()}"
+                                  var="entry" />
+           
+        </p:selectOneListbox>
+    
+                 </h:panelGrid>
+                 
+                <f:facet name="footer">
+                    <h:outputLabel   id="sms" styleClass="sms"/>
+                    <p:commandButton value="Save"   action="#{etudiantBean.reset()}"  icon="ui-icon-check"  style=" background-color: blue"  >
+              <!--      <f:ajax render="etunom etuprenom etudate etulieu etuadresse enstelephone etunational" execute="@form"/>  -->
+                    </p:commandButton>
+                    <p:button   value="Retour" icon="ui-icon-check" outcome="Admin"   style=" background-color: red; size: 20px; margin-left: 385px "/>
+                </f:facet>
+           </p:panel>
+        </h:form>    
+    
+    <h:form id="form" style="margin-top: 300px">
+    <p:growl id="msgs" showDetail="true" />
  
-    <p:column headerText="Year">
-        <h:outputText value="#{etu.codeutilisateur}" />
-    </p:column>
-  
-</p:dataTable>
+    <p:dataTable id="datalist"
+                 value="#{etudiantBean.EtudiantClasse()}"
+                         var="item"
+                         rowKey="#{item.codeutilisateur}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         style=" font-size: 13px "
+                         selectionMode="single"
+                         selection="#{etudiantBean.utilisateur}"
+                         editable="true"
+                         >
+               
+        <p:ajax event="rowEdit" listener="#{etudiantBean.onRowEdit}" update=":form:msgs" />
+        <p:ajax event="rowEditCancel" listener="#{etudiantBean.onRowCancel}" update=":form:msgs" />
+                
+                <p:column headerText="Code utilisateur">
+                    <h:outputText value="#{item.codeutilisateur}"/>
+                </p:column>
+
+                <p:column headerText="Prenom">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.prenom}"/></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{item.utilisateur.prenom}" /></f:facet>
+                    </p:cellEditor>               
+                </p:column>
+                
+                <p:column headerText="Nom">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.nom}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.nom}" /></f:facet>
+                    </p:cellEditor> 
+                </p:column>
+
+               
+                
+                <p:column  headerText="Telephone">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.telephone}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.telephone}"  /></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Adresse">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.adresse}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.adresse}"  /></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                
+                
+               
+                
+                
+                
+                <p:column headerText="Email">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{item.utilisateur.email}"/></f:facet>
+                        <f:facet name="input"><p:inputText value="#{item.utilisateur.email}"  /></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                
+                
+               
+              
+           <p:column style="width:32px;text-align: center">
+                    <f:facet name="header">
+                        <h:outputText value="Detail"/>
+                    </f:facet>
+             <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search" title="View">
+                 <f:setPropertyActionListener value="#{item}" target="#{etudiantBean.codeutilisateur}" />
+            </p:commandButton>
+        </p:column>
+                 
+        <p:column style="width:50px">
+                    <f:facet name="header">
+                        <h:outputText value="Modifier"/>
+                    </f:facet>
+           <p:rowEditor />
+       </p:column>
+                
+        <p:column style="width:32px;text-align: center">
+           <f:facet name="header">
+                 <h:outputText value="Supprimer"/>
+            </f:facet>
+            <p:commandButton   icon="ui-icon-trash" actionListener="#{etudiantBean.supprimerEtudiant()}" update=":form:msgs">
+                <f:setPropertyActionListener value="#{item}" target="#{etudiantBean.utilisateur}" />
+                <p:confirm  header="Confirmation" message="Etes vous sûre?" icon="ui-icon-alert" />
+           </p:commandButton>
+        </p:column>
+    </p:dataTable>
+
+<p:dialog header="Info detaillee" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="carDetail" style="text-align:center">
+            <p:panelGrid  columns="2" rendered="#{not empty enseig}" columnClasses="label,value">
+                
+                <h:outputText value="CodeUtilisateur:" />
+                <h:outputText value="#{etudiantBean.codeutilisateur}" />
+ 
+                <h:outputText value="Prenom:" />
+                <h:outputText value="#{etudiantBean.prenom}" />
+ 
+                <h:outputText value="Nom:" />
+                <h:outputText value="#{etudiantBean.nom}" />
+ 
+                <h:outputText value="Telephone:" />
+                <h:outputText value="#{etudiantBean.telephone}" />
+                
+               
+ 
+                <h:outputText value="Adresse:" />
+                <h:outputText value="#{etudiantBean.adresse}" />
+ 
+                
+                
+                <h:outputText value="Email:" />
+                <h:outputText value="#{etudiantBean.email}" />
+ 
+               
+                
+            </p:panelGrid>
+        </p:outputPanel>
+  </p:dialog> 
+    
+    <p:confirmDialog  rendered="#{not empty etudiantBean.utilisateur}" global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Oui" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" actionListener="#{enseignantBean.suppressionEnseignant()}" update=":form:msgs"/>
+        <p:commandButton value="Non" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
+    </h:form>
 </h:body>
 </html>
